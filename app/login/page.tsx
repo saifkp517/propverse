@@ -30,7 +30,7 @@ export default function Login() {
                     <div className="flex items-center">
                         <hr className="flex-grow border-t border-gray-300" />
                         <span className="px-3 text-gray-500">
-                            or continue with email
+                            or continue with email  
                         </span>
                         <hr className="flex-grow border-t border-gray-300" />
                     </div>

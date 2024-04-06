@@ -14,34 +14,45 @@ export default function Home() {
     <div>
       <Navbar />
       <section>
-        <div className="grid grid-cols-2">
-
-          <div className=" py-20 px-44">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+          <div className="mx-4 lg:mx-auto py-0 lg:py-20 px-2 lg:px-44">
             <Typography variant="h1" className="text-green font-bold font-sans">Property<br />Verse</Typography>
             <Typography className="mt-4 ml-2 mb-10 text-lg tracking-tighter">Welcome to a redefinition of property management. Discover seamless solutions for property owners and tenants alike.</Typography>
             <button type="button" className="focus:outline-none text-white hover:text-green bg-green hover:bg-transparent hover:ring-1 hover:ring-green font-medium rounded-xl text-sm px-5 py-2.5 ">Explore Properties</button>
           </div>
-          <div>
-            <Image alt="bg" width={1000} height={1000} src={"/home-bg.png"} />
+          <div className="mx-auto flex items-center justify-center">
+            <Image
+              alt="bg"
+              src={"/home-bg.png"}
+              width="0"
+              height="0"
+              sizes="100vw"
+              className="w-full h-auto"
+            />
           </div>
         </div>
       </section>
       <br />
-      <section className="my-10">
-        <Typography variant="h3" className="text-center">Our Clients</Typography>
-        <div className="my-10 grid grid-cols-4 gap-4">
-          <div>01</div>
-          <div>02</div>
-          <div>03</div>
-          <div>04</div>
+      <section className="my-10 ">
+        <Typography variant="h3" className="font-bold text-center">Our Clients</Typography>
+        <div className="max-w-screen-md mx-auto my-24 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto my-auto">
+            <Image alt="logo" className="mx-auto" height={150} width={150} src="https://aurumwisex.com/images/WiseX/WiseX-Log.png" />
+          </div>
+          <div className="border mx-auto">
+            <Image alt="logo" className="mx-auto" height={100} width={100} src="https://images.yourstory.com/cs/images/companies/PropertyShare-1597934610611.png" />
+          </div>
+          <div className="mx-auto">
+            <Image alt="logo" className="mx-auto" height={100} width={100} src="https://media.licdn.com/dms/image/C4E0BAQE6aHtSWnhajw/company-logo_200_200/0/1630498985220/hbits_official_logo?e=2147483647&v=beta&t=mXc7TRGf5H1ihrKMxbfPwFDcPGrFSXvHjDzJlBaKoNQ" />
+          </div>
         </div>
       </section>
-      <section className="my-10">
-        <div className=" mx-32 p-16 text-center rounded-lg text-white bg-green">
-          <Typography variant="h4" className="mb-2 font-serif font-semibold tracking-normal">Diversified Investment Opportunities</Typography>
+      <section className="my-10 ">
+        <div className="mx-8 md:mx-16 lg:mx-32 p-4 lg:p-16 text-center rounded-lg text-white bg-green">
+          <Typography variant="h4" className="mb-2 text-center font-serif font-semibold tracking-normal">Diversified Investment Opportunities</Typography>
           <Typography className="">Explore a diverse range of fractional ownership opportunities in premium real estate</Typography>
           <br />
-          <div className="grid grid-cols-3 gap-20">
+          <div className="grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
             <div className="bg-white text-black rounded-xl p-4">
               <Typography variant="h5" className="font-semibold tracking-tighter text-left">Diversified Investment Opportunities</Typography>
               <hr className="border-green border-2 my-2 rounded-xl w-36" />
@@ -101,15 +112,15 @@ export default function Home() {
           </Link>
         </div>
       </section>
-      <section className="my-2 mx-32">
-        <div className="grid grid-cols-3">
-          <Card />
-          <Card />
-          <Card />
+      <section className="my-2 mx-8 md:mx-16 lg:mx-32">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto"><Card /></div>
+          <div className="mx-auto"><Card /></div>
+          <div className="mx-auto"><Card /></div>
         </div>
       </section>
       <section className="my-2">
-        <div className="bg-green text-white p-16 rounded-3xl m-20">
+        <div className="bg-green text-white p-16 rounded-3xl m-8 lg:m-20">
           <Typography variant="h3" className="font-bold mb-10 ">Why Choose Us?</Typography>
           <p className=" max-w-sm leading-8">
             <b>Explore a diverse range of carefully selected real estate investments at our fractional ownership brokerage.</b>

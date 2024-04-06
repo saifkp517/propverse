@@ -29,7 +29,7 @@ export default function KnowledgeBase() {
           <input type="text" id="simple-search" className="bg-gray-50 border border-blue text-gray-900 text-sm rounded-xl focus:ring-blue-500 focus:border-blue block w-full ps-10 p-2.5  " placeholder="Search Property..." required />
         </div>
       </form>
-      <section className="my-20 mx-36 grid grid-cols-2  place-items-center">
+      <section className="my-20 mx-36 grid grid-cols-1 gap-4 lg:grid-cols-2 place-items-center">
         <BlogCard />
         <BlogCard />
         <BlogCard />
