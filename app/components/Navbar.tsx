@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Navbar() {
     return (
         <div>
-            <nav className="bg-white">
+            <nav className="bg-white ">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
                         <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo" />
@@ -17,24 +17,24 @@ export default function Navbar() {
                         </svg>
                     </button>
                     <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-                        <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 tracking-widest md:bg-white">
+                        <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0  md:bg-white">
                             <li>
-                                <a href="/" className="block py-4 px-6 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green  dark:hover:bg-gray-700 md:dark:hover:bg-transparent">HOME</a>
+                                <a href="/" className="block py-4 px-6 rounded duration-150 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green  dark:hover:bg-gray-700 md:dark:hover:bg-transparent">HOME</a>
                             </li>
                             <li>
-                                <a href="/knowledge-base" className="block py-4 px-6 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green  dark:hover:bg-gray-700 md:dark:hover:bg-transparent">KNOWLEDGE BASE</a>
+                                <a href="/knowledge-base" className="block py-4 px-6 duration-150 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green  dark:hover:bg-gray-700 md:dark:hover:bg-transparent">KNOWLEDGE BASE</a>
                             </li>
                             <li>
-                                <a href="/properties" className="block py-4 px-6 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green  dark:hover:bg-gray-700 md:dark:hover:bg-transparent">PROPERTIES</a>
+                                <a href="/properties" className="block py-4 px-6 duration-150 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green  dark:hover:bg-gray-700 md:dark:hover:bg-transparent">PROPERTIES</a>
                             </li>
                             <li>
-                                <a href="/login" className="block py-2 px-1 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green  dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
-                                    <button type="button" className="focus:outline-none text-white hover:text-green bg-green hover:bg-transparent focus:ring-1 focus:ring-green font-medium rounded-lg text-sm px-5 py-2.5 ">LOG IN</button>
+                                <a href="/login" className="block py-2 px-1 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green  ">
+                                    <button type="button" className="focus:outline-none text-white hover:text-green bg-green hover:bg-transparent focus:ring-1 focus:ring-green font-medium rounded-lg text-sm px-5 py-2.5 duration-150">LOG IN</button>
                                 </a>
                             </li>
                             <li>
-                                <a href="/register" className="block py-2 px-1 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green  dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
-                                    <button type="button" className="focus:outline-none text-white hover:text-green bg-green hover:bg-transparent focus:ring-1 focus:ring-green font-medium rounded-lg text-sm px-5 py-2.5 ">SIGN UP</button>
+                                <a href="/register" className="block py-2 px-1 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green">
+                                    <button type="button" className="focus:outline-none text-white hover:text-green bg-green hover:bg-transparent focus:ring-1 focus:ring-green font-medium rounded-lg text-sm px-5 py-2.5 duration-150">SIGN UP</button>
                                 </a>
                             </li>
                         </ul>
