@@ -8,12 +8,12 @@ export default function Footer() {
                 <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                     <div className="md:flex md:justify-between">
 
-                        <div className="grid grid-cols-3 gap-16 sm:gap-6 sm:grid-cols-4">
+                        <div className="grid grid-cols-3 gap-4 lg:gap-16 sm:gap-6 sm:grid-cols-4">
                             <div>
                                 <a href="#" className="items-center">
                                     <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 me-3" alt="FlowBite Logo" />
                                     <span className="self-center text-2xl font-semibold whitespace-nowrap">LOGO</span>
-                                    <p className="mt-4 text-sm mr-24 leading-loose font-light">Welcome to a redefinition of property management. Discover seamless solutions for property owners and tenants alike.</p>
+                                    <p className="mt-4 text-xs lg:text-sm mr-24 leading-tight lg:leading-loose font-light">Welcome to a redefinition of property management. Discover seamless solutions for property owners and tenants alike.</p>
                                 </a>
                             </div>
                             <div>
@@ -35,7 +35,7 @@ export default function Footer() {
                             </div>
                             <div>
                                 <Typography variant="h6" className="mb-6 font-semibold tracking-tighter">Subscribe</Typography>
-                                <p className="mt-4 text-sm mr-16 leading-loose font-light">Subscribe to get latest property, blog news from us</p>
+                                <p className="mt-4 text-xs lg:text-sm mr-16 leading-tight  lg:leading-loose font-light">Subscribe to get latest property, blog news from us</p>
                                 <div>
                                     <input type="email" id="first_name" className="bg-gray-50 mt-4 border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Email" required />
                                 </div>

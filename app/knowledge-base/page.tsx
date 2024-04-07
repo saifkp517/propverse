@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Typography } from "@mui/material";
-import Navbar from "../components/Navbar";
+import MyNav from "../components/Navbar";
 import BlogCard from "../components/cards/BlogCard";
 import Footer from "../components/Footer";
 
@@ -9,7 +9,7 @@ export default function KnowledgeBase() {
 
   return (
     <div>
-      <Navbar />
+      <MyNav />
       <div className="grid grid-cols-2 max-w-2xl my-16 mx-auto">
         <Link className="mx-auto" href={'/knowledge-base'}>
         <button type="button" className="focus:outline-none text-white  bg-green  hover:ring-green font-medium rounded-xl text-md lg:text-3xl px-16 lg:px-24 py-4 mb-2">Blogs</button>

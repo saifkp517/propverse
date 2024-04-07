@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Navbar from "./components/Navbar";
+import MyNav from "./components/Navbar";
 import Footer from "./components/Footer";
 import Card from "./components/cards/newProperty";
 import { Typography } from "@mui/material";
@@ -12,11 +12,11 @@ export default function Home() {
 
   return (
     <div>
-      <Navbar />
+      <MyNav />
       <section>
         <div className="grid grid-cols-1 lg:grid-cols-2">
           <div className="mx-4 lg:mx-auto py-0 lg:py-20 px-2 lg:px-44">
-            <Typography variant="h1" className="text-green font-bold font-sans">Property<br />Verse</Typography>
+            <Typography variant="h1"  className="text-green text-4xl md:text-6xl lg:text-8xl font-bold font-sans">Property<br />Verse</Typography>
             <Typography className="mt-4 ml-2 mb-10 text-lg tracking-tighter">Welcome to a redefinition of property management. Discover seamless solutions for property owners and tenants alike.</Typography>
             <button type="button" className="focus:outline-none text-white hover:text-green bg-green hover:bg-transparent hover:ring-1 hover:ring-green font-medium rounded-xl text-sm px-5 py-2.5 ">Explore Properties</button>
           </div>
@@ -52,7 +52,7 @@ export default function Home() {
           <Typography variant="h4" className="mb-2 text-center font-serif font-semibold tracking-normal">Diversified Investment Opportunities</Typography>
           <Typography className="">Explore a diverse range of fractional ownership opportunities in premium real estate</Typography>
           <br />
-          <div className="grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div className="bg-white text-black rounded-xl p-4">
               <Typography variant="h5" className="font-semibold tracking-tighter text-left">Diversified Investment Opportunities</Typography>
               <hr className="border-green border-2 my-2 rounded-xl w-36" />

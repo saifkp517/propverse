@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Typography } from "@mui/material";
-import Navbar from "../components/Navbar";
+import MyNav from "../components/Navbar";
 import BlogCard from "../components/cards/BlogCard";
 import Footer from "../components/Footer";
 
@@ -9,7 +9,7 @@ export default function CreditRiskAnalysis() {
 
   return (
     <div>
-      <Navbar />
+      <MyNav />
       <div className=" mx-36 my-24 place-items-center grid grid-cols-3">
         <div className=" col-span-2">
           <Typography variant="h2" className="mb-6 font-bold tracking-tight">Credit Risk Analysis</Typography>
