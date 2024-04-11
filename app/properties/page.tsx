@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Typography } from "@mui/material";
 import MyNav from "../components/Navbar";
 import Property from "../components/cards/Property";
+import SwitchTypes from "../components/cards/SwitchType";
 import Footer from "../components/Footer";
 
 
@@ -13,14 +14,7 @@ export default function Home() {
   return (
     <div>
       <MyNav />
-      <div className="grid grid-cols-2 max-w-2xl my-16 mx-auto">
-        <Link className="mx-auto" href={'/properties'}>
-        <button type="button" className="focus:outline-none text-white  bg-blue  hover:ring-blue font-medium rounded-xl text-md lg:text-3xl px-4 lg:px-8 py-2 lg:py-4 mb-2 ">Retail Properties</button>
-        </Link>
-        <Link className="mx-auto" href={'/villa'}>
-        <button type="button" className="focus:outline-none text-green bg-transparent ring-1 ring-green font-medium rounded-xl text-md lg:text-3xl px-4 lg:px-8 py-2 lg:py-4 mb-2">Villa Properties</button>
-        </Link>
-      </div>  
+      <SwitchTypes />
       <form className="flex items-center max-w-2xl mx-auto">
         <label className="sr-only">Search</label>
         <div className="relative w-full mx-8">

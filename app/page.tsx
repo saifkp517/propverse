@@ -106,21 +106,21 @@ export default function Home() {
       </section>
       <section className=" mt-36 mx-20">
         <div className="flex justify-between">
-          <Typography variant="h4" className="font-bold tracking-tight">Recently Added</Typography>
-          <Link href={'/properties'}>
+          <Typography variant="h4" className="font-bold tracking-tight my-auto">Recently Added</Typography>
+          <Link className="my-auto" href={'/properties'}>
             <Typography className="text-blue font-bold no-underline hover:underline">See All</Typography>
           </Link>
         </div>
       </section>
       <section className="my-2 mx-8 md:mx-16 lg:mx-32">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <div className="mx-auto"><Card /></div>
           <div className="mx-auto"><Card /></div>
           <div className="mx-auto"><Card /></div>
         </div>
       </section>
-      <section className="my-2">
-        <div className="bg-green text-white p-16 rounded-3xl m-8 lg:m-20">
+      <section className="my-2 mx-8 md:mx-16 lg:mx-32">
+        <div className="bg-green text-white p-8 md:p-12 lg:p-16 rounded-3xl m-8 lg:m-20">
           <Typography variant="h3" className="font-bold mb-10 ">Why Choose Us?</Typography>
           <p className=" max-w-sm leading-8">
             <b>Explore a diverse range of carefully selected real estate investments at our fractional ownership brokerage.</b>

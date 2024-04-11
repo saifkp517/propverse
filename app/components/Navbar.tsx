@@ -25,6 +25,7 @@ export default function MyNav() {
         <ul className="text-black mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
             <Typography
                 as={"li"}
+                placeholder={undefined}
                 variant="small"
                 color="blue-gray"
                 className="flex items-center gap-x-2 p-1 font-medium"
@@ -71,6 +72,7 @@ export default function MyNav() {
             </Typography>
             <Typography
                 as="li"
+                placeholder={undefined}
                 variant="small"
                 color="blue-gray"
                 className="flex items-center gap-x-2 p-1 font-medium"
@@ -108,7 +110,7 @@ export default function MyNav() {
                 <div className="hidden lg:block">{navList}</div>
                 <div className="flex items-center gap-x-1 text-black">
                     <Link href={"/login"}>
-                        <Button placeholder={"button"} fullWidth variant="text" size="sm" className="">
+                        <Button placeholder={"button"} fullWidth variant="text" size="sm" className="hidden lg:inline-block">
                             <span>Log In</span>
                         </Button>
                     </Link>
@@ -117,6 +119,7 @@ export default function MyNav() {
                             variant="text"
                             size="sm"
                             className="hidden lg:inline-block text-green"
+                            placeholder={"button"}
                         >
                             <span>Sign in</span>
                         </Button>
