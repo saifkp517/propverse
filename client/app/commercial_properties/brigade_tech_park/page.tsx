@@ -84,7 +84,7 @@ export default function PropertyDetails() {
 
         </div>
 
-        <div className="grid grid-cols-2 mx-4 lg:mx-16 gap-x-8 mt-8 lg:mt-24">
+        <div className="grid grid-cols-2 mx-4 lg:mx-16 gap-x-8 mt-16 lg:mt-24">
           <div className="">
             <Typography variant="h5" className=" font-bold text-gray-600">Location and Tenant</Typography>
             <h1 className="text-gray-700">Strategic Location</h1>
@@ -135,6 +135,7 @@ export default function PropertyDetails() {
               {
                 images.map((image) => (
                   <Image
+                    key={image.image}
                     src={image.image}
                     alt={image.alt}
                     width={5000}

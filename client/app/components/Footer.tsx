@@ -11,9 +11,8 @@ export default function Footer() {
                         <div className="grid grid-cols-3 gap-4 lg:gap-16 sm:gap-6 sm:grid-cols-4">
                             <div>
                                 <a href="#" className="items-center">
-                                    <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 me-3" alt="FlowBite Logo" />
-                                    <span className="self-center text-2xl font-semibold whitespace-nowrap">LOGO</span>
-                                    <p className="mt-4 text-xs lg:text-sm mr-24 leading-tight lg:leading-loose font-light">Welcome to a redefinition of property management. Discover seamless solutions for property owners and tenants alike.</p>
+                                    <Typography className="mr-4 cursor-pointer py-1.5 font-medium text-green">PropertyVerse</Typography>
+                                    <p className="mt-4 text-xs lg:text-sm mr-24 lg:mr-16 leading-tight lg:leading-loose font-light lg:font-medium">Welcome to a redefinition of property management. Discover seamless solutions for property owners and tenants alike.</p>
                                 </a>
                             </div>
                             <div>

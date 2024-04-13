@@ -1,32 +1,26 @@
 'use client'
 
 import Image from "next/image";
-import Link from "next/link";
 import MyNav from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { Typography } from "@mui/material";
 import Carousel from 'react-material-ui-carousel'
-import { Paper, Button } from '@mui/material'
 
 export default function PropertyDetails() {
 
   const images = [
     {
-      image: "/briagadetechpark1.png",
+      image: "/siteimage1.png",
       alt: "visuals"
     },
     {
-      image: "/briadetechpark2.png",
+      image: "/siteimage2.png",
       alt: "visuals"
     },
     {
-      image: "/briadetechpark3.png",
+      image: "/siteimage3.png",
       alt: "visuals"
-    },
-    {
-      image: "/briadetechpark4.png",
-      alt: "visuals"
-    },
+    }
 
   ]
 
@@ -34,10 +28,10 @@ export default function PropertyDetails() {
     <div className="">
       <MyNav />
       <div className="max-w-screen-xl my-24 mx-auto">
-        <Typography variant="h4" className="text-center my-8 font-extrabold tracking-tight text-green">Brigade Tech Park</Typography>
+        <Typography variant="h4" className="text-center my-8 font-extrabold tracking-tight text-green">Sky One Opportunity</Typography>
         <div className=" max-w-screen-sm lg:max-w-screen-xl mx-auto">
           <Image
-            src={"/briagadetechpark1.png"}
+            src={"/skyoneopportunity.png"}
             alt={"main"}
             width={1000}
             height={1000}
@@ -51,7 +45,7 @@ export default function PropertyDetails() {
         <div className="grid grid-cols-4 gap-y-8 mt-16 max-w-screen-lg mx-auto">
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Building Name</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-green">Brigade Tech Park</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-green">Sky One Opportunity</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Asset Type</h1>
@@ -59,23 +53,23 @@ export default function PropertyDetails() {
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Investment Floor</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-green">5th out of 9</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-green">13th Floor</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Lease Lock-in</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-green">August 2027</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-green">December 2028</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Gross Entry Yield</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-green">9%</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-green">9.6%</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Target IRR</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-green">16.13</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-green">15.1</p>
           </div>
           <div className="">
-            <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Multiplier</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-green">1.8</p>
+            <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Sq.Ft</h1>
+            <p className="text-lg lg:text-2xl font-bold text-center text-green">58,661</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Minimum Investment </h1>
@@ -84,24 +78,39 @@ export default function PropertyDetails() {
 
         </div>
 
-        <div className="grid grid-cols-2 mx-4 lg:mx-16 gap-x-8 mt-8 lg:mt-24">
+        <div className="grid grid-cols-2 mx-4 lg:mx-16 gap-x-8 mt-16 lg:mt-24">
           <div className="">
             <Typography variant="h5" className=" font-bold text-gray-600">Location and Tenant</Typography>
             <h1 className="text-gray-700">Strategic Location</h1>
-            <h1 className="text-green font-bold">Whitefield, Bengaluru</h1>
+            <h1 className="text-green font-bold">Viman Nagar, <br /> Pune[Airport Road]</h1>
             <hr className="w-1/3 my-4 " />
-            <h1 className="text-gray-700">Marquee Tenant</h1>
-            <h1 className="text-green font-bold">Creative Synergies Consulting India Pvt Ltd</h1>
+            <h1 className="text-gray-700">Fortune 600 Marquee Tenant</h1>
+            <h1 className="text-green font-bold">Vertiv Energy</h1>
           </div>
           <div className="text-sm tracking-tighter text-gray-600 mx-2 lg:mx-8">
             <   Typography variant="h5" className=" font-bold text-green underline">Overview</Typography>
             <br />
             <p>
-              Great Opportunity to invest in the 5th floor of a A+ Grade Office space strategically situated on the ITPL main road in Whitefield, Bengaluru. The proposed investment in 32300 sqft of the Brigade Tech Park, Tower B.
+              A rare opportunity to invest
+              in 58,661 Sq. Ft. of A+ Grade Office space in
+              Viman Nagar, Pune. The proposed space is
+              situated on the 9th floor of newly
+              constructed Sky One Corporate Park
+              Building. The asset is located in one of the
+              most sought after office micro-market in
+              Pune with proximity to Pune International
+              Airport and an upcoming Metro line.
             </p>
             <br />
             <p>
-              The entire floor is leased to Creative Synergies Consulting Pvt. Ltd. A global digital innovation solution provider wit more than 40+ Fortune 500 clients and lcation in 20+ countries.
+              The tower houses numerous Blue Chip
+              tenants. Our tenant, Vertiv Energy, has
+              strategically expanded their footprint in the
+              building, currently occupying in excess of
+              1.2L Sq. Ft. with further plans on expanding.
+              Vertiv is a Fortune 600 NYSE Listed Company
+              with a market Capitalization of USD 20+
+              Billion
             </p>
           </div>
         </div>
@@ -109,32 +118,25 @@ export default function PropertyDetails() {
           <Typography variant="h5" className="mb-8 font-bold text-gray-600">Floor Plan</Typography>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-8">
             <div className="col-span-2">
-              <Image width={1500} height={1500} className="object-contain w-fit" src={'/floorplanbrigade.png'} alt="FloorPlan" />
+              <Image width={2000} height={2000} className="object-contain w-fit h-96" src={'/floorplansky.png'} alt="FloorPlan" />
             </div>
-            <div className="col-span-1">
+            <div className="col-span-1 mt-12 lg:mt-0 mx-8 lg:mx-0">
               <Typography variant="h5" className=" font-bold text-green ">Features</Typography>
               <ul className=" list-disc leading-1 lg:leading-10 list-outside">
-                <li><h1>Stylish Reception Areas</h1></li>
-                <li><h1>300 Roomy Workstations on Every Floor</h1></li>
-                <li><h1>Well-Equipped Meeting spaces</h1></li>
-                <li><h1>6-Seater Conference Rooms</h1></li>
-                <li><h1>4-Seater Meeting Rooms</h1></li>
-                <li><h1>10-Seater Conference Rooms</h1></li>
-                <li><h1>Professional 22-Seater Board Room</h1></li>
-                <li><h1>Classic Pantry Area</h1></li>
-                <li><h1>Relaxing Wellness Room</h1></li>
-                <li><h1>Convenient Male and Female Restrooms on Each Floor</h1></li>
+                <li><h1><span className="text-green font-bold">High Floor Plate Efficiency: </span> Efficient design achieving 50%+ floor plate efficiency</h1></li>
+                <li><h1>Designed with highest national & international Bylaws making it one of the <span className="text-green font-bold">Best EHS [Environment, Health and Safety] compliant project of Pune</span></h1></li>
               </ul>
             </div>
           </div>
         </div>
         <div className=" mt-14 lg:mt-24 mx-4 lg:mx-16">
           <Typography variant="h5" className=" font-bold text-gray-600">Property Visuals</Typography>
-          <div className="mx-auto border mt-8 w-full">
+          <div className="mx-auto mt-8 w-full">
             <Carousel>
               {
                 images.map((image) => (
                   <Image
+                    key={image.image}
                     src={image.image}
                     alt={image.alt}
                     width={5000}
@@ -153,7 +155,7 @@ export default function PropertyDetails() {
           <Typography><span className="text-green font-bold">Note: </span>Purchase Price Calculated with per sqft rate of 8,675</Typography>
           <div className="mx-auto mt-8">
             <div className="relative overflow-x-auto">
-              <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
+              <table className=" border border-black w-full text-sm text-left rtl:text-right text-gray-500 ">
                 <thead className="text-xs text-white uppercase bg-green">
                   <tr>
                     <th scope="col" className="px-6 py-3">
@@ -167,54 +169,81 @@ export default function PropertyDetails() {
                 <tbody>
                   <tr className=" ">
                     <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                      Purhase Price
+                      Price Per Sq. Ft.
                     </th>
                     <td className="px-3 lg:px-6 py-2 lg:py-4">
-                      28,02,02,500
+                      12,165
                     </td>
                   </tr>
                   <tr className=" ">
                     <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                      + Stamp Duty
+                      Area (Sq Ft.)
                     </th>
                     <td className="px-3 lg:px-6 py-2 lg:py-4">
-                      18,633,466
-                    </td>
-
-                  </tr>
-                  <tr className=" ">
-                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                      + Legal & Structuring Expenses
-                    </th>
-                    <td className="px-3 lg:px-6 py-2 lg:py-4">
-                      1,500,000
+                      58,661
                     </td>
 
                   </tr>
                   <tr className=" ">
                     <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                      + Acquisition Fee
+                      Base Price
                     </th>
                     <td className="px-3 lg:px-6 py-2 lg:py-4">
-                      9,500,000
+                      71,35,84,304
                     </td>
 
                   </tr>
                   <tr className=" ">
                     <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                      + Reserves
+                      Add: Stamp Duty and Registration
                     </th>
                     <td className="px-3 lg:px-6 py-2 lg:py-4">
-                      164,034
+                      4,23,90,574
                     </td>
 
                   </tr>
                   <tr className=" ">
                     <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                      Net Price
+                      Add : Acquisition Expenses
                     </th>
                     <td className="px-3 lg:px-6 py-2 lg:py-4">
-                      310,000,000
+                      3,19,58,824
+                    </td>
+
+                  </tr>
+                  <tr className=" ">
+                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                      Add : Reserve
+                    </th>
+                    <td className="px-3 lg:px-6 py-2 lg:py-4">
+                      50,26,978
+                    </td>
+
+                  </tr>
+                  <tr className=" ">
+                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                      Add : Property/Municipality Tax
+                    </th>
+                    <td className="px-3 lg:px-6 py-2 lg:py-4">
+                      70,39,320
+                    </td>
+
+                  </tr>
+                  <tr className=" ">
+                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                      Add : Legal Expenses
+                    </th>
+                    <td className="px-3 lg:px-6 py-2 lg:py-4">
+                      40,00,000
+                    </td>
+
+                  </tr>
+                  <tr className="bg-green text-white">
+                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap ">
+                      Net Purchase price
+                    </th>
+                    <td className="px-3 lg:px-6 py-2 lg:py-4">
+                      ₹ 80,40,00,000
                     </td>
 
                   </tr>
@@ -225,202 +254,120 @@ export default function PropertyDetails() {
           </div>
         </div>
         <div className=" mt-14 lg:mt-24 mx-4 lg:mx-16">
-          <Typography variant="h5" className=" font-bold text-gray-600">Lease Overview</Typography>
+          <Typography variant="h5" className=" font-bold text-gray-600">Lease & Sale Comparables</Typography>
           <div className="mx-auto mt-8">
-            <div className="relative overflow-x-auto">
-              <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
-                <thead className="text-xs text-white uppercase bg-green">
+            <Typography variant="h5" className="font-bold text-2xl text-green">Lease Comparable</Typography>
+            <Typography>The lease rental range lies between <span className="text-green font-bold">INR 90-105</span> in the market</Typography>
+            <div className="relative overflow-x-auto mt-8">
+              <table className=" border border-black w-full text-sm text-left rtl:text-right text-gray-900 ">
+                <thead className="text-white uppercase bg-green ">
                   <tr>
-                    <th scope="col" className="px-6 py-3">
-                      Particulars
-                    </th>
-                    <th scope="col" className="px-6 py-3">
-                      Amount
-                    </th>
+                    <th scope="col" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Building</th>
+                    <th scope="col" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Tenant</th>
+                    <th scope="col" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Area(SF)</th>
+                    <th scope="col" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Rent PSF Per Month (Leasable Area)</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr className=" ">
-                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                      Starting rental
-                    </th>
-                    <td className="px-3 lg:px-6 py-2 lg:py-4">
-                      56
-                    </td>
-                  </tr>
-                  <tr className=" ">
-                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                      Security deposit
-                    </th>
-                    <td className="px-3 lg:px-6 py-2 lg:py-4">
-                      16279200
-                    </td>
-
-                  </tr>
-                  <tr className=" ">
-                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                      Average rent/sft/month
-                    </th>
-                    <td className="px-3 lg:px-6 py-2 lg:py-4">
-                      61.3
-                    </td>
-
-                  </tr>
-                  <tr className=" ">
-                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                      Holding Period
-                    </th>
-                    <td className="px-3 lg:px-6 py-2 lg:py-4">
-                      5 Years
-                    </td>
-
-                  </tr>
-                  <tr className=" ">
-                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                      Average Annual Escalation
-                    </th>
-                    <td className="px-3 lg:px-6 py-2 lg:py-4">
-                      5% YOY
-                    </td>
-                  </tr>
-
-                </tbody>
+                <tr>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Panchshil Business Park</th>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Trans Union</th>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">63,048</th>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">INR 93</th>
+                </tr>
+                <tr>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Panchshil Business Park</th>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Marvell</th>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">92,470</th>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">INR 93</th>
+                </tr>
+                <tr>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Panchshil Business Park</th>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Tablespace</th>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">30,450</th>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">INR 93</th>
+                </tr>
+                <tr>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Panchshil Business Park</th>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Tablespace</th>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">60,900</th>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">INR 96</th>
+                </tr>
+                <tr>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Sky Vista</th>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Faber</th>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">9,800</th>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">INR 102</th>
+                </tr>
+                <tr>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Marvel Edge [Solitaire]</th>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Plastic Omnium</th>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">12,872</th>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">INR 103</th>
+                </tr>
+                <tr>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Nyati Empress</th>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Royal Apollo</th>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">2,218</th>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">INR 104</th>
+                </tr>
+                <tr className="bg-green text-white">
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Our Rental</th>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium"></th>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">58,661</th>
+                  <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">INR 95</th>
+                </tr>
               </table>
+
+              <Typography variant="h5" className="font-bold text-green mt-8">Sale Comparable</Typography>
+              <Typography>The purchase price range between INR 13,000-15,000. Our Purchase price is at a <span className="text-green font-bold">-13.4% discount</span> to the prevailing market rate</Typography>
+              <div className="relative overflow-x-auto mt-8">
+                <table className=" border border-black w-full text-sm text-left rtl:text-right text-gray-900 ">
+                  <thead className="text-white uppercase bg-green ">
+                    <tr>
+                      <th scope="col" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Building</th>
+                      <th scope="col" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Tenant</th>
+                      <th scope="col" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Area(SF)</th>
+                      <th scope="col" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Rent PSF Per Month (Leasable Area)</th>
+                    </tr>
+                  </thead>
+                  <tr>
+                    <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Marvel Edge [Solitaire]</th>
+                    <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Manpreet Singh Uppal</th>
+                    <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">6,801</th>
+                    <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">INR 12,919</th>
+                  </tr>
+                  <tr>
+                    <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Marvel Edge [Solitaire]</th>
+                    <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Nilesh Jagannath Nazare</th>
+                    <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">4,008</th>
+                    <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">INR 14,619</th>
+                  </tr>
+                  <tr>
+                    <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Marvel Edge [Solitaire]</th>
+                    <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Deepak Keshav Agarwal</th>
+                    <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">1.955</th>
+                    <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">INR 12,207</th>
+                  </tr>
+                  <tr>
+                    <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Amar Tech Center</th>
+                    <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Northstar & Fortuna</th>
+                    <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">53,210</th>
+                    <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">INR 13,907</th>
+                  </tr>
+                  <tr className="bg-green text-white">
+                    <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Our Purchase</th>
+                    <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium"></th>
+                    <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">58,661</th>
+                    <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">INR 12,165</th>
+                  </tr>
+                </table>
+              </div>
+
             </div>
           </div>
 
         </div>
-        <div className=" mt-14 lg:mt-24 mx-4 lg:mx-16">
-          <Typography variant="h5" className=" font-bold text-gray-600">CASH FLOWS</Typography>
-          <div className="mx-auto mt-8">
-            <div className="relative overflow-x-auto">
-              <table className="w-full text-sm text-left rtl:text-right text-gray-500 border-2 ">
-                <thead className="text-xs text-white uppercase bg-green">
-                  <th className="px-6 py-3 border-x-2"></th>
-                  <th className="px-6 py-3 border-x-2"></th>
-                  <th className="px-6 py-3 border-x-2">YEAR 0</th>
-                  <th className="px-6 py-3 border-x-2">YEAR 1 </th>
-                  <th className="px-6 py-3 border-x-2">YEAR 2</th>
-                  <th className="px-6 py-3 border-x-2">YEAR 3</th>
-                  <th className="px-6 py-3 border-x-2">YEAR 4</th>
-                  <th className="px-6 py-3 border-x-2">YEAR 5</th>
-                </thead>
-                <tr>
-                  <th className="px-6 py-3 border-x-2"></th>
-                  <th className="px-6 py-3 border-x-2">Investment</th>
-                  <th className="px-6 py-3 border-x-2">25,00,000</th>
-                  <th className="px-6 py-3 border-x-2"></th>
-                  <th className="px-6 py-3 border-x-2"></th>
-                  <th className="px-6 py-3 border-x-2"></th>
-                  <th className="px-6 py-3 border-x-2"></th>
-                  <th className="px-6 py-3 border-x-2"></th>
-                </tr>
-                <tr>
-                  <th className="px-6 py-3 border-x-2"></th>
-                  <th className="px-6 py-3 border-x-2">Total Rent</th>
-                  <th className="px-6 py-3 border-x-2"></th>
-                  <th className="px-6 py-3 border-x-2">1,75,045</th>
-                  <th className="px-6 py-3 border-x-2">1,78,171</th>
-                  <th className="px-6 py-3 border-x-2">1,87,548</th>
-                  <th className="px-6 py-3 border-x-2">2,03,490</th>
-                  <th className="px-6 py-3 border-x-2">2,13,664</th>
-                </tr>
-                <tr>
-                  <th className="px-6 py-3 border-x-2">Credit</th>
-                  <th className="px-6 py-3 border-x-2">Car Park Rent</th>
-                  <th className="px-6 py-3 border-x-2"></th>
-                  <th className="px-6 py-3 border-x-2">7,742</th>
-                  <th className="px-6 py-3 border-x-2">7,935</th>
-                  <th className="px-6 py-3 border-x-2">8,332</th>
-                  <th className="px-6 py-3 border-x-2">8,535</th>
-                  <th className="px-6 py-3 border-x-2">8,535</th>
-                </tr>
-                <tr>
-                  <th className="px-6 py-3 border-x-2"></th>
-                  <th className="px-6 py-3 border-x-2">Bonus</th>
-                  <th className="px-6 py-3 border-x-2"></th>
-                  <th className="px-6 py-3 border-x-2">33,000</th>
-                  <th className="px-6 py-3 border-x-2">12,500</th>
-                  <th className="px-6 py-3 border-x-2">-</th>
-                  <th className="px-6 py-3 border-x-2">-</th>
-                  <th className="px-6 py-3 border-x-2">-</th>
-                </tr>
-                <tr>
-                  <th className="px-6 py-3 border-x-2"></th>
-                  <th className="px-6 py-3 border-x-2">Interest on Deposits</th>
-                  <th className="px-6 py-3 border-x-2"></th>
-                  <th className="px-6 py-3 border-x-2">9,282</th>
-                  <th className="px-6 py-3 border-x-2">9,282</th>
-                  <th className="px-6 py-3 border-x-2">9,282</th>
-                  <th className="px-6 py-3 border-x-2">9,282</th>
-                  <th className="px-6 py-3 border-x-2">9,282</th>
-                </tr>
-                <tr>
-                  <th className="px-6 py-3 border-x-2"></th>
-                  <th className="px-6 py-3 border-x-2">Gross Yield</th>
-                  <th className="px-6 py-3 border-x-2"></th>
-                  <th className="px-6 py-3 border-x-2">2,25,070</th>
-                  <th className="px-6 py-3 border-x-2">2,07,889</th>
-                  <th className="px-6 py-3 border-x-2">2,05,163</th>
-                  <th className="px-6 py-3 border-x-2">2,21,308</th>
-                  <th className="px-6 py-3 border-x-2">2,31,482</th>
-                </tr>
-                <tr>
-                  <th className="px-6 py-3 border-x-2">Debit</th>
-                  <th className="px-6 py-3 border-x-2">Management Fee</th>
-                  <th className="px-6 py-3 border-x-2"></th>
-                  <th className="px-6 py-3 border-x-2">-25,000</th>
-                  <th className="px-6 py-3 border-x-2">-25,000</th>
-                  <th className="px-6 py-3 border-x-2">-25,000</th>
-                  <th className="px-6 py-3 border-x-2">-25,000</th>
-                  <th className="px-6 py-3 border-x-2">-25,000</th>
-                </tr>
-                <tr>
-                  <th className="px-6 py-3 border-x-2"></th>
-                  <th className="px-6 py-3 border-x-2">Property tax &amp; Others</th>
-                  <th className="px-6 py-3 border-x-2"></th>
-                  <th className="px-6 py-3 border-x-2">-7,460</th>
-                  <th className="px-6 py-3 border-x-2">-7,460</th>
-                  <th className="px-6 py-3 border-x-2">-7,460</th>
-                  <th className="px-6 py-3 border-x-2">-7,460</th>
-                  <th className="px-6 py-3 border-x-2">-7,460</th>
-                </tr>
-                <tr>
-                  <th className="px-6 py-3 border-x-2">Returns</th>
-                  <th className="px-6 py-3 border-x-2">Surplus Reserves</th>
-                  <th className="px-6 py-3 border-x-2"></th>
-                  <th className="px-6 py-3 border-x-2">-</th>
-                  <th className="px-6 py-3 border-x-2">-</th>
-                  <th className="px-6 py-3 border-x-2">-</th>
-                  <th className="px-6 py-3 border-x-2">-</th>
-                  <th className="px-6 py-3 border-x-2">1,323</th>
-                </tr>
-                <tr>
-                  <th className="px-6 py-3 border-x-2"></th>
-                  <th className="px-6 py-3 border-x-2">Sale Proceeds</th>
-                  <th className="px-6 py-3 border-x-2"></th>
-                  <th className="px-6 py-3 border-x-2">-</th>
-                  <th className="px-6 py-3 border-x-2">-</th>
-                  <th className="px-6 py-3 border-x-2">-</th>
-                  <th className="px-6 py-3 border-x-2">-</th>
-                  <th className="px-6 py-3 border-x-2">36,73,320</th>
-                </tr>
-                <tr>
-                  <th className="px-6 py-3 border-x-2"></th>
-                  <th className="px-6 py-3 border-x-2">Net Cash Flow</th>
-                  <th className="px-6 py-3 border-x-2">-25,00,000</th>
-                  <th className="px-6 py-3 border-x-2">1,92,610</th>
-                  <th className="px-6 py-3 border-x-2">1,75,429</th>
-                  <th className="px-6 py-3 border-x-2">1,72,703</th>
-                  <th className="px-6 py-3 border-x-2">1,88,848</th>
-                  <th className="px-6 py-3 border-x-2">38,73,666</th>
-                </tr>
-              </table>
-            </div>
-          </div>
 
-
-        </div>
 
       </div>
       <Footer />
