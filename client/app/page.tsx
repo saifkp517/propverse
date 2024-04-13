@@ -70,37 +70,30 @@ export default function Home() {
               </div>
             </div>
             <div className="bg-white text-black rounded-xl p-4">
-              <Typography variant="h5" className="font-semibold tracking-tighter text-left">Diversified Investment Opportunities</Typography>
+              <Typography variant="h5" className="font-semibold tracking-tighter text-left">Expertly Vetted Properties</Typography>
               <hr className="border-green border-2 my-2 rounded-xl w-36" />
-              <p className="text-sm text-left">Explore a diverse range of fractional ownership opportunities in premium real estate</p>
+              <p className="text-sm text-left">Invest with confidence in meticulously vetted and high-potential properties</p>
               <div className="grid place-items-end">
                 <Image alt="cubes" width={100} height={100} src='/cubes.png' />
               </div>
             </div>
             <div className="bg-white text-black rounded-xl p-4">
-              <Typography variant="h5" className="font-semibold tracking-tighter text-left">Diversified Investment Opportunities</Typography>
+              <Typography variant="h5" className="font-semibold tracking-tighter text-left">User-Friendly Platform</Typography>
               <hr className="border-green border-2 my-2 rounded-xl w-36" />
-              <p className="text-sm text-left">Explore a diverse range of fractional ownership opportunities in premium real estate</p>
+              <p className="text-sm text-left">Navigate seamlessly through our intuitive platform designed for your convenience</p>
               <div className="grid place-items-end">
                 <Image alt="cubes" width={100} height={100} src='/cubes.png' />
               </div>
             </div>
             <div className="bg-white text-black rounded-xl p-4">
-              <Typography variant="h5" className="font-semibold tracking-tighter text-left">Diversified Investment Opportunities</Typography>
+              <Typography variant="h5" className="font-semibold tracking-tighter text-left">Responsive Customer Support</Typography>
               <hr className="border-green border-2 my-2 rounded-xl w-36" />
-              <p className="text-sm text-left">Explore a diverse range of fractional ownership opportunities in premium real estate</p>
+              <p className="text-sm text-left">Enjoy responsive customer support for a hassle-free investing experience.</p>
               <div className="grid place-items-end">
                 <Image alt="cubes" width={100} height={100} src='/cubes.png' />
               </div>
             </div>
-            <div className="bg-white text-black rounded-xl p-4">
-              <Typography variant="h5" className="font-semibold tracking-tighter text-left">Diversified Investment Opportunities</Typography>
-              <hr className="border-green border-2 my-2 rounded-xl w-36" />
-              <p className="text-sm text-left">Explore a diverse range of fractional ownership opportunities in premium real estate</p>
-              <div className="grid place-items-end">
-                <Image alt="cubes" width={100} height={100} src='/cubes.png' />
-              </div>
-            </div>
+           
           </div>
         </div>
       </section>

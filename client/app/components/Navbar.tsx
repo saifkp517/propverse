@@ -43,10 +43,7 @@ export default function MyNav() {
                     Home
                 </a>
             </h1>
-            <Typography
-                placeholder={undefined}
-                as="li"
-                variant="small"
+            <h1
                 color="blue-gray"
                 className="flex items-center gap-x-2 p-1 font-medium"
             >
@@ -67,11 +64,8 @@ export default function MyNav() {
                 <a href="knowledge-base" className="flex items-center">
                     Knowledge Base
                 </a>
-            </Typography>
-            <Typography
-                as="li"
-                placeholder={undefined}
-                variant="small"
+            </h1>
+            <h1
                 color="blue-gray"
                 className="flex items-center gap-x-2 p-1 font-medium"
             >
@@ -90,7 +84,7 @@ export default function MyNav() {
                 <a href="/properties" className="flex items-center">
                     Properties
                 </a>
-            </Typography>
+            </h1>
 
         </ul>
     );
