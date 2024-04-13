@@ -62,9 +62,9 @@ export default function Home() {
               </div>
             </div>
             <div className="bg-white text-black rounded-xl p-4">
-              <Typography variant="h5" className="font-semibold tracking-tighter text-left">Diversified Investment Opportunities</Typography>
+              <Typography variant="h5" className="font-semibold tracking-tighter text-left">Risk Mitigation and Affordability</Typography>
               <hr className="border-green border-2 my-2 rounded-xl w-36" />
-              <p className="text-sm text-left">Explore a diverse range of fractional ownership opportunities in premium real estate</p>
+              <p className="text-sm text-left">Experience the benefits of real estate investment without the burden of full ownership</p>
               <div className="grid place-items-end">
                 <Image alt="cubes" width={100} height={100} src='/cubes.png' />
               </div>

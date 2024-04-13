@@ -23,9 +23,7 @@ export default function MyNav() {
     }, []);
     const navList = (
         <ul className="text-black mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-            <Typography
-                placeholder={undefined}
-                variant="small"
+            <h1
                 color="blue-gray"
                 className="flex items-center gap-x-2 p-1 font-medium"
             >
@@ -44,7 +42,7 @@ export default function MyNav() {
                 <a href="/" className="flex items-center">
                     Home
                 </a>
-            </Typography>
+            </h1>
             <Typography
                 placeholder={undefined}
                 as="li"
