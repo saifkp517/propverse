@@ -47,6 +47,7 @@ export default function MyNav() {
                 </a>
             </Typography>
             <Typography
+                placeholder={undefined}
                 as="li"
                 variant="small"
                 color="blue-gray"
@@ -98,9 +99,10 @@ export default function MyNav() {
     );
 
     return (
-        <Navbar className="text-black sticky top-0 z-50 mx-auto border-transparent px-4 py-2 lg:px-8 lg:py-4">
+        <Navbar placeholder={undefined} className="text-black sticky top-0 z-50 mx-auto border-transparent px-4 py-2 lg:px-8 lg:py-4">
             <div className="container mx-auto flex items-center justify-between ">
                 <Typography
+                    placeholder={undefined}
                     as="a"
                     href="#"
                     className="mr-4 cursor-pointer py-1.5 font-medium text-green"
@@ -127,6 +129,7 @@ export default function MyNav() {
 
                 </div>
                 <IconButton
+                    placeholder={undefined}
                     variant="text"
                     className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
                     ripple={false}
