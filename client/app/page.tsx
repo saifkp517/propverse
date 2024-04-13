@@ -107,9 +107,28 @@ export default function Home() {
       </section>
       <section className="my-2 mx-8 md:mx-16 lg:mx-32">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <div className="mx-auto"><Card /></div>
-          <div className="mx-auto"><Card /></div>
-          <div className="mx-auto"><Card /></div>
+          <div className="mx-auto">
+            <Card
+              name="Brigade Tech Park"
+              image={"briagadetechpark1.png"}
+              location="Whitefield, Bangaluru"
+              funded={4}
+              invamt={"25"}
+              irr={"16.13"}
+              
+            />
+          </div>
+          <div className="mx-auto">
+            <Card
+              name="Sky One Opportunity"
+              image={"skyoneopportunity.png"}
+              location="Viman Nagar, Pune"
+              funded={5}
+              invamt={"25"}
+              irr={"15.1"}
+              
+            />
+          </div>
         </div>
       </section>
       <section className="my-2 mx-8 md:mx-16 lg:mx-32">
