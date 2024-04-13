@@ -24,7 +24,6 @@ export default function MyNav() {
     const navList = (
         <ul className="text-black mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
             <Typography
-                as={"li"}
                 placeholder={undefined}
                 variant="small"
                 color="blue-gray"
