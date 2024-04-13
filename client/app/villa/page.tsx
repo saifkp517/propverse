@@ -27,12 +27,13 @@ export default function Home() {
         </div>
       </form>
       <section className="my-8 mx-4 lg:mx-28 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {/* <div className="mx-auto"><Villa /></div>
         <div className="mx-auto"><Villa /></div>
         <div className="mx-auto"><Villa /></div>
         <div className="mx-auto"><Villa /></div>
         <div className="mx-auto"><Villa /></div>
-        <div className="mx-auto"><Villa /></div>
-        <div className="mx-auto"><Villa /></div>
+        <div className="mx-auto"><Villa /></div> */}
+        <h1 className="text-green text-center col-span-3 font-bold text-xl h-48">No Properties listed currently..</h1>
       </section>
 
       <Footer />

@@ -16,10 +16,10 @@ export default function newProperty({ name, image, location, funded, invamt, irr
 
 
                     <div className="flex flex-col  items-center md:flex-row">
-                        <div className=" w-11/12 md:w-4/5 lg:w-96 m-4 h-48 border relative">
+                        <div className=" w-11/12 md:w-4/5 lg:w-96 m-4 h-48  relative">
                             <Image fill unoptimized className="object-fill rounded-lg" src={`/${image}`} alt="" />
                         </div>
-                        <div className="flex flex-col justify-between p-2">
+                        <div className="flex flex-col justify-between px-4">
                             <h5 className="mb-2 text-2xl font-bold font-sans  text-black ">{name}</h5>
                             <div className="flex">
                                 <LocationOnIcon className=" text-red-500" />
@@ -37,12 +37,12 @@ export default function newProperty({ name, image, location, funded, invamt, irr
                             </div>
                             <div className="grid mt-4 grid-cols-3 gap-5 mb-2 text-md font-bold font-sans leading-tight">
                                 <div className="text-center ">
-                                    <Typography variant="h5" className="font-bold text-base text-gray-600">{invamt} Lakhs</Typography>
-                                    <sub>Investment Amount</sub>
+                                    <Typography variant="h5" className="font-bold text-lg text-gray-600">{invamt} Lakhs</Typography>
+                                    <sub className=" text-xs">Investment Amount</sub>
                                 </div>
                                 <div className="text-center ">
-                                    <Typography variant="h5" className="font-bold text-base text-gray-600">{irr}%</Typography>
-                                    <sub>IRR</sub>
+                                    <Typography variant="h5" className="font-bold text-lg text-gray-600">{irr}%</Typography>
+                                    <sub className="text-xs">IRR</sub>
                                 </div>
                                 <div className="text-center mt-2">
                                     <div className="flex space-x-1">

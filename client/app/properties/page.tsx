@@ -28,12 +28,28 @@ export default function Home() {
       </form>
       <section className="my-8 mx-4 lg:mx-28 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
 
-        <div className="mx-auto"><Property /></div>
-        <div className="mx-auto"><Property /></div>
-        <div className="mx-auto"><Property /></div>
-        <div className="mx-auto"><Property /></div>
-        <div className="mx-auto"><Property /></div>
-        <div className="mx-auto"><Property /></div>
+        <div className="mx-auto">
+          <Property
+            name="Brigade Tech Park"
+            image="briagadetechpark1.png"
+            location="Whitefield, Bengaluru"
+            area={"32300 sqft"}
+            price={"8,675"}
+            yeild={"9.00%"}
+            returntarget={"38,73,666"}
+          />
+        </div>
+        <div className="mx-auto">
+          <Property
+            name="Sky One Opportunity"
+            image="skyoneopportunity.png"
+            location="Virman Nagar, Pune"
+            area={"1.2L sqft"}
+            price={"12,165"}
+            yeild={"9.6%"}
+            returntarget={"38,73,666"}
+          />
+        </div>
       </section>
 
       <Footer />
