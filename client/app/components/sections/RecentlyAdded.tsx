@@ -1,10 +1,10 @@
 "use client"
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from "next/link";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useSwiper } from 'swiper/react';
+import { useWindowSize } from "@uidotdev/usehooks";
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import Card from "../cards/newProperty";
 
@@ -15,7 +15,25 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
+
+
 export default function RecentlyAdded() {
+
+    const size = useWindowSize();
+    const [NoCards, setNoCards] = useState(2);
+    
+
+    useEffect(() => {
+        if(size.width! < 940)
+        {
+            setNoCards(1)
+        }
+        else
+        {
+            setNoCards(2)
+        }
+    })
+
 
     const propDetails = [
         {
@@ -34,6 +52,7 @@ export default function RecentlyAdded() {
             invamt: "25",
             irr: "15.1"
         },
+
     ]
 
     return (
@@ -48,18 +67,19 @@ export default function RecentlyAdded() {
                     </Link>
                 </div>
             </section>
-            <div className="mx-auto max-w-screen-md">
+            <div className="mx-auto max-w-80 lg:max-w-screen-md">
                 <Swiper
+                    className=''
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
                     spaceBetween={50}
-                    slidesPerView={2}
+                    slidesPerView={NoCards}
                     pagination={{ clickable: true }}
                     onSwiper={(swiper) => console.log(swiper)}
                     onSlideChange={() => console.log('slide change')}
                 >
                     {
                         propDetails.map(property => (
-                            <div>
+                            <div key={property.name} >
                                 <SwiperSlide>
                                     <div>
                                         <Card

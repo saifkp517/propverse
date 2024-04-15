@@ -7,7 +7,7 @@ export default function newProperty({ name, image, location, funded, invamt, irr
     const href = name.split(" ").join("_").toLowerCase();
 
     return (
-        <div className="mb-24">
+        <div className="mb-24 mx-auto">
             <div className="static mt-10 w-80 bg-card border shadow-xl border-green rounded-lg">
                 <div className="flex flex-col items-center">
                     <div className=" w-11/12 m-4 h-48  relative">

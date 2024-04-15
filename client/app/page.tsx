@@ -106,8 +106,8 @@ export default function Home() {
       <section>
         <RecentlyAdded />
       </section>
-      <section className="my-2 mx-8 md:mx-16 lg:mx-32">
-        <div className="bg-green text-white p-8 md:p-12 lg:p-16 rounded-3xl m-8 lg:m-20">
+      <section className="my-2 mb-28 mx-8 md:mx-16 lg:mx-32">
+        <div className="bg-green text-white p-8 md:p-12 lg:p-16 rounded-3xl m-0 md:m-8 lg:m-20">
           <Typography variant="h3" className="font-bold mb-10 ">Why Choose Us?</Typography>
           <p className=" max-w-sm leading-8">
             <b>Explore a diverse range of carefully selected real estate investments at our fractional ownership brokerage.</b>
