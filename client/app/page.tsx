@@ -4,6 +4,7 @@ import MyNav from "./components/Navbar";
 import Footer from "./components/Footer";
 import Card from "./components/cards/newProperty";
 import { Typography } from "@mui/material";
+import RecentlyAdded from "./components/sections/RecentlyAdded";
 
 
 
@@ -16,7 +17,7 @@ export default function Home() {
       <section>
         <div className="grid grid-cols-1 lg:grid-cols-2">
           <div className="mx-4 lg:mx-auto py-0 lg:py-20 px-2 lg:px-44">
-            <Typography variant="h1"  className="text-green text-4xl md:text-6xl lg:text-8xl font-bold font-sans">Property<br />Verse</Typography>
+            <Typography variant="h1" className="text-green text-4xl md:text-6xl lg:text-8xl font-bold font-sans">Property<br />Verse</Typography>
             <Typography className="mt-4 ml-2 mb-10 text-lg tracking-tighter">Welcome to a redefinition of property management. Discover seamless solutions for property owners and tenants alike.</Typography>
             <button type="button" className="focus:outline-none text-white hover:text-green bg-green hover:bg-transparent hover:ring-1 hover:ring-green font-medium rounded-xl text-sm px-5 py-2.5 ">Explore Properties</button>
           </div>
@@ -34,7 +35,7 @@ export default function Home() {
       </section>
       <br />
       <section className="my-10 ">
-        <Typography variant="h3" className="font-bold text-center">Our Clients</Typography>
+        <h1 className="text-5xl font-bold font-roboto tracking-tighter text-center">Our Clients</h1>
         <div className="max-w-screen-md mx-auto my-24 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           <div className="mx-auto my-auto">
             <Image alt="logo" className="mx-auto" height={150} width={150} src="https://aurumwisex.com/images/WiseX/WiseX-Log.png" />
@@ -93,43 +94,17 @@ export default function Home() {
                 <Image alt="cubes" width={100} height={100} src='/cubes.png' />
               </div>
             </div>
-           
+
           </div>
         </div>
       </section>
-      <section className=" mt-36 mx-20">
-        <div className="flex justify-between">
-          <Typography variant="h4" className="font-bold tracking-tight my-auto">Recently Added</Typography>
-          <Link className="my-auto" href={'/properties'}>
-            <Typography className="text-blue font-bold no-underline hover:underline">See All</Typography>
-          </Link>
-        </div>
+      <section className="mt-36 max-w-screen-xl">
+
       </section>
-      <section className="my-2 mx-8 md:mx-16 lg:mx-32">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <div className="mx-auto">
-            <Card
-              name="Brigade Tech Park"
-              image={"briagadetechpark1.png"}
-              location="Whitefield, Bangaluru"
-              funded={4}
-              invamt={"25"}
-              irr={"16.13"}
-              
-            />
-          </div>
-          <div className="mx-auto">
-            <Card
-              name="Sky One Opportunity"
-              image={"skyoneopportunity.png"}
-              location="Viman Nagar, Pune"
-              funded={5}
-              invamt={"25"}
-              irr={"15.1"}
-              
-            />
-          </div>
-        </div>
+
+      
+      <section>
+        <RecentlyAdded />
       </section>
       <section className="my-2 mx-8 md:mx-16 lg:mx-32">
         <div className="bg-green text-white p-8 md:p-12 lg:p-16 rounded-3xl m-8 lg:m-20">
