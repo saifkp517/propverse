@@ -34,7 +34,7 @@ export default function PropertyDetails() {
     <div className="">
       <MyNav />
       <div className="max-w-screen-xl my-24 mx-auto">
-        <Typography variant="h4" className="text-center my-8 font-extrabold tracking-tight text-green">Brigade Tech Park</Typography>
+        <Typography variant="h4" className="text-center my-8 font-extrabold tracking-tight text-blue">Brigade Tech Park</Typography>
         <div className=" max-w-screen-sm lg:max-w-screen-xl mx-auto">
           <Image
             src={"/briagadetechpark1.png"}
@@ -47,39 +47,39 @@ export default function PropertyDetails() {
       </div>
 
       <div className="max-w-screen-xl my-24 mx-auto">
-        <Typography variant="h3" className="text-center text-2xl lg:text-5xl font-extrabold tracking-tighter text-green">INVESTMENT DETAILS</Typography>
+        <Typography variant="h3" className="text-center text-2xl lg:text-5xl font-extrabold tracking-tighter text-blue">INVESTMENT DETAILS</Typography>
         <div className="grid grid-cols-4 gap-y-8 mt-16 max-w-screen-lg mx-auto">
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Building Name</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-green">Brigade Tech Park</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-blue">Brigade Tech Park</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Asset Type</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-green">Grade A</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-blue">Grade A</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Investment Floor</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-green">5th out of 9</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-blue">5th out of 9</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Lease Lock-in</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-green">August 2027</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-blue">August 2027</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Gross Entry Yield</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-green">9%</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-blue">9%</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Target IRR</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-green">16.13</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-blue">16.13</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Multiplier</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-green">1.8</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-blue">1.8</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Minimum Investment </h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-green">25 Lacs</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-blue">25 Lacs</p>
           </div>
 
         </div>
@@ -88,13 +88,13 @@ export default function PropertyDetails() {
           <div className="">
             <Typography variant="h5" className=" font-bold text-gray-600">Location and Tenant</Typography>
             <h1 className="text-gray-700">Strategic Location</h1>
-            <h1 className="text-green font-bold">Whitefield, Bengaluru</h1>
+            <h1 className="text-blue font-bold">Whitefield, Bengaluru</h1>
             <hr className="w-1/3 my-4 " />
             <h1 className="text-gray-700">Marquee Tenant</h1>
-            <h1 className="text-green font-bold">Creative Synergies Consulting India Pvt Ltd</h1>
+            <h1 className="text-blue font-bold">Creative Synergies Consulting India Pvt Ltd</h1>
           </div>
           <div className="text-sm tracking-tighter text-gray-600 mx-2 lg:mx-8">
-            <   Typography variant="h5" className=" font-bold text-green underline">Overview</Typography>
+            <   Typography variant="h5" className=" font-bold text-blue underline">Overview</Typography>
             <br />
             <p>
               Great Opportunity to invest in the 5th floor of a A+ Grade Office space strategically situated on the ITPL main road in Whitefield, Bengaluru. The proposed investment in 32300 sqft of the Brigade Tech Park, Tower B.
@@ -112,7 +112,7 @@ export default function PropertyDetails() {
               <Image width={1500} height={1500} className="object-contain w-fit" src={'/floorplanbrigade.png'} alt="FloorPlan" />
             </div>
             <div className="col-span-1">
-              <Typography variant="h5" className=" font-bold text-green ">Features</Typography>
+              <Typography variant="h5" className=" font-bold text-blue ">Features</Typography>
               <ul className=" list-disc leading-1 lg:leading-10 list-outside">
                 <li><h1>Stylish Reception Areas</h1></li>
                 <li><h1>300 Roomy Workstations on Every Floor</h1></li>
@@ -151,11 +151,11 @@ export default function PropertyDetails() {
         </div>
         <div className=" mt-14 lg:mt-24 mx-4 lg:mx-16">
           <Typography variant="h5" className=" font-bold text-gray-600">Purchase Details</Typography>
-          <Typography><span className="text-green font-bold">Note: </span>Purchase Price Calculated with per sqft rate of 8,675</Typography>
+          <Typography><span className="text-blue font-bold">Note: </span>Purchase Price Calculated with per sqft rate of 8,675</Typography>
           <div className="mx-auto mt-8">
             <div className="relative overflow-x-auto">
               <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
-                <thead className="text-xs text-white uppercase bg-green">
+                <thead className="text-xs text-white uppercase bg-blue">
                   <tr>
                     <th scope="col" className="px-6 py-3">
                       Particulars
@@ -230,7 +230,7 @@ export default function PropertyDetails() {
           <div className="mx-auto mt-8">
             <div className="relative overflow-x-auto">
               <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
-                <thead className="text-xs text-white uppercase bg-green">
+                <thead className="text-xs text-white uppercase bg-blue">
                   <tr>
                     <th scope="col" className="px-6 py-3">
                       Particulars
@@ -296,7 +296,7 @@ export default function PropertyDetails() {
           <div className="mx-auto mt-8">
             <div className="relative overflow-x-auto">
               <table className="w-full text-sm text-left rtl:text-right text-gray-500 border-2 ">
-                <thead className="text-xs text-white uppercase bg-green">
+                <thead className="text-xs text-white uppercase bg-blue">
                   <th className="px-6 py-3 border-x-2"></th>
                   <th className="px-6 py-3 border-x-2"></th>
                   <th className="px-6 py-3 border-x-2">YEAR 0</th>

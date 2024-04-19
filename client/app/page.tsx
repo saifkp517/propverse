@@ -49,14 +49,14 @@ export default function Home() {
         </div>
       </section>
       <section className="my-10 ">
-        <div className="mx-8 md:mx-16 lg:mx-32 p-4 lg:p-16 text-center rounded-lg text-white bg-green">
+        <div className="mx-8 md:mx-16 lg:mx-32 p-4 lg:p-16 text-center rounded-lg text-white bg-blue">
           <Typography variant="h4" className="mb-2 text-center font-serif font-semibold tracking-normal">Diversified Investment Opportunities</Typography>
           <Typography className="">Explore a diverse range of fractional ownership opportunities in premium real estate</Typography>
           <br />
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div className="bg-white text-black rounded-xl p-4">
               <Typography variant="h5" className="font-semibold tracking-tighter text-left">Diversified Investment Opportunities</Typography>
-              <hr className="border-green border-2 my-2 rounded-xl w-36" />
+              <hr className="border-blue border-2 my-2 rounded-xl w-36" />
               <p className="text-sm text-left">Explore a diverse range of fractional ownership opportunities in premium real estate</p>
               <div className="grid place-items-end">
                 <Image alt="cubes" width={100} height={100} src='/cubes.png' />
@@ -64,7 +64,7 @@ export default function Home() {
             </div>
             <div className="bg-white text-black rounded-xl p-4">
               <Typography variant="h5" className="font-semibold tracking-tighter text-left">Risk Mitigation and Affordability</Typography>
-              <hr className="border-green border-2 my-2 rounded-xl w-36" />
+              <hr className="border-blue border-2 my-2 rounded-xl w-36" />
               <p className="text-sm text-left">Experience the benefits of real estate investment without the burden of full ownership</p>
               <div className="grid place-items-end">
                 <Image alt="cubes" width={100} height={100} src='/cubes.png' />
@@ -72,7 +72,7 @@ export default function Home() {
             </div>
             <div className="bg-white text-black rounded-xl p-4">
               <Typography variant="h5" className="font-semibold tracking-tighter text-left">Expertly Vetted Properties</Typography>
-              <hr className="border-green border-2 my-2 rounded-xl w-36" />
+              <hr className="border-blue border-2 my-2 rounded-xl w-36" />
               <p className="text-sm text-left">Invest with confidence in meticulously vetted and high-potential properties</p>
               <div className="grid place-items-end">
                 <Image alt="cubes" width={100} height={100} src='/cubes.png' />
@@ -80,7 +80,7 @@ export default function Home() {
             </div>
             <div className="bg-white text-black rounded-xl p-4">
               <Typography variant="h5" className="font-semibold tracking-tighter text-left">User-Friendly Platform</Typography>
-              <hr className="border-green border-2 my-2 rounded-xl w-36" />
+              <hr className="border-blue border-2 my-2 rounded-xl w-36" />
               <p className="text-sm text-left">Navigate seamlessly through our intuitive platform designed for your convenience</p>
               <div className="grid place-items-end">
                 <Image alt="cubes" width={100} height={100} src='/cubes.png' />
@@ -88,7 +88,7 @@ export default function Home() {
             </div>
             <div className="bg-white text-black rounded-xl p-4">
               <Typography variant="h5" className="font-semibold tracking-tighter text-left">Responsive Customer Support</Typography>
-              <hr className="border-green border-2 my-2 rounded-xl w-36" />
+              <hr className="border-blue border-2 my-2 rounded-xl w-36" />
               <p className="text-sm text-left">Enjoy responsive customer support for a hassle-free investing experience.</p>
               <div className="grid place-items-end">
                 <Image alt="cubes" width={100} height={100} src='/cubes.png' />
@@ -102,7 +102,7 @@ export default function Home() {
         <RecentlyAdded />
       </section>
       <section className="my-2 mb-28 mx-8 md:mx-16 lg:mx-32">
-        <div className="bg-green text-white p-8 md:p-12 lg:p-16 rounded-3xl m-0 md:m-8 lg:m-20">
+        <div className="bg-blue text-white p-8 md:p-12 lg:p-16 rounded-3xl m-0 md:m-8 lg:m-20">
           <Typography variant="h3" className="font-bold mb-10 ">Why Choose Us?</Typography>
           <p className=" max-w-sm leading-8">
             <b>Explore a diverse range of carefully selected real estate investments at our fractional ownership brokerage.</b>
@@ -110,7 +110,7 @@ export default function Home() {
             Whether it's residential, commercial, or vacation
             properties, we tailor our offerings to meet your specific financial goals for a customized investment experience.
           </p>
-          <button type="button" className="focus:outline-none text-green hover:text-green bg-white   font-bold rounded-xl text-sm my-8 px-8 py-3 ">CONTACT US</button>
+          <button type="button" className="focus:outline-none text-blue hover:text-blue bg-white   font-bold rounded-xl text-sm my-8 px-8 py-3 ">CONTACT US</button>
         </div>
       </section>
 

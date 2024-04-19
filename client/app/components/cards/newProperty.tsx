@@ -8,7 +8,7 @@ export default function newProperty({ name, image, location, funded, invamt, irr
 
     return (
         <div className="mb-24 mx-auto">
-            <div className="static mt-10 w-80 bg-card border shadow-xl border-green rounded-lg  ">
+            <div className="static mt-10 w-80 bg-card border shadow-xl border-blue rounded-lg  ">
                 <div className="flex flex-col items-center">
                     <div className=" w-11/12 m-4 h-48  relative">
                         <Image fill unoptimized className="object-fill rounded-lg" src={`/${image}`} alt="" />
@@ -22,7 +22,7 @@ export default function newProperty({ name, image, location, funded, invamt, irr
 
                         <div className="w-5/6 mx-auto">
                             <div className="bg-gray-300  h-1.5">
-                                <div className="bg-green h-1.5 rounded-r-3xl" style={{ width: `${funded}%` }}></div>
+                                <div className="bg-blue h-1.5 rounded-r-3xl" style={{ width: `${funded}%` }}></div>
                             </div>
                             <div className="mt-2 flex items-center justify-between text-xs">
                                 <div className="text-gray-600">Funded {funded}%</div>
@@ -38,8 +38,8 @@ export default function newProperty({ name, image, location, funded, invamt, irr
                             </div>
                             <div className="text-center mt-2">
                                 <div className="flex space-x-1">
-                                    <div className="bg-green h-2 w-4"></div>
-                                    <div className="bg-green h-2 w-4"></div>
+                                    <div className="bg-blue h-2 w-4"></div>
+                                    <div className="bg-blue h-2 w-4"></div>
                                     <div className=" bg-red-300 h-2 w-4"></div>
                                     <div className="bg-red-500 h-2 w-4"></div>
                                     <div className="bg-red-700 h-2 w-4"></div>
@@ -58,7 +58,7 @@ export default function newProperty({ name, image, location, funded, invamt, irr
                             </div>
                         </div>
                         <a href={`/commercial_properties/${href}`}>
-                            <button className='relative mx-16 mb-4 py-2 px-4 rounded-lg bg-green text-white font-robot tracking-tight'>
+                            <button className='relative mx-16 mb-4 py-2 px-4 rounded-lg bg-blue text-white font-robot tracking-tight'>
 
                                 View Opportunity?
 

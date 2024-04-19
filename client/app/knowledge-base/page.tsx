@@ -12,10 +12,10 @@ export default function KnowledgeBase() {
       <MyNav />
       <div className="grid grid-cols-2 max-w-2xl my-16 mx-auto">
         <Link className="mx-auto" href={'/knowledge-base'}>
-        <button type="button" className="focus:outline-none text-white  bg-green  hover:ring-green font-medium rounded-xl text-md lg:text-3xl px-16 lg:px-24 py-4 mb-2">Blogs</button>
+        <button type="button" className="focus:outline-none text-white  bg-blue  hover:ring-blue font-medium rounded-xl text-md lg:text-3xl px-16 lg:px-24 py-4 mb-2">Blogs</button>
         </Link>
         <Link className="mx-auto" href={'/credit-risk-analysis'}>
-        <button type="button" className="focus:outline-none text-green bg-transparent ring-1 ring-green font-medium rounded-xl text-md lg:text-3xl px-5 py-4 mb-2">Credit Risk Analysis</button>
+        <button type="button" className="focus:outline-none text-blue bg-transparent ring-1 ring-blue font-medium rounded-xl text-md lg:text-3xl px-5 py-4 mb-2">Credit Risk Analysis</button>
         </Link>
       </div>  
       <form className="flex items-center max-w-3xl mx-auto">

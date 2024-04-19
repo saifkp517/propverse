@@ -12,7 +12,7 @@ const config: Config = {
       transparent: 'transparent',
       card: '#F3F3F3',
       current: 'currentColor',
-      green: "#50C878",
+      blue: "#50C878",
       blue: '#0A66C2',
       red: colors.red,
       white: colors.white,

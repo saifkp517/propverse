@@ -39,23 +39,23 @@ export default function Login() {
 
                     <form className="max-w-sm mx-auto">
                         <div className="mb-1">
-                            <input type="email" id="email" className="bg-gray-50 border-2 border-green text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full px-2.5 py-4" placeholder="Email" required />
+                            <input type="email" id="email" className="bg-gray-50 border-2 border-blue text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full px-2.5 py-4" placeholder="Email" required />
                         </div>
                         <div className="mb-5">
-                            <input type="password" id="password" className="bg-gray-50 border-2 border-green text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full px-2.5 py-4" placeholder="Password" required />
+                            <input type="password" id="password" className="bg-gray-50 border-2 border-blue text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full px-2.5 py-4" placeholder="Password" required />
                         </div>
                         <div className="flex items-start mb-5">
                             <div className="flex items-center h-5">
-                                <input id="remember" type="checkbox" value="" className="w-4 h-4 border border-green  focus:ring-3" required />
+                                <input id="remember" type="checkbox" value="" className="w-4 h-4 border border-blue  focus:ring-3" required />
                             </div>
                             <label className="ms-2 text-sm font-medium ">Remember me</label>
                         </div>
-                        <button type="submit" className="bg-green border-green text-white font-bold text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full px-2.5 py-4">Submit</button>
+                        <button type="submit" className="bg-blue border-blue text-white font-bold text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full px-2.5 py-4">Submit</button>
                     </form>
 
                 </div>
             </div>
-            <div className="bg-green">
+            <div className="bg-blue">
                 <div className="h-screen flex items-center justify-center">
                     <Image height={600} width={600} className="object-contain" unoptimized={true} alt="login-desktop" src="/login.png" />
                 </div>
