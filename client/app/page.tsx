@@ -17,9 +17,9 @@ export default function Home() {
       <section>
         <div className="grid grid-cols-1 lg:grid-cols-2">
           <div className="mx-4 lg:mx-auto py-0 lg:py-20 px-2 lg:px-44">
-            <Typography variant="h1" className="text-green text-4xl md:text-6xl lg:text-8xl font-bold font-sans">Property<br />Verse</Typography>
+            <Typography variant="h1" className="text-blue text-4xl md:text-6xl lg:text-8xl font-bold font-sans">Property<br />Verse</Typography>
             <Typography className="mt-4 ml-2 mb-10 text-lg tracking-tighter">Welcome to a redefinition of property management. Discover seamless solutions for property owners and tenants alike.</Typography>
-            <button type="button" className="focus:outline-none text-white hover:text-green bg-green hover:bg-transparent hover:ring-1 hover:ring-green font-medium rounded-xl text-sm px-5 py-2.5 ">Explore Properties</button>
+            <button type="button" className="focus:outline-none text-white hover:text-blue bg-blue hover:bg-transparent hover:ring-1 hover:ring-blue font-medium rounded-xl text-sm px-5 py-2.5 ">Explore Properties</button>
           </div>
           <div className="mx-auto flex items-center justify-center">
             <Image
@@ -98,11 +98,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="mt-36 max-w-screen-xl">
-
-      </section>
-
-      
       <section>
         <RecentlyAdded />
       </section>

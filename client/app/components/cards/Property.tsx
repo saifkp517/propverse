@@ -39,7 +39,7 @@ export default function Property({ name, image, location, area, price, yeild, re
                             <div className="flex justify-between m-3">
                                 <Image src={"/returntarget.png"} className="object-contain" alt="dollar" width={30} height={30} />
                                 <Typography className="text-left text-gray-700 text-sm font-bold px-2 mt-1">Return Target</Typography>
-                                <Typography className="text-blue font-bold mt-1">{returntarget}</Typography>
+                                <Typography className="text-blue font-bold mt-1 break-all">{returntarget}</Typography>
                             </div>
                         </div>
 

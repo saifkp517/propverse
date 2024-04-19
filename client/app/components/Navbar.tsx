@@ -5,17 +5,17 @@ export default function MyNav({ fixed }: any) {
     const [navbarOpen, setNavbarOpen] = React.useState(false);
     return (
         <>
-            <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-emerald-500 mb-3">
+            <nav className="flex flex-wrap items-center justify-between px-2 py-3 bg-emerald-500 mb-3 sticky top-0 bg-blue text-white z-20">
                 <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
                     <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                         <a
-                            className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-green"
+                            className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase "
                             href="#pablo"
                         >
                             PropertyVerse
                         </a>
                         <button
-                            className="text-green  cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded block lg:hidden outline-none focus:outline-none"
+                            className="  cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded block lg:hidden outline-none focus:outline-none"
                             type="button"
                             onClick={() => setNavbarOpen(!navbarOpen)}
                         >
@@ -34,26 +34,26 @@ export default function MyNav({ fixed }: any) {
                         <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
                             <li className="nav-item">
                                 <a
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-green hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug  hover:opacity-75"
                                     href="/"
                                 >
-                                    <i className="fab fa-facebook-square text-lg leading-lg text-green opacity-75"></i><span className="ml-2">Home</span>
+                                    <i className="fab fa-facebook-square text-lg leading-lg  opacity-75"></i><span className="ml-2">Home</span>
                                 </a>
                             </li>
                             <li className="nav-item">
                                 <a
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-green hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug  hover:opacity-75"
                                     href="/properties"
                                 >
-                                    <i className="fab fa-twitter text-lg leading-lg text-green opacity-75"></i><span className="ml-2">Properties</span>
+                                    <i className="fab fa-twitter text-lg leading-lg  opacity-75"></i><span className="ml-2">Properties</span>
                                 </a>
                             </li>
                             <li className="nav-item">
                                 <a
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-green hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug  hover:opacity-75"
                                     href="/knowledge-base"
                                 >
-                                    <i className="fab fa-pinterest text-lg leading-lg text-green opacity-75"></i><span className="ml-2">Knowledge Base</span>
+                                    <i className="fab fa-pinterest text-lg leading-lg  opacity-75"></i><span className="ml-2">Knowledge Base</span>
                                 </a>
                             </li>
                         </ul>

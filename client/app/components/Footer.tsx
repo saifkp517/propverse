@@ -4,19 +4,19 @@ import Image from "next/image";
 export default function Footer() {
     return (
         <div>
-            <footer className="bg-white ">
+            <footer className="bg-blue text-white">
                 <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                     <div className="md:flex md:justify-between">
 
-                        <div className="grid grid-cols-3 gap-4 lg:gap-16 sm:gap-6 sm:grid-cols-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-16 sm:gap-6 sm:grid-cols-4">
                             <div>
                                 <a href="#" className="items-center">
-                                    <Typography className="mr-4 cursor-pointer py-1.5 font-medium text-green">PropertyVerse</Typography>
+                                    <Typography variant="h5" className="mr-4 cursor-pointer py-1.5 font-extrabold">PropertyVerse</Typography>
                                     <p className="mt-4 text-xs lg:text-sm mr-24 lg:mr-16 leading-tight lg:leading-loose font-light lg:font-medium">Welcome to a redefinition of property management. Discover seamless solutions for property owners and tenants alike.</p>
                                 </a>
                             </div>
                             <div>
-                                <Typography variant="h6" className="mb-6 font-semibold tracking-tighter text-gray-900">Useful Links</Typography>
+                                <Typography variant="h6" className="mb-6 font-semibold tracking-tighter ">Useful Links</Typography>
                                 <ul className="text-gray-500 dark:text-gray-400 font-medium">
                                     <li className="mb-6 font-normal">
                                         <a href="#" className="hover:underline">About Us</a>

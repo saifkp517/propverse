@@ -8,7 +8,7 @@ export default function newProperty({ name, image, location, funded, invamt, irr
 
     return (
         <div className="mb-24 mx-auto">
-            <div className="static mt-10 w-80 bg-card border shadow-xl border-green rounded-lg">
+            <div className="static mt-10 w-80 bg-card border shadow-xl border-green rounded-lg  ">
                 <div className="flex flex-col items-center">
                     <div className=" w-11/12 m-4 h-48  relative">
                         <Image fill unoptimized className="object-fill rounded-lg" src={`/${image}`} alt="" />
@@ -57,13 +57,17 @@ export default function newProperty({ name, image, location, funded, invamt, irr
                                 <sub className="text-xs">Risk Factor</sub>
                             </div>
                         </div>
-                        <button className='relative mx-16 mb-4 py-2 rounded-lg bg-green text-white font-robot tracking-tight'>
-                            View Opportunity?
+                        <a href={`/commercial_properties/${href}`}>
+                            <button className='relative mx-16 mb-4 py-2 px-4 rounded-lg bg-green text-white font-robot tracking-tight'>
 
-                            <span className="absolute top-0 right-0 inline-flex rounded-full h-2 w-2 bg-white">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                            </span>
-                        </button>
+                                View Opportunity?
+
+                                <span className="absolute top-0 right-0 inline-flex rounded-full h-2 w-2 bg-white">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                                </span>
+                            </button>
+                        </a>
+
                     </div>
                 </div>
             </div>
