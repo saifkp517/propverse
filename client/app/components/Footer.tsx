@@ -41,8 +41,8 @@ export default function Footer() {
                             </div>
                             <div>
                                 <Typography variant="h6" className="mb-6 font-semibold tracking-tighter">Contact Us</Typography>
-                                <p className="text-sm leading-loose font-light"><span className="font-bold">Phone:</span> +91 74569 70870</p>
-                                <p className="text-sm leading-loose font-light"><span className="font-bold">Email:</span> ayushbhasin@propertyverse.co.in</p>
+                                <p className="text-sm leading-loose font-light"><span className="font-bold">Phone:</span> +91 098370 54542, 094572 31937</p>
+                                <p className="text-sm leading-loose font-light"><span className="font-bold">Email:</span> support@propertyverse.co.in</p>
                             </div>
                         </div>
                     </div>
