@@ -35,7 +35,7 @@ export default function Home() {
       </section>
       <br />
       <section className="my-10 ">
-        <h1 className="text-5xl font-bold font-roboto tracking-tighter text-center">Our Clients</h1>
+        <h1 className="text-5xl font-bold font-roboto tracking-tighter text-center">Our Partners</h1>
         <div className="max-w-screen-md mx-auto my-24 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           <div className="mx-auto my-auto">
             <Image alt="logo" className="mx-auto" height={150} width={150} src="https://aurumwisex.com/images/WiseX/WiseX-Log.png" />
