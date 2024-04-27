@@ -38,8 +38,8 @@ export default function newProperty({ name, image, location, funded, invamt, irr
                             </div>
                             <div className="text-center mt-2">
                                 <div className="flex space-x-1">
-                                    <div className="bg-blue h-2 w-4"></div>
-                                    <div className="bg-blue h-2 w-4"></div>
+                                    <div className="bg-green-500 h-2 w-4"></div>
+                                    <div className="bg-green-300 h-2 w-4"></div>
                                     <div className=" bg-red-300 h-2 w-4"></div>
                                     <div className="bg-red-500 h-2 w-4"></div>
                                     <div className="bg-red-700 h-2 w-4"></div>
