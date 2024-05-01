@@ -18,7 +18,7 @@ import 'swiper/css/scrollbar';
 export default function RecentlyAdded() {
 
     const size = useWindowSize();
-    const [NoCards, setNoCards] = useState(2);
+    const [NoCards, setNoCards] = useState(3);
     
 
     useEffect(() => {
@@ -28,7 +28,7 @@ export default function RecentlyAdded() {
         }
         else
         {
-            setNoCards(2)
+            setNoCards(3)
         }
     })
 
@@ -50,12 +50,28 @@ export default function RecentlyAdded() {
             invamt: "25",
             irr: "15.1"
         },
+        {
+            name: "NASDAQ & NYSE Listed MNC's",
+            image: "nysemnc.png",
+            location: "Magarpatta, Pune",
+            funded: 5,
+            invamt: "25",
+            irr: "15.15"
+        },
+        {
+            name: "Jaipur Logstics Park",
+            image: "jaipurlogisticspark.png",
+            location: "Magarpatta, Pune",
+            funded: 5,
+            invamt: "25",
+            irr: "15.15"
+        },
 
     ]
 
     return (
         <div>
-            <section className="mt-36 px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto">
+            <section className="mt-24 px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto">
                 <div className="flex justify-between">
                     <h1 className="text-2xl lg:text-4xl font-roboto text-gray-600 tracking-tighter font-bold my-auto">Recently Added</h1>
 
@@ -64,7 +80,7 @@ export default function RecentlyAdded() {
                     </Link>
                 </div>
             </section>
-            <div className="mx-auto max-w-80 lg:max-w-screen-md">
+            <div className="mx-auto max-w-80 lg:max-w-screen-lg">
                 <Swiper
                     className=''
                     modules={[Navigation, Pagination, Scrollbar, A11y]}

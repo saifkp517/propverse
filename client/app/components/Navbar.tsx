@@ -53,7 +53,7 @@ export default function MyNav({ fixed }: any) {
                                     className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug  hover:opacity-75"
                                     href="/properties"
                                 >
-                                    <i className="fab fa-twitter text-lg leading-lg  opacity-75"></i><span className="ml-2">Properties</span>
+                                    <i className="fab fa-twitter text-lg leading-lg opacity-75"></i><span className="ml-2">Properties</span>
                                 </a>
                             </li>
                             <li className="nav-item">

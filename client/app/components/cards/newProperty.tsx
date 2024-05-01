@@ -7,14 +7,14 @@ export default function newProperty({ name, image, location, funded, invamt, irr
     const href = name.split(" ").join("_").toLowerCase();
 
     return (
-        <div className="mb-24 mx-auto">
+        <div className="mb-24 mx-auto max-h-full">
             <div className="static mt-10 w-80 bg-card border shadow-xl border-blue rounded-lg  ">
                 <div className="flex flex-col items-center">
                     <div className=" w-11/12 m-4 h-48  relative">
                         <Image fill unoptimized className="object-fill rounded-lg" src={`/${image}`} alt="" />
                     </div>
                     <div className="flex flex-col justify-between px-4">
-                        <h5 className="mb-2 text-2xl font-bold font-roboto tracking-tighter text-gray-600 ">{name}</h5>
+                        <h5 className="mb-2 text-2xl font-bold font-roboto tracking-tighter text-gray-600 line-clamp-1">{name}</h5>
                         <div className="flex">
                             <LocationOnIcon className=" text-red-500" />
                             <p className="text-md mb-3  font-roboto tracking-tighter  text-gray-400 ">{location}</p>
