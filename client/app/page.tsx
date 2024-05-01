@@ -35,21 +35,33 @@ export default function Home() {
       </section>
       <br />
       <section className="my-10 ">
-        <h1 className="text-5xl font-bold font-roboto tracking-tighter text-center">Our Partners</h1>
-        <div className="max-w-screen-md mx-auto my-24 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <div className="mx-auto my-auto">
-            <Image alt="logo" className="mx-auto" height={150} width={150} src="https://aurumwisex.com/images/WiseX/WiseX-Log.png" />
+        <h1 className="text-4xl text-gray-700 font-bold font-roboto text-center">Our Partners</h1>
+        <div className="max-w-screen-xl mx-auto mt-12 mb-24 grid grid-cols-3  gap-4 md:grid-cols-4 lg:grid-cols-7">
+          <div className="mx-auto w-10 md:w-16 lg:w-24">
+            <Image alt="logo" className="mx-auto" layout="responsive" height={100} width={100} src="/logos/altdrx.jpg" />
           </div>
-          <div className="border mx-auto">
-            <Image alt="logo" className="mx-auto" height={100} width={100} src="https://images.yourstory.com/cs/images/companies/PropertyShare-1597934610611.png" />
+          <div className=" mx-auto w-10 md:w-16 lg:w-24">
+            <Image alt="logo" className="mx-auto" layout="responsive" height={100} width={100} src="/logos/alyf.jpg" />
           </div>
-          <div className="mx-auto">
-            <Image alt="logo" className="mx-auto" height={100} width={100} src="https://media.licdn.com/dms/image/C4E0BAQE6aHtSWnhajw/company-logo_200_200/0/1630498985220/hbits_official_logo?e=2147483647&v=beta&t=mXc7TRGf5H1ihrKMxbfPwFDcPGrFSXvHjDzJlBaKoNQ" />
+          <div className=" mx-auto w-10 md:w-16 lg:w-24">
+            <Image alt="logo" className="mx-auto" layout="responsive" height={100} width={100} src="/logos/assetmonk.jpg" />
+          </div>
+          <div className=" mx-auto w-10 md:w-16 lg:w-24">
+            <Image alt="logo" className="mx-auto" layout="responsive" height={100} width={100} src="/logos/brik-itt.jpg" />
+          </div>
+          <div className=" mx-auto w-10 md:w-16 lg:w-24">
+            <Image alt="logo" className="mx-auto" layout="responsive" height={100} width={100} src="/logos/hbits.jpg" />
+          </div>
+          <div className=" mx-auto w-10 md:w-16 lg:w-24">
+            <Image alt="logo" className="mx-auto" layout="responsive" height={100} width={100} src="/logos/propertyshare.jpg" />
+          </div>
+          <div className=" mx-auto w-10 md:w-16 lg:w-24">
+            <Image alt="logo" className="mx-auto" layout="responsive" height={100} width={100} src="/logos/strata.jpg" />
           </div>
         </div>
       </section>
       <section className="my-10 ">
-        <div className="mx-8 md:mx-16 lg:mx-32 p-4 lg:p-16 text-center rounded-lg text-white bg-blue">
+        <div className="mx-8 md:mx-16 lg:mx-32 p-4 lg:p-8 text-center rounded-lg text-white bg-blue">
           <Typography variant="h4" className="mb-2 text-center font-serif font-semibold tracking-normal">Diversified Investment Opportunities</Typography>
           <Typography className="">Explore a diverse range of fractional ownership opportunities in premium real estate</Typography>
           <br />

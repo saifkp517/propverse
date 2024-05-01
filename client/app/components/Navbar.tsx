@@ -15,7 +15,7 @@ export default function MyNav({ fixed }: any) {
                         >
                             <div className="flex">
                                 <div className="w-16">
-                                    <Image src="/logo.png" alt="logo" width={1000} height={1000} className="object-contain mb-2" />
+                                    <Image src="/logos/logo.png" alt="logo" width={1000} height={1000} className="object-contain mb-2" />
                                 </div>
                                 <div className="my-auto ml-4 text-lg bg-gradient-to-r from-blue to-green-600 inline-block text-transparent bg-clip-text">
                                     PropertyVerse
