@@ -15,8 +15,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-
-
 export default function RecentlyAdded() {
 
     const size = useWindowSize();
@@ -57,10 +55,9 @@ export default function RecentlyAdded() {
 
     return (
         <div>
-            <section className="mt-36 px-24 max-w-screen-xl mx-auto">
-
+            <section className="mt-36 px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto">
                 <div className="flex justify-between">
-                    <h1 className="text-4xl font-roboto text-gray-800 tracking-tighter font-bold my-auto">Recently Added</h1>
+                    <h1 className="text-2xl lg:text-4xl font-roboto text-gray-600 tracking-tighter font-bold my-auto">Recently Added</h1>
 
                     <Link className="my-auto" href={'/properties'}>
                         <h1 className="text-blue font-bold no-underline hover:underline">See All</h1>

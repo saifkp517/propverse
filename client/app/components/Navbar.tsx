@@ -1,18 +1,26 @@
 "use client"
 import React from "react";
+import Image from 'next/image'
 
 export default function MyNav({ fixed }: any) {
     const [navbarOpen, setNavbarOpen] = React.useState(false);
     return (
         <>
-            <nav className="flex flex-wrap items-center justify-between px-2 py-3 bg-emerald-500 mb-3 sticky top-0 bg-blue text-white z-20">
+            <nav className="flex flex-wrap items-center justify-between px-2 py-3 bg-emerald-500 mb-3 sticky top-0 bg-white border-b border-gray-300 text-blue z-20">
                 <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
-                    <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+                    <div className="w-full relative flex lg:w-auto lg:static lg:block lg:justify-start">
                         <a
-                            className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase "
-                            href="#pablo"
+                            className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap"
+                            href="/"
                         >
-                            PropertyVerse
+                            <div className="flex">
+                                <div className="w-16">
+                                    <Image src="/logo.png" alt="logo" width={1000} height={1000} className="object-contain mb-2" />
+                                </div>
+                                <div className="my-auto ml-4 text-lg bg-gradient-to-r from-blue to-green-600 inline-block text-transparent bg-clip-text">
+                                    PropertyVerse
+                                </div>
+                            </div>
                         </a>
                         <button
                             className="  cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded block lg:hidden outline-none focus:outline-none"
@@ -31,10 +39,10 @@ export default function MyNav({ fixed }: any) {
                         }
                         id="example-navbar-danger"
                     >
-                        <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
+                        <ul className="flex flex-col lg:flex-row list-none lg:ml-auto uppercase text-lg">
                             <li className="nav-item">
                                 <a
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug  hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug  hover:opacity-75"
                                     href="/"
                                 >
                                     <i className="fab fa-facebook-square text-lg leading-lg  opacity-75"></i><span className="ml-2">Home</span>
@@ -42,7 +50,7 @@ export default function MyNav({ fixed }: any) {
                             </li>
                             <li className="nav-item">
                                 <a
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug  hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug  hover:opacity-75"
                                     href="/properties"
                                 >
                                     <i className="fab fa-twitter text-lg leading-lg  opacity-75"></i><span className="ml-2">Properties</span>
@@ -50,7 +58,7 @@ export default function MyNav({ fixed }: any) {
                             </li>
                             <li className="nav-item">
                                 <a
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug  hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug  hover:opacity-75"
                                     href="/knowledge-base"
                                 >
                                     <i className="fab fa-pinterest text-lg leading-lg  opacity-75"></i><span className="ml-2">Knowledge Base</span>
