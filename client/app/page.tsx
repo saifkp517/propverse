@@ -92,6 +92,7 @@ export default function Home() {
       },
       stagger * 3 // start when the third has animated
     );
+
   }, [])
 
   return (
@@ -108,7 +109,7 @@ export default function Home() {
           <div className="mx-auto flex items-center justify-center">
             <Image
               alt="bg"
-              src={"/home-bg.png"}
+              src={"/main.gif"}
               width="0"
               height="0"
               sizes="100vw"
@@ -125,8 +126,8 @@ export default function Home() {
           <div className="flex-grow border-t border-gray-400"></div>
         </div>
 
-        <div className="logo-container max-w-screen-lg mx-auto mt-12 mb-24 flex">
-          <div className=" mx-auto logo w-10 md:w-16 lg:w-24 ">
+        <div className="logo-container max-w-screen-md mx-auto mt-12 mb-24 flex">
+          <div className=" mx-auto w-12 md:w-16 lg:w-24">
             <Image alt="logo" className="mx-auto" layout="responsive" height={100} width={100} src="/logos/altdrx.jpg" />
           </div>
           <div className=" mx-auto w-12 md:w-16 lg:w-24">
