@@ -5,6 +5,7 @@ import React, { useRef, useEffect } from 'react';
 import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import Head from 'next/head';
 import MyNav from "./components/Navbar";
 import Footer from "./components/Footer";
 import Card from "./components/cards/newProperty";
@@ -97,6 +98,9 @@ export default function Home() {
 
   return (
     <div>
+      <Head>
+        <meta name="google-adsense-account" content="ca-pub-8927606268275562" />
+      </Head>
       <MyNav />
       <section>
 
