@@ -5,6 +5,7 @@ import React, { useRef, useEffect } from 'react';
 import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import Head from 'next/head';
 import MyNav from "./components/Navbar";
 import Footer from "./components/Footer";
 import Card from "./components/cards/newProperty";
@@ -96,7 +97,15 @@ export default function Home() {
   }, [])
 
   return (
+<<<<<<< HEAD
     <div className="">
+=======
+    <div>
+      <Head>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8927606268275562"
+     crossorigin="anonymous"></script>
+      </Head>
+>>>>>>> bdc6f09812ec2a7f57df8a1cd322ca1e275629be
       <MyNav />
       <section>
 
