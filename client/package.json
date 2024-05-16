@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ctrl/react-adsense": "^1.7.0",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
