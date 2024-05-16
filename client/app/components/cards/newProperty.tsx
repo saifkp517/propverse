@@ -8,28 +8,28 @@ export default function newProperty({ name, image, location, funded, invamt, irr
 
     return (
         <div className="mb-24 mx-auto max-h-full">
-            <div className="static mt-10 w-80 bg-card border shadow-xl border-blue rounded-lg  ">
+            <div className="static mt-10 w-80 bg-card border shadow-xl border-blueTheme rounded-lg  ">
                 <div className="flex flex-col items-center">
                     <div className=" w-11/12 m-4 h-48  relative">
                         <Image fill unoptimized className="object-fill rounded-lg" src={`/${image}`} alt="" />
                     </div>
                     <div className="flex flex-col justify-between px-4">
-                        <h5 className="mb-2 text-2xl font-bold font-roboto tracking-tighter text-gray-600 line-clamp-1">{name}</h5>
+                        <h5 className="mb-2 text-2xl font-bold    tracking-tighter text-gray-600 line-clamp-1">{name}</h5>
                         <div className="flex">
                             <LocationOnIcon className=" text-red-500" />
-                            <p className="text-md mb-3  font-roboto tracking-tighter  text-gray-400 ">{location}</p>
+                            <p className="text-md mb-3     tracking-tighter  text-gray-400 ">{location}</p>
                         </div>
 
                         <div className="w-5/6 mx-auto">
                             <div className="bg-gray-300  h-1.5">
-                                <div className="bg-blue h-1.5 rounded-r-3xl" style={{ width: `${funded}%` }}></div>
+                                <div className="bg-blueTheme h-1.5 rounded-r-3xl" style={{ width: `${funded}%` }}></div>
                             </div>
                             <div className="mt-2 flex items-center justify-between text-xs">
                                 <div className="text-gray-600">Funded {funded}%</div>
                                 <div className="text-gray-600">100%</div>
                             </div>
                         </div>
-                        <div className="grid mt-4 grid-cols-3 gap-5 text font-bold font-roboto tracking-tighter leading-tight">
+                        <div className="grid mt-4 grid-cols-3 gap-5 text font-bold    tracking-tighter leading-tight">
                             <div className="text-center ">
                                 <h1 className="font-bold text-lg text-gray-600">{invamt} Lakhs</h1>
                             </div>
@@ -58,7 +58,7 @@ export default function newProperty({ name, image, location, funded, invamt, irr
                             </div>
                         </div>
                         <a href={`/commercial_properties/${href}`}>
-                            <button className='relative mx-16 mb-4 py-2 px-4 rounded-lg bg-blue text-white font-robot tracking-tight'>
+                            <button className='relative mx-16 mb-4 py-2 px-4 rounded-lg bg-blueTheme text-white font-robot tracking-tight'>
 
                                 View Opportunity?
 

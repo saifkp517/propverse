@@ -73,10 +73,10 @@ export default function RecentlyAdded() {
         <div>
             <section className="mt-24 px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto">
                 <div className="flex justify-between">
-                    <h1 className="text-2xl lg:text-4xl font-roboto text-gray-600 tracking-tighter font-bold my-auto">Recently Added</h1>
+                    <h1 className="text-2xl lg:text-4xl  o text-gray-600 tracking-tighter font-bold my-auto">Recently Added</h1>
 
                     <Link className="my-auto" href={'/properties'}>
-                        <h1 className="text-blue font-bold no-underline hover:underline">See All</h1>
+                        <h1 className="text-blueTheme font-bold no-underline hover:underline">See All</h1>
                     </Link>
                 </div>
             </section>

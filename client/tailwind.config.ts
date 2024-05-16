@@ -12,7 +12,8 @@ const config: Config = {
       transparent: 'transparent',
       card: '#F3F3F3',
       current: 'currentColor',
-      blue: '#0A66C2',
+      blueTheme: '#0A66C2',
+      blue: colors.blue,
       green: colors.green,
       red: colors.red,
       white: colors.white,
@@ -30,6 +31,7 @@ const config: Config = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+  ],
 };
 export default config;

@@ -28,7 +28,7 @@ export default function PropertyDetails() {
     <div className="">
       <MyNav />
       <div className="max-w-screen-xl my-24 mx-auto">
-        <Typography variant="h4" className="text-center my-8 font-extrabold tracking-tight text-blue">Sky One Opportunity</Typography>
+        <Typography variant="h4" className="text-center my-8 font-extrabold tracking-tight text-blueTheme">Sky One Opportunity</Typography>
         <div className=" max-w-screen-sm lg:max-w-screen-xl mx-auto">
           <Image
             src={"/skyoneopportunity.png"}
@@ -41,39 +41,39 @@ export default function PropertyDetails() {
       </div>
 
       <div className="max-w-screen-xl my-24 mx-auto">
-        <Typography variant="h3" className="text-center text-2xl lg:text-5xl font-extrabold tracking-tighter text-blue">INVESTMENT DETAILS</Typography>
+        <Typography variant="h3" className="text-center text-2xl lg:text-5xl font-extrabold tracking-tighter text-blueTheme">INVESTMENT DETAILS</Typography>
         <div className="grid grid-cols-4 gap-y-8 mt-16 max-w-screen-lg mx-auto">
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Building Name</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-blue">Sky One Opportunity</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-blueTheme">Sky One Opportunity</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Asset Type</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-blue">Grade A</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-blueTheme">Grade A</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Investment Floor</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-blue">13th Floor</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-blueTheme">13th Floor</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Lease Lock-in</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-blue">December 2028</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-blueTheme">December 2028</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Gross Entry Yield</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-blue">9.6%</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-blueTheme">9.6%</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Target IRR</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-blue">15.1</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-blueTheme">15.1</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Sq.Ft</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-blue">58,661</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-blueTheme">58,661</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Minimum Investment </h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-blue">25 Lacs</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-blueTheme">25 Lacs</p>
           </div>
 
         </div>
@@ -82,13 +82,13 @@ export default function PropertyDetails() {
           <div className="">
             <Typography variant="h5" className=" font-bold text-gray-600">Location and Tenant</Typography>
             <h1 className="text-gray-700">Strategic Location</h1>
-            <h1 className="text-blue font-bold">Viman Nagar, <br /> Pune[Airport Road]</h1>
+            <h1 className="text-blueTheme font-bold">Viman Nagar, <br /> Pune[Airport Road]</h1>
             <hr className="w-1/3 my-4 " />
             <h1 className="text-gray-700">Fortune 600 Marquee Tenant</h1>
-            <h1 className="text-blue font-bold">Vertiv Energy</h1>
+            <h1 className="text-blueTheme font-bold">Vertiv Energy</h1>
           </div>
           <div className="text-sm tracking-tighter text-gray-600 mx-2 lg:mx-8">
-            <   Typography variant="h5" className=" font-bold text-blue underline">Overview</Typography>
+            <   Typography variant="h5" className=" font-bold text-blueTheme underline">Overview</Typography>
             <br />
             <p>
               A rare opportunity to invest
@@ -103,7 +103,7 @@ export default function PropertyDetails() {
             </p>
             <br />
             <p>
-              The tower houses numerous Blue Chip
+              The tower houses numerous blueTheme Chip
               tenants. Our tenant, Vertiv Energy, has
               strategically expanded their footprint in the
               building, currently occupying in excess of
@@ -121,10 +121,10 @@ export default function PropertyDetails() {
               <Image width={2000} height={2000} className="object-contain w-fit h-96" src={'/floorplansky.png'} alt="FloorPlan" />
             </div>
             <div className="col-span-1 mt-12 lg:mt-0 mx-8 lg:mx-0">
-              <Typography variant="h5" className=" font-bold text-blue ">Features</Typography>
+              <Typography variant="h5" className=" font-bold text-blueTheme ">Features</Typography>
               <ul className=" list-disc leading-1 lg:leading-10 list-outside">
-                <li><h1><span className="text-blue font-bold">High Floor Plate Efficiency: </span> Efficient design achieving 50%+ floor plate efficiency</h1></li>
-                <li><h1>Designed with highest national & international Bylaws making it one of the <span className="text-blue font-bold">Best EHS [Environment, Health and Safety] compliant project of Pune</span></h1></li>
+                <li><h1><span className="text-blueTheme font-bold">High Floor Plate Efficiency: </span> Efficient design achieving 50%+ floor plate efficiency</h1></li>
+                <li><h1>Designed with highest national & international Bylaws making it one of the <span className="text-blueTheme font-bold">Best EHS [Environment, Health and Safety] compliant project of Pune</span></h1></li>
               </ul>
             </div>
           </div>
@@ -152,11 +152,11 @@ export default function PropertyDetails() {
         </div>
         <div className=" mt-14 lg:mt-24 mx-4 lg:mx-16">
           <Typography variant="h5" className=" font-bold text-gray-600">Purchase Details</Typography>
-          <Typography><span className="text-blue font-bold">Note: </span>Purchase Price Calculated with per sqft rate of 8,675</Typography>
+          <Typography><span className="text-blueTheme font-bold">Note: </span>Purchase Price Calculated with per sqft rate of 8,675</Typography>
           <div className="mx-auto mt-8">
             <div className="relative overflow-x-auto">
               <table className=" border border-black w-full text-sm text-left rtl:text-right text-gray-500 ">
-                <thead className="text-xs text-white uppercase bg-blue">
+                <thead className="text-xs text-white uppercase bg-blueTheme">
                   <tr>
                     <th scope="col" className="px-6 py-3">
                       Particulars
@@ -238,7 +238,7 @@ export default function PropertyDetails() {
                     </td>
 
                   </tr>
-                  <tr className="bg-blue text-white">
+                  <tr className="bg-blueTheme text-white">
                     <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap ">
                       Net Purchase price
                     </th>
@@ -256,11 +256,11 @@ export default function PropertyDetails() {
         <div className=" mt-14 lg:mt-24 mx-4 lg:mx-16">
           <Typography variant="h5" className=" font-bold text-gray-600">Lease & Sale Comparables</Typography>
           <div className="mx-auto mt-8">
-            <Typography variant="h5" className="font-bold text-2xl text-blue">Lease Comparable</Typography>
-            <Typography>The lease rental range lies between <span className="text-blue font-bold">INR 90-105</span> in the market</Typography>
+            <Typography variant="h5" className="font-bold text-2xl text-blueTheme">Lease Comparable</Typography>
+            <Typography>The lease rental range lies between <span className="text-blueTheme font-bold">INR 90-105</span> in the market</Typography>
             <div className="relative overflow-x-auto mt-8">
               <table className=" border border-black w-full text-sm text-left rtl:text-right text-gray-900 ">
-                <thead className="text-white uppercase bg-blue ">
+                <thead className="text-white uppercase bg-blueTheme ">
                   <tr>
                     <th scope="col" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Building</th>
                     <th scope="col" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Tenant</th>
@@ -310,7 +310,7 @@ export default function PropertyDetails() {
                   <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">2,218</th>
                   <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">INR 104</th>
                 </tr>
-                <tr className="bg-blue text-white">
+                <tr className="bg-blueTheme text-white">
                   <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Our Rental</th>
                   <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium"></th>
                   <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">58,661</th>
@@ -318,11 +318,11 @@ export default function PropertyDetails() {
                 </tr>
               </table>
 
-              <Typography variant="h5" className="font-bold text-blue mt-8">Sale Comparable</Typography>
-              <Typography>The purchase price range between INR 13,000-15,000. Our Purchase price is at a <span className="text-blue font-bold">-13.4% discount</span> to the prevailing market rate</Typography>
+              <Typography variant="h5" className="font-bold text-blueTheme mt-8">Sale Comparable</Typography>
+              <Typography>The purchase price range between INR 13,000-15,000. Our Purchase price is at a <span className="text-blueTheme font-bold">-13.4% discount</span> to the prevailing market rate</Typography>
               <div className="relative overflow-x-auto mt-8">
                 <table className=" border border-black w-full text-sm text-left rtl:text-right text-gray-900 ">
-                  <thead className="text-white uppercase bg-blue ">
+                  <thead className="text-white uppercase bg-blueTheme ">
                     <tr>
                       <th scope="col" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Building</th>
                       <th scope="col" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Tenant</th>
@@ -354,7 +354,7 @@ export default function PropertyDetails() {
                     <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">53,210</th>
                     <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">INR 13,907</th>
                   </tr>
-                  <tr className="bg-blue text-white">
+                  <tr className="bg-blueTheme text-white">
                     <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">Our Purchase</th>
                     <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium"></th>
                     <th scope="row" className="px-3 lg:px-6 py-2 lg:py-4 text-center font-medium">58,661</th>

@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Footer() {
     return (
         <div>
-            <footer className="bg-blue text-white">
+            <footer className="bg-blueTheme text-white">
                 <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                     <div className="md:flex md:justify-between">
 
@@ -36,7 +36,7 @@ export default function Footer() {
                                 <Typography variant="h6" className="mb-6 font-semibold tracking-tighter">Subscribe</Typography>
                                 <p className="mt-4 text-xs lg:text-sm mr-16 leading-tight  lg:leading-loose font-light">Subscribe to get latest property, blog news from us</p>
                                 <div>
-                                    <input type="email" id="first_name" className="bg-gray-50 mt-4 border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Email" required />
+                                    <input type="email" id="first_name" className="bg-gray-50 mt-4 border text-sm rounded-lg focus:ring-blueTheme-500 focus:border-blueTheme-500 block w-full p-2.5" placeholder="Email" required />
                                 </div>
                             </div>
                             <div>

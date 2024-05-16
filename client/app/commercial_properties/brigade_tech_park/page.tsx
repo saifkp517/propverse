@@ -6,9 +6,38 @@ import MyNav from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { Typography } from "@mui/material";
 import Carousel from 'react-material-ui-carousel'
+import { useState } from "react";
+import Modal from 'react-modal';
 import { Paper, Button } from '@mui/material'
 
 export default function PropertyDetails() {
+
+  let subtitle: any;
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    subtitle.style.color = '#f00';
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log('Form submitted');
+    // You can add your logic for form submission here
+  };
 
   const images = [
     {
@@ -34,52 +63,94 @@ export default function PropertyDetails() {
     <div className="">
       <MyNav />
       <div className="max-w-screen-xl my-24 mx-auto">
-        <Typography variant="h4" className="text-center my-8 font-extrabold tracking-tight text-blue">Brigade Tech Park</Typography>
-        <div className=" max-w-screen-sm lg:max-w-screen-xl mx-auto">
-          <Image
-            src={"/briagadetechpark1.png"}
-            alt={"main"}
-            width={1000}
-            height={1000}
-            className="object-contain mx-auto"
-          />
+        <h1 className="text-center mb-12 text-4xl font-extrabold leading-none tracking-tight text-gray-600 md:text-5xl lg:text-6xl ">Brigade Tech Park</h1>
+        <div className="grid grid-cols-1 lg:grid-cols-3">
+          <div className="m-8 lg:m-0 col-span-2 ">
+            <Image
+              src={"/briagadetechpark1.png"}
+              alt={"main"}
+              width={1000}
+              height={1000}
+              className="object-contain mx-auto rounded-xl border-black border"
+            />
+          </div>
+          <div className="">
+            <h1 className=" font-bold text-2xl tracking-tight  o text-center text-gray-700">ENQUIRE NOW</h1>
+            <div className="h-full text-center">
+              <iframe className="mx-auto h-48 mt-6" src="https://lottie.host/embed/ceb864b7-efa4-43ab-8df9-05d32c8d3503/z0ZkrFx1D8.json"></iframe>
+              <button className="bg-blueTheme border border-gray-600 rounded-lg py-2 px-4 text-white mt-8" onClick={openModal}>Interested?</button>
+              <Modal
+                isOpen={modalIsOpen}
+                onAfterOpen={afterOpenModal}
+                onRequestClose={closeModal}
+                style={{
+                  overlay: {
+                    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                  },
+                  content: {
+                    width: '90%',
+                    zIndex: 50,
+                    height: '70%', // Increased height
+                    padding: '0',
+                    marginTop: '5%',
+                    borderRadius: '10px', // Adjust the value as needed
+                    top: '50%', // Center vertically
+                    transform: 'translateY(-50%)', // Center vertically
+                  }
+                }}
+                contentLabel="Example Modal"
+              >
+                <div>
+                  <div className="grid grid-cols-1 lg:grid-cols-3">
+                    <div className="container hidden lg:flex">
+                      <Image alt="getintouch" src="/getintouch.jpg" height={1000} width={1000} className=" h-full object-fit" />
+                    </div>
+                    <div className=" col-span-2 p-12">
+                      <h1 className="text-2xl font-bold text-gray-700">Get in Touch</h1>
+                      <p className=" o mt-2 text-gray-400">Have an inquiry to discuss about project? Fill out the form our team will contact you</p>
+                    </div>
+                  </div>
+                </div>
+              </Modal>
+            </div>
+          </div>
         </div>
       </div>
 
       <div className="max-w-screen-xl my-24 mx-auto">
-        <Typography variant="h3" className="text-center text-2xl lg:text-5xl font-extrabold tracking-tighter text-blue">INVESTMENT DETAILS</Typography>
-        <div className="grid grid-cols-4 gap-y-8 mt-16 max-w-screen-lg mx-auto">
+        <Typography variant="h3" className="text-center text-2xl lg:text-5xl font-extrabold tracking-tighter text-blueTheme">INVESTMENT DETAILS</Typography>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-8 mt-16 max-w-screen-sm  lg:max-w-screen-lg mx-6 lg:mx-auto border-2 p-2 lg:p-10 border-blue-300 rounded-lg ">
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Building Name</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-blue">Brigade Tech Park</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-blueTheme">Brigade Tech Park</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Asset Type</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-blue">Grade A</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-blueTheme">Grade A</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Investment Floor</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-blue">5th out of 9</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-blueTheme">5th out of 9</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Lease Lock-in</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-blue">August 2027</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-blueTheme">August 2027</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Gross Entry Yield</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-blue">9%</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-blueTheme">9%</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Target IRR</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-blue">16.13</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-blueTheme">16.13</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Multiplier</h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-blue">1.8</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-blueTheme">1.8</p>
           </div>
           <div className="">
             <h1 className="text-md lg:text-xl  font-bold text-center text-gray-600">Minimum Investment </h1>
-            <p className="text-lg lg:text-2xl font-bold text-center text-blue">25 Lacs</p>
+            <p className="text-lg lg:text-2xl font-bold text-center text-blueTheme">25 Lacs</p>
           </div>
 
         </div>
@@ -88,13 +159,13 @@ export default function PropertyDetails() {
           <div className="">
             <Typography variant="h5" className=" font-bold text-gray-600">Location and Tenant</Typography>
             <h1 className="text-gray-700">Strategic Location</h1>
-            <h1 className="text-blue font-bold">Whitefield, Bengaluru</h1>
+            <h1 className="text-blueTheme font-bold">Whitefield, Bengaluru</h1>
             <hr className="w-1/3 my-4 " />
             <h1 className="text-gray-700">Marquee Tenant</h1>
-            <h1 className="text-blue font-bold">Creative Synergies Consulting India Pvt Ltd</h1>
+            <h1 className="text-blueTheme font-bold">Creative Synergies Consulting India Pvt Ltd</h1>
           </div>
           <div className="text-sm tracking-tighter text-gray-600 mx-2 lg:mx-8">
-            <   Typography variant="h5" className=" font-bold text-blue underline">Overview</Typography>
+            <   Typography variant="h5" className=" font-bold text-blueTheme underline">Overview</Typography>
             <br />
             <p>
               Great Opportunity to invest in the 5th floor of a A+ Grade Office space strategically situated on the ITPL main road in Whitefield, Bengaluru. The proposed investment in 32300 sqft of the Brigade Tech Park, Tower B.
@@ -112,7 +183,7 @@ export default function PropertyDetails() {
               <Image width={1500} height={1500} className="object-contain w-fit" src={'/floorplanbrigade.png'} alt="FloorPlan" />
             </div>
             <div className="col-span-1">
-              <Typography variant="h5" className=" font-bold text-blue ">Features</Typography>
+              <Typography variant="h5" className=" font-bold text-blueTheme ">Features</Typography>
               <ul className=" list-disc leading-1 lg:leading-10 list-outside">
                 <li><h1>Stylish Reception Areas</h1></li>
                 <li><h1>300 Roomy Workstations on Every Floor</h1></li>
@@ -130,7 +201,7 @@ export default function PropertyDetails() {
         </div>
         <div className=" mt-14 lg:mt-24 mx-4 lg:mx-16">
           <Typography variant="h5" className=" font-bold text-gray-600">Property Visuals</Typography>
-          <div className="mx-auto mt-8 w-full">
+          <div className="mx-auto mt-8 w-full -z-20">
             <Carousel>
               {
                 images.map((image) => (
@@ -151,11 +222,11 @@ export default function PropertyDetails() {
         </div>
         <div className=" mt-14 lg:mt-24 mx-4 lg:mx-16">
           <Typography variant="h5" className=" font-bold text-gray-600">Purchase Details</Typography>
-          <Typography><span className="text-blue font-bold">Note: </span>Purchase Price Calculated with per sqft rate of 8,675</Typography>
+          <Typography><span className="text-blueTheme font-bold">Note: </span>Purchase Price Calculated with per sqft rate of 8,675</Typography>
           <div className="mx-auto mt-8">
             <div className="relative overflow-x-auto">
               <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
-                <thead className="text-xs text-white uppercase bg-blue">
+                <thead className="text-xs text-white uppercase bg-blueTheme">
                   <tr>
                     <th scope="col" className="px-6 py-3">
                       Particulars
@@ -230,7 +301,7 @@ export default function PropertyDetails() {
           <div className="mx-auto mt-8">
             <div className="relative overflow-x-auto">
               <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
-                <thead className="text-xs text-white uppercase bg-blue">
+                <thead className="text-xs text-white uppercase bg-blueTheme">
                   <tr>
                     <th scope="col" className="px-6 py-3">
                       Particulars
@@ -296,7 +367,7 @@ export default function PropertyDetails() {
           <div className="mx-auto mt-8">
             <div className="relative overflow-x-auto">
               <table className="w-full text-sm text-left rtl:text-right text-gray-500 border-2 ">
-                <thead className="text-xs text-white uppercase bg-blue">
+                <thead className="text-xs text-white uppercase bg-blueTheme">
                   <th className="px-6 py-3 border-x-2"></th>
                   <th className="px-6 py-3 border-x-2"></th>
                   <th className="px-6 py-3 border-x-2">YEAR 0</th>
