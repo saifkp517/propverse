@@ -6,7 +6,7 @@ export default function MyNav({ fixed }: any) {
     const [navbarOpen, setNavbarOpen] = React.useState(false);
     return (
         <>
-            <nav className="flex flex-wrap items-center justify-between px-2 py-3 bg-emerald-500 mb-3 sticky top-0 bg-white border-b border-gray-300 text-blueTheme z-10">
+            <nav className="flex flex-wrap items-center justify-between px-2 py-3 bg-emerald-500 mb-3 sticky top-0 bg-white bg-opacity-10 inset-0 backdrop-blur-md border-b border-gray-300 text-blueTheme z-10">
                 <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
                     <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                         <a
@@ -54,6 +54,14 @@ export default function MyNav({ fixed }: any) {
                                     href="/properties"
                                 >
                                     <i className="fab fa-twitter text-lg leading-lg opacity-75"></i><span className="ml-2">Properties</span>
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a
+                                    className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug  hover:opacity-75"
+                                    href="/completed_projects"
+                                >
+                                    <i className="fab fa-pinterest text-lg leading-lg  opacity-75"></i><span className="ml-2">Completed Projects</span>
                                 </a>
                             </li>
                             <li className="nav-item">

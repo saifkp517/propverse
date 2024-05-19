@@ -19,17 +19,17 @@ export default function RecentlyAdded() {
 
     const size = useWindowSize();
     const [NoCards, setNoCards] = useState(3);
-    
+
 
     useEffect(() => {
-        if(size.width! < 940)
-        {
+        if (size.width! < 1000 && size.width! > 750) {
+            setNoCards(2)
+        }
+        else if (size.width! < 750) {
             setNoCards(1)
         }
         else
-        {
             setNoCards(3)
-        }
     })
 
 
@@ -38,7 +38,7 @@ export default function RecentlyAdded() {
             name: "Brigade Tech Park",
             image: "briagadetechpark1.png",
             location: "Whitefield, Bangaluru",
-            funded: 4,
+            funded: 100,
             invamt: "25",
             irr: "16.13"
         },
@@ -46,7 +46,7 @@ export default function RecentlyAdded() {
             name: "Sky One Opportunity",
             image: "skyoneopportunity.png",
             location: "Viman Nagar, Pune",
-            funded: 5,
+            funded: 65,
             invamt: "25",
             irr: "15.1"
         },
@@ -54,7 +54,7 @@ export default function RecentlyAdded() {
             name: "NASDAQ & NYSE Listed MNC's",
             image: "nysemnc.png",
             location: "Magarpatta, Pune",
-            funded: 5,
+            funded: 50,
             invamt: "25",
             irr: "15.15"
         },
@@ -70,17 +70,16 @@ export default function RecentlyAdded() {
     ]
 
     return (
-        <div>
-            <section className="mt-24 px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto">
-                <div className="flex justify-between">
-                    <h1 className="text-2xl lg:text-4xl  o text-gray-600 tracking-tighter font-bold my-auto">Recently Added</h1>
+        <div className='select-none h-screen'>
+            <section className=" mt-56 px-8 md:px- lg:px-24 max-w-screen-xl mx-auto">
+                <h1 className="text-2xl lg:text-5xl text-gray-800 tracking-tighter font-bold my-auto text-center mb-16">Recently Added</h1>
 
-                    <Link className="my-auto" href={'/properties'}>
-                        <h1 className="text-blueTheme font-bold no-underline hover:underline">See All</h1>
-                    </Link>
-                </div>
+
+                <Link className="text-center" href={'/properties'}>
+                    <h1 className="text-blueTheme font-bold no-underline hover:underline">See All</h1>
+                </Link>
             </section>
-            <div className="mx-auto max-w-80 lg:max-w-screen-lg">
+            <div className="mx-auto max-w-80 md:max-w-screen-md lg:max-w-screen-lg">
                 <Swiper
                     className=''
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -91,7 +90,9 @@ export default function RecentlyAdded() {
                     onSlideChange={() => console.log('slide change')}
                 >
                     {
-                        propDetails.map(property => (
+                        propDetails
+                        .filter(property => property.funded !== 100)
+                        .map(property => (
                             <div key={property.name} >
                                 <SwiperSlide>
                                     <div>
