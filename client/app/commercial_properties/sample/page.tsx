@@ -12,9 +12,13 @@ import Modal from 'react-modal';
 import axios from 'axios';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useSession } from "next-auth/react";
 
 
 export default function PropertyDetails() {
+
+  const {data, status} = useSession();
+  console.log(data?.user )
 
   const [startDate, setStartDate] = useState<Date | null>(new Date());
 
@@ -194,7 +198,7 @@ export default function PropertyDetails() {
                         </div>
                         <br />
                         <p className=" o mt-2 text-gray-600">Preferred Time Slot for a meet</p>
-                        <div className="grid grid-cols-3 gap-x-3">
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
                           <button type="button" className="border border-gray-500 rounded-lg focus:border-blueTheme focus:text-blueTheme focus:font-bold p-5" onClick={() => alert("clicked")} >10:00 AM - 02:00 PM</button>
                           <button type="button" className="border border-gray-500 rounded-lg focus:border-blueTheme focus:text-blueTheme focus:font-bold p-5" onClick={() => alert("clicked")} >02:00 PM - 06:00 PM</button>
                           <button type="button" className="border border-gray-500 rounded-lg focus:border-blueTheme focus:text-blueTheme focus:font-bold p-5" onClick={() => alert("clicked")} >6:00 PM - 10:00 PM</button>
@@ -202,7 +206,7 @@ export default function PropertyDetails() {
 
                         <br />
                         <p className=" o mt-2 text-gray-600">Investment Amount</p>
-                        <div className="grid grid-cols-3 gap-x-3">
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
                           <button type="button" className="border border-gray-500 rounded-lg focus:border-blueTheme focus:text-blueTheme focus:font-bold p-5" onClick={() => alert("clicked")} >Upto 5 Lacs</button>
                           <button type="button" className="border border-gray-500 rounded-lg focus:border-blueTheme focus:text-blueTheme focus:font-bold p-5" onClick={() => alert("clicked")} >5 - 25 Lacs</button>
                           <button type="button" className="border border-gray-500 rounded-lg focus:border-blueTheme focus:text-blueTheme focus:font-bold p-5" onClick={() => alert("clicked")} >25+ Lacs</button>
@@ -274,29 +278,7 @@ export default function PropertyDetails() {
             <p>{details.overview}</p>
           </div>
         </div>
-        <div className=" mt-14 lg:mt-24 mx-4 lg:mx-16">
-          <Typography variant="h5" className="mb-8 font-bold text-gray-600">Floor Plan</Typography>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-8">
-            <div className="col-span-2">
-              <Image width={1500} height={1500} className="object-contain w-fit" src={'/floorplanbrigade.png'} alt="FloorPlan" />
-            </div>
-            <div className="col-span-1">
-              <Typography variant="h5" className=" font-bold text-blueTheme ">Features</Typography>
-              <ul className=" list-disc leading-1 lg:leading-10 list-outside">
-                <li><h1>Stylish Reception Areas</h1></li>
-                <li><h1>300 Roomy Workstations on Every Floor</h1></li>
-                <li><h1>Well-Equipped Meeting spaces</h1></li>
-                <li><h1>6-Seater Conference Rooms</h1></li>
-                <li><h1>4-Seater Meeting Rooms</h1></li>
-                <li><h1>10-Seater Conference Rooms</h1></li>
-                <li><h1>Professional 22-Seater Board Room</h1></li>
-                <li><h1>Classic Pantry Area</h1></li>
-                <li><h1>Relaxing Wellness Room</h1></li>
-                <li><h1>Convenient Male and Female Restrooms on Each Floor</h1></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        
         <div className=" mt-14 lg:mt-24 mx-4 lg:mx-16">
           <Typography variant="h5" className=" font-bold text-gray-600">Property Visuals</Typography>
           <div className="mx-auto mt-8 w-full -z-20">

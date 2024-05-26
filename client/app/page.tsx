@@ -99,19 +99,7 @@ export default function Home() {
   }, [])
 
   return (
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-    <div className="">
-=======
     <div>
-      <Head>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8927606268275562"
-     crossorigin="anonymous"></script>
-      </Head>
->>>>>>> bdc6f09812ec2a7f57df8a1cd322ca1e275629be
-=======
-    <div className=" ">
->>>>>>> Stashed changes
       <MyNav />
       <section>
 
