@@ -8,6 +8,8 @@ import Carousel from 'react-material-ui-carousel'
 
 export default function PropertyDetails() {
 
+
+
   const images = [
     {
       image: "/siteimage1.png",
@@ -21,7 +23,6 @@ export default function PropertyDetails() {
       image: "/siteimage3.png",
       alt: "visuals"
     }
-
   ]
 
   return (

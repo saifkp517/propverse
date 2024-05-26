@@ -11,6 +11,8 @@ import Footer from "./components/Footer";
 import Card from "./components/cards/newProperty";
 import { Typography } from "@mui/material";
 import RecentlyAdded from "./components/sections/RecentlyAdded";
+import OurPartners from "./components/sections/OurPartners";
+import OurServices from "./components/sections/OurServices";
 
 
 
@@ -97,6 +99,7 @@ export default function Home() {
   }, [])
 
   return (
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     <div className="">
 =======
@@ -106,6 +109,9 @@ export default function Home() {
      crossorigin="anonymous"></script>
       </Head>
 >>>>>>> bdc6f09812ec2a7f57df8a1cd322ca1e275629be
+=======
+    <div className=" ">
+>>>>>>> Stashed changes
       <MyNav />
       <section>
 
@@ -128,42 +134,13 @@ export default function Home() {
         </div>
       </section>
       <br />
-      <section className="my-10 ">
-        <div className="relative flex py-5 max-w-screen-xl mx-auto items-center">
-          <div className="flex-grow border-t border-gray-400"></div>
-          <h1 className="text-4xl text-gray-500 font-bold  o text-center mx-8">Our Partners</h1>
-          <div className="flex-grow border-t border-gray-400"></div>
-        </div>
-
-        <div className="logo-container max-w-screen-md mx-auto mt-12 mb-24 flex">
-          <div className=" mx-auto w-12 md:w-16 lg:w-24">
-            <Image alt="logo" className="mx-auto" layout="responsive" height={100} width={100} src="/logos/altdrx.jpg" />
-          </div>
-          <div className=" mx-auto w-12 md:w-16 lg:w-24">
-            <Image alt="logo" className="mx-auto" layout="responsive" height={100} width={100} src="/logos/alyf.jpg" />
-          </div>
-          <div className=" mx-auto w-12 md:w-16 lg:w-24">
-            <Image alt="logo" className="mx-auto" layout="responsive" height={100} width={100} src="/logos/assetmonk.jpg" />
-          </div>
-          <div className=" mx-auto w-12 md:w-16 lg:w-24">
-            <Image alt="logo" className="mx-auto" layout="responsive" height={100} width={100} src="/logos/brik-itt.jpg" />
-          </div>
-          <div className=" mx-auto w-12 md:w-16 lg:w-24">
-            <Image alt="logo" className="mx-auto" layout="responsive" height={100} width={100} src="/logos/hbits.jpg" />
-          </div>
-          <div className=" mx-auto w-12 md:w-16 lg:w-24">
-            <Image alt="logo" className="mx-auto" layout="responsive" height={100} width={100} src="/logos/propertyshare.jpg" />
-          </div>
-          <div className=" mx-auto w-12 md:w-16 lg:w-24">
-            <Image alt="logo" className="mx-auto" layout="responsive" height={100} width={100} src="/logos/strata.jpg" />
-          </div>
-          <div className=" mx-auto w-12 md:w-16 lg:w-24">
-            <Image alt="logo" className="mx-auto" layout="responsive" height={100} width={100} src="/logos/ryzer.jpg" />
-          </div>
-        </div>
+      <section className="my-20 ">
+        <OurPartners />
       </section>
-      <section className="my-10 ">
+      <section className="my-20 ">
+        <OurServices />
         <div className="mx-8 md:mx-16 lg:mx-32 p-4 lg:p-8 text-center rounded-lg text-white bg-blueTheme">
+
           <Typography variant="h4" className="mb-2 text-center     font-semibold tracking-normal">Diversified Investment Opportunities</Typography>
           <Typography className="">Explore a diverse range of fractional ownership opportunities in premium real estate</Typography>
           <br />

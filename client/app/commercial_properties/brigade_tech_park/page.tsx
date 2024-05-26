@@ -6,14 +6,27 @@ import MyNav from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { Typography } from "@mui/material";
 import Carousel from 'react-material-ui-carousel'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modal from 'react-modal';
 import { Paper, Button } from '@mui/material'
+import axios from 'axios';
 
 export default function PropertyDetails() {
 
   let subtitle: any;
   const [modalIsOpen, setIsOpen] = useState(false);
+
+  const [details, setDetails] = useState({});
+
+  useEffect(() => {
+    axios.get('http://localhost:8080/properties')
+      .then((data: any) => {
+        //setDetails(data.properties[0])
+        setDetails(data.data.properties[0])
+      })
+      .catch(err => console.log(err))
+  }, [])
+
 
   function openModal() {
     setIsOpen(true);

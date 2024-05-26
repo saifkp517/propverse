@@ -2,6 +2,92 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
 
+    to {
+        transform: translateX(calc(-100% - var(--gap)));
+    }
+}
 
+<<<<<<< Updated upstream
+=======
+@keyframes scroll-reverse {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes scroll-marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes scroll-marquee-reverse {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes scroll-y {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(calc(-100% - var(--gap)));
+    }
+}
+
+@keyframes scroll-y-reverse {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes scroll-y-marquee {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes scroll-y-marquee-reverse {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Apply animation to the marquee content */
+.animate-marquee {
+    animation: scroll-marquee 10s linear infinite;
+}
+
+>>>>>>> Stashed changes
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap')
