@@ -32,7 +32,19 @@ const config: Config = {
       },
       fontFamily: {
         robot: ['Roboto', 'sans-serif'],
-      }
+      },
+      height: {
+        '112': '28rem', // Custom height of 28rem
+        '128': '32rem', // Custom height of 32rem
+        '144': '36rem', // Custom height of 36rem
+        '160': '40rem', // Custom height of 40rem
+        '176': '44rem', // Custom height of 44rem
+        '192': '48rem', // Custom height of 48rem
+        '208': '52rem', // Custom height of 52rem
+        '224': '56rem', // Custom height of 56rem
+        '240': '60rem', // Custom height of 60rem
+        // Add more custom values as needed
+      },
     },
   },
   plugins: [

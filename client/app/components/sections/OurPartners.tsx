@@ -7,13 +7,13 @@ export default function OurPartners() {
     return (
         <div className="">
             <div className="relative flex py-5 max-w-screen-xl mx-auto items-center">
-                <div className="flex-grow border-t border-gray-700"></div>
+                <div className="flex-grow border-t border-gray-400"></div>
                 <h1 className="text-4xl text-gray-700 font-bold  o text-center mx-8">Our Partners</h1>
-                <div className="flex-grow border-t border-gray-700"></div>
+                <div className="flex-grow border-t border-gray-400"></div>
             </div>
             <div className='logo-container max-w-screen-xl mx-auto mt-12 mb-24'>
                 <Marquee
-                    speed={150}
+                    speed={100}
                 >
                     <div className=" mx-12 w-12 md:w-16 lg:w-24">
                         <Image alt="logo" className="mx-auto rounded-lg" layout="responsive" height={100} width={100} src="/logos/altdrx.jpg" />

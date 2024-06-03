@@ -5,7 +5,7 @@ import axios from 'axios';
 
 async function verifyUserCredentials(email: string | undefined, password: string | undefined) {
     try {
-        const response = await axios.post('http://localhost:8080/signin/investor', {
+        const response = await axios.post('${process.env.SERVER_DOMAIN}/signin/investor', {
             email: email,
             password: password,
             provider: "propertyverse"

@@ -99,7 +99,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div>
+    <div className="w-full">
       <MyNav />
       <section>
 
@@ -127,70 +127,73 @@ export default function Home() {
       </section>
       <section className="my-20 ">
         <OurServices />
-        <div className="mx-8 md:mx-16 lg:mx-32 p-4 lg:p-8 text-center rounded-lg text-white bg-blueTheme">
+        {/* <div className="mx-8 md:mx-16 lg:mx-32 p-4 lg:p-8 text-center rounded-lg text-white bg-blueTheme">
 
           <Typography variant="h4" className="mb-2 text-center     font-semibold tracking-normal">Diversified Investment Opportunities</Typography>
           <Typography className="">Explore a diverse range of fractional ownership opportunities in premium real estate</Typography>
           <br />
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <div className="bg-white text-black rounded-xl p-4">
-              <Typography variant="h5" className="font-semibold tracking-tighter text-left">Diversified Investment Opportunities</Typography>
-              <hr className="border-blueTheme border-2 my-2 rounded-xl w-36" />
-              <p className="text-sm text-left">Explore a diverse range of fractional ownership opportunities in premium real estate</p>
-              <div className="grid place-items-end">
+            <div className="relative bg-white text-black rounded-xl p-4">
+              <Typography variant="h5" className="text-gray-700 font-semibold tracking-tighter text-left">Why Fractional Ownership?</Typography>
+              <hr className="border-blueTheme border my-2 rounded-xl w-1/2" />
+              <ul className="text-left list-decimal list-inside leading-8">
+                <li>Introduction to fractional Ownership</li>
+                <li>Reasons for Choosing fractional Ownership</li>
+                <li>Legal & Regulatory Aspects of fractional ownership</li>
+                <li>Types of Fractional Ownership</li>
+              </ul>
+              <div className="absolute bottom-4 right-4">
                 <Image alt="cubes" width={100} height={100} src='/cubes.png' />
               </div>
             </div>
-            <div className="bg-white text-black rounded-xl p-4">
-              <Typography variant="h5" className="font-semibold tracking-tighter text-left">Risk Mitigation and Affordability</Typography>
-              <hr className="border-blueTheme border-2 my-2 rounded-xl w-36" />
-              <p className="text-sm text-left">Experience the benefits of real estate investment without the burden of full ownership</p>
-              <div className="grid place-items-end">
+            <div className="relative bg-white text-black rounded-xl p-4">
+              <Typography variant="h5" className="text-gray-700 font-semibold tracking-tighter text-left">Why to Invest?</Typography>
+              <hr className="border-blueTheme border my-2 rounded-xl w-1/2" />
+              <ul className="text-left list-decimal list-inside leading-8">
+                <li>Wealth diversification through fractional ownership</li>
+                <li>Access to high-value assets with low capital investment</li>
+                <li>Enjoy financial returns of Premium Real Estate</li>
+                <li>Access to Nation Wide micro-markets</li>
+              </ul>
+              <div className="absolute bottom-4 right-4">
                 <Image alt="cubes" width={100} height={100} src='/cubes.png' />
               </div>
             </div>
-            <div className="bg-white text-black rounded-xl p-4">
-              <Typography variant="h5" className="font-semibold tracking-tighter text-left">Expertly Vetted Properties</Typography>
-              <hr className="border-blueTheme border-2 my-2 rounded-xl w-36" />
-              <p className="text-sm text-left">Invest with confidence in meticulously vetted and high-potential properties</p>
-              <div className="grid place-items-end">
+            <div className="relative bg-white text-black rounded-xl p-4">
+              <Typography variant="h5" className="text-gray-700 font-semibold tracking-tighter text-left">Why PropertyVerse?</Typography>
+              <hr className="border-blueTheme border my-2 rounded-xl w-1/2" />
+              <ul className="text-left list-decimal list-inside leading-8">
+                <li>PropertyVerse is a one stop destination for all your fractional ownership needs</li>
+                <li>Streamlined access to diverse fractional ownership options</li>
+                <li>Credit Risk Analysis Report of Every Project</li>
+                <li>Educational Content & Guides</li>
+              </ul>
+              <div className="absolute bottom-4 right-4">
                 <Image alt="cubes" width={100} height={100} src='/cubes.png' />
               </div>
             </div>
-            <div className="bg-white text-black rounded-xl p-4">
-              <Typography variant="h5" className="font-semibold tracking-tighter text-left">User-Friendly Platform</Typography>
-              <hr className="border-blueTheme border-2 my-2 rounded-xl w-36" />
-              <p className="text-sm text-left">Navigate seamlessly through our intuitive platform designed for your convenience</p>
-              <div className="grid place-items-end">
-                <Image alt="cubes" width={100} height={100} src='/cubes.png' />
-              </div>
-            </div>
-            <div className="bg-white text-black rounded-xl p-4">
-              <Typography variant="h5" className="font-semibold tracking-tighter text-left">Responsive Customer Support</Typography>
-              <hr className="border-blueTheme border-2 my-2 rounded-xl w-36" />
-              <p className="text-sm text-left">Enjoy responsive customer support for a hassle-free investing experience.</p>
-              <div className="grid place-items-end">
-                <Image alt="cubes" width={100} height={100} src='/cubes.png' />
-              </div>
-            </div>
-
 
           </div>
-        </div>
+        </div> */}
       </section>
       <section>
         <RecentlyAdded />
       </section>
       <section className="my-2 mb-28 mx-8 md:mx-16 lg:mx-32">
-        <div className="bg-blueTheme text-white p-8 md:p-12 lg:p-16 rounded-3xl m-0 md:m-8 lg:m-20">
-          <Typography variant="h3" className="font-bold mb-10 ">Why Choose Us?</Typography>
-          <p className=" max-w-sm leading-8">
-            <b>Explore a diverse range of carefully selected real estate investments at our fractional ownership brokerage.</b>
-            Our expert team ensures each property aligns with profitability and caters to various investor preferences.
-            Whether it's residential, commercial, or vacation
-            properties, we tailor our offerings to meet your specific financial goals for a customized investment experience.
-          </p>
-          <button type="button" className="focus:outline-none text-blueTheme hover:text-blueTheme bg-white   font-bold rounded-xl text-sm my-8 px-8 py-3 ">CONTACT US</button>
+        <div className="bg-blueTheme text-white p-8 md:p-12 lg:p-16 rounded-3xl m-0 md:m-8 lg:m-20 grid grid-cols-2">
+          <div className="">
+            <Typography variant="h3" className="font-bold mb-10 ">Why Choose Us?</Typography>
+            <p className=" max-w-sm leading-8">
+              <b>Explore a diverse range of carefully selected real estate investments at our fractional ownership brokerage.</b>
+              Our expert team ensures each property aligns with profitability and caters to various investor preferences.
+              Whether it's residential, commercial, or vacation
+              properties, we tailor our offerings to meet your specific financial goals for a customized investment experience.
+            </p>
+            <button type="button" className="focus:outline-none text-blueTheme hover:text-blueTheme bg-white   font-bold rounded-xl text-sm my-8 px-8 py-3 ">CONTACT US</button>
+          </div>
+          <div className=" h-96">
+            <Image alt="whychooseusgid" className="w-full h-full object-contain" height={1000} width={1000} src={"/whychooseus.gif"} />
+          </div>
         </div>
       </section>
 

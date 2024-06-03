@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import Link from "next/link";
+import axios from 'axios'
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -19,55 +20,25 @@ export default function RecentlyAdded() {
 
     const size = useWindowSize();
     const [NoCards, setNoCards] = useState(3);
-    
+    const [propDetails, setPropDetails] = useState([])
+
 
     useEffect(() => {
-        if(size.width! < 940)
-        {
+        if (size.width! < 940) {
             setNoCards(1)
         }
-        else
-        {
+        else {
             setNoCards(3)
         }
     })
 
+    useEffect(() => {
+        axios.get(`${process.env.SERVER_DOMAIN}/properties`)
+            .then(res => {
+                setPropDetails(res.data.properties)
+            })
+    }, [])
 
-    const propDetails = [
-        {
-            name: "Brigade Tech Park",
-            image: "briagadetechpark1.png",
-            location: "Whitefield, Bangaluru",
-            funded: 4,
-            invamt: "25",
-            irr: "16.13"
-        },
-        {
-            name: "Sky One Opportunity",
-            image: "skyoneopportunity.png",
-            location: "Viman Nagar, Pune",
-            funded: 5,
-            invamt: "25",
-            irr: "15.1"
-        },
-        {
-            name: "NASDAQ & NYSE Listed MNC's",
-            image: "nysemnc.png",
-            location: "Magarpatta, Pune",
-            funded: 5,
-            invamt: "25",
-            irr: "15.15"
-        },
-        {
-            name: "Jaipur Logstics Park",
-            image: "jaipurlogisticspark.png",
-            location: "Magarpatta, Pune",
-            funded: 5,
-            invamt: "25",
-            irr: "15.15"
-        },
-
-    ]
 
     return (
         <div>
@@ -76,7 +47,7 @@ export default function RecentlyAdded() {
                     <h1 className="text-2xl lg:text-4xl  o text-gray-600 tracking-tighter font-bold my-auto">Recently Added</h1>
 
                     <Link className="my-auto" href={'/properties'}>
-                        <h1 className="text-blueTheme font-bold no-underline hover:underline">See All</h1>
+                        <h1 className="text-blueTheme font-bold no-underline hover:underline">View All</h1>
                     </Link>
                 </div>
             </section>
@@ -91,16 +62,16 @@ export default function RecentlyAdded() {
                     onSlideChange={() => console.log('slide change')}
                 >
                     {
-                        propDetails.map(property => (
-                            <div key={property.name} >
+                        propDetails.map((property: any) => (
+                            <div key={property.building_name} >
                                 <SwiperSlide>
                                     <div>
                                         <Card
-                                            name={property.name}
-                                            image={property.image}
+                                            name={property.building_name}
+                                            image={property.images[0]}
                                             location={property.location}
-                                            funded={property.funded}
-                                            invamt={property.invamt}
+                                            funded={"8"}
+                                            invamt={property.minimum_investment}
                                             irr={property.irr}
                                         />
                                     </div>
@@ -108,6 +79,7 @@ export default function RecentlyAdded() {
                             </div>
                         ))
                     }
+
                 </Swiper>
 
 
