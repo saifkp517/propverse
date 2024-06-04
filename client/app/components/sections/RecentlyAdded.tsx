@@ -32,7 +32,7 @@ export default function RecentlyAdded() {
         }
         else
             setNoCards(3)
-    })
+    }, [size.width])
 
     useEffect(() => {
         axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/properties`)

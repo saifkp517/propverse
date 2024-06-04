@@ -56,14 +56,14 @@ export default function MyNav({ fixed }: any) {
                                     <i className="fab fa-twitter text-lg leading-lg opacity-75"></i><span className="ml-2">Properties</span>
                                 </a>
                             </li>
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <a
                                     className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug  hover:opacity-75"
                                     href="/completed_projects"
                                 >
                                     <i className="fab fa-pinterest text-lg leading-lg  opacity-75"></i><span className="ml-2">Completed Projects</span>
                                 </a>
-                            </li>
+                            </li> */}
                             <li className="nav-item">
                                 <a
                                     className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug  hover:opacity-75"

@@ -15,7 +15,6 @@ import OurPartners from "./components/sections/OurPartners";
 import OurServices from "./components/sections/OurServices";
 
 
-
 export default function Home() {
 
   useEffect(() => {

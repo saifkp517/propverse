@@ -269,9 +269,8 @@ export default function PropertyDetails() {
             <Carousel>
               {
                 details.images.map((image) => (
-                  <div className=" h-144   w-full ">
+                  <div key={image} className=" h-144   w-full ">
                     <Image
-                      key={image}
                       src={`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/${image}`}
                       alt={image}
                       width={1000}
@@ -293,7 +292,7 @@ export default function PropertyDetails() {
                 const chartData = details.additional[key].data;
                 if (chartData && chartData.labels && chartData.values) {
                   return (
-                    <div className="my-20">
+                    <div key={key} className="my-20">
                       <h1 className="font-bold text-gray-600 text-3xl my-5">{details.additional[key].heading}</h1>
                       <p className="my-5 text-xl">{details.additional[key].description}</p>
                       <div className="mx-auto max-w-screen-lg">
@@ -357,7 +356,7 @@ export default function PropertyDetails() {
                 const tableData = details.additional[key].data;
                 if (tableData) {
                   return (
-                    <div className="my-20 overflow-auto rounded-lg">
+                    <div key={key} className="my-20 overflow-auto rounded-lg">
                       <h1 className="font-bold text-gray-600 text-3xl my-5">{details.additional[key].heading}</h1>
                       <p className="my-5 text-xl">{details.additional[key].description}</p>
                       <table className="table-auto w-full border-collapse bg-white">

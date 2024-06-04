@@ -129,7 +129,7 @@ const Card = () => {
     return (
         <div className="max-w-sm bg-white border border-gray rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700 overflow-hidden flex flex-col">
             <a href="#">
-                <img className="w-full h-20 object-cover" src="https://via.placeholder.com/300" alt="Sample Image" />
+                {/* <img className="w-full h-20 object-cover" src="https://via.placeholder.com/300" alt="Sample Image" /> */}
             </a>
             <div className="p-5 bg-white dark:bg-gray-800 flex-1 transition-all duration-300 hover:h-2/5">
                 <a href="#">
@@ -152,7 +152,7 @@ const Card = () => {
 };
 
 
-export const Display = React.memo(function (props) {
+export const Display = React.memo(function (props: any) {
     const { data, dataIndex } = props;
     const { cover } = data[dataIndex];
     return (
@@ -168,7 +168,7 @@ export const Display = React.memo(function (props) {
             <h1 className="font-roboto font-bold text-3xl text-center text-blue-600 mb-6">{data[dataIndex].title}</h1>
             <br />
             <ul className="list-['-_'] list-inside text-left space-y-4 text-lg text-gray-700">
-                {data[dataIndex].points.map((point, index) => (
+                {data[dataIndex].points.map((point: any, index: number) => (
                     <li key={index} className="pl-4 font-semibold hover:underline hover:text-blue-700 cursor-pointer leading-loose">{point}</li>
                 ))}
             </ul>
@@ -178,3 +178,5 @@ export const Display = React.memo(function (props) {
         </div>
     );
 });
+
+Display.displayName = 'display'
