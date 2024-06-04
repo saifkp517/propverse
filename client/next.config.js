@@ -11,8 +11,7 @@ module.exports = {
   },
   reactStrictMode: true,
   env: {
-    NEXT_PUBLIC_DOMAIN_NAME: process.env.NEXT_PUBLIC_DOMAIN_NAME,
-    NEXT_PUBLIC_CLIENT_ID: process.env.NEXT_PUBLIC_CLIENT_ID
+    NEXT_PUBLIC_SERVER_DOMAIN: process.env.NEXT_PUBLIC_SERVER_DOMAIN
   },
   images: {
     formats: ['image/webp'],
@@ -33,7 +32,8 @@ module.exports = {
       'storage.googleapis.com',
       'images.ctfassets.net',
       'i.postimg.cc',
-      'images.yourstory.com'
+      'images.yourstory.com',
+      'localhost'
     ],
   }
 }

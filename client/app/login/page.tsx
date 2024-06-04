@@ -3,14 +3,30 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Typography } from "@mui/material";
+import {useState, useEffect} from 'react';
 import { signIn } from "next-auth/react";
 
 
 export default function Login() {
 
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+
+    async function CredentialsLogin(e: any) {
+        e.preventDefault();
+        const response = await signIn('credentials', {email, password, redirect: false})
+        if(response?.error) {
+            console.error('Authentication failed:', response.error);
+        }
+        else
+        {
+            alert('successful')
+        }
+    }
 
     return (
-        <div className="grid grid-cols-2 h-screen">
+        <div className="grid grid-cols-1 lg:grid-cols-2 h-screen">
             <div className="h-screen flex items-center justify-center">
                 <div className="">
                     <h2 className="font-bold text-4xl tracking-tigher mb-2">Login to your Account</h2>
@@ -37,12 +53,12 @@ export default function Login() {
                     <br />
 
 
-                    <form className="max-w-sm mx-auto">
+                    <form onSubmit={CredentialsLogin} className="max-w-sm mx-auto">
                         <div className="mb-1">
-                            <input type="email" id="email" className="bg-gray-50 border-2 border-blueTheme text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full px-2.5 py-4" placeholder="Email" required />
+                            <input type="email" onChange={(e) => setEmail(e.target.value)} id="email" className="bg-gray-50 border-2 border-blueTheme text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full px-2.5 py-4" placeholder="Email" required />
                         </div>
                         <div className="mb-5">
-                            <input type="password" id="password" className="bg-gray-50 border-2 border-blueTheme text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full px-2.5 py-4" placeholder="Password" required />
+                            <input type="password" onChange={(e) => setPassword(e.target.value)} id="password" className="bg-gray-50 border-2 border-blueTheme text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full px-2.5 py-4" placeholder="Password" required />
                         </div>
                         <div className="flex items-start mb-5">
                             <div className="flex items-center h-5">
@@ -55,7 +71,7 @@ export default function Login() {
 
                 </div>
             </div>
-            <div className="bg-blueTheme">
+            <div className="bg-blueTheme hidden lg:block">
                 <div className="h-screen flex items-center justify-center">
                     <Image height={600} width={600} className="object-contain" unoptimized={true} alt="login-desktop" src="/login.png" />
                 </div>
