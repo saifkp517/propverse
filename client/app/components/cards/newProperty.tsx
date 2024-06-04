@@ -11,7 +11,7 @@ export default function newProperty({ name, image, location, funded, invamt, irr
             <div className="static mt-10 w-80 bg-card border shadow-xl border-blueTheme rounded-lg  ">
                 <div className="flex flex-col items-center">
                     <div className=" w-11/12 m-4 h-48  relative">
-                        <Image fill unoptimized className="object-fill rounded-lg" src={`${process.env.SERVER_DOMAIN}/${image}`} alt="" />
+                        <Image fill unoptimized className="object-fill rounded-lg" src={`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/${image}`} alt="" />
                     </div>
                     <div className="flex flex-col justify-between px-4">
                         <h5 className="mb-2 text-2xl font-bold    tracking-tighter text-gray-600 line-clamp-1">{name}</h5>

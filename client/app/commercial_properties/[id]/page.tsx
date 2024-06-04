@@ -74,7 +74,7 @@ export default function PropertyDetails() {
   });
 
   useEffect(() => {
-    axios.get(`${process.env.SERVER_DOMAIN}/properties`)
+    axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/properties`)
       .then((data: any) => {
         setDetails(data.data.properties[0])
       })
@@ -116,7 +116,7 @@ export default function PropertyDetails() {
         <div className="grid grid-cols-1 lg:grid-cols-3">
           <div className="m-8 lg:m-0 col-span-2 ">
             <Image
-              src={`${process.env.SERVER_DOMAIN}/${details.images[2]}`}
+              src={`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/${details.images[2]}`}
               alt={"main"}
               width={1000}
               height={1000}
@@ -272,7 +272,7 @@ export default function PropertyDetails() {
                   <div className=" h-144   w-full ">
                     <Image
                       key={image}
-                      src={`${process.env.SERVER_DOMAIN}/${image}`}
+                      src={`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/${image}`}
                       alt={image}
                       width={1000}
                       height={1000}

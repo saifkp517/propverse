@@ -17,7 +17,7 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    axios.get(`${process.env.SERVER_DOMAIN}/properties`)
+    axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/properties`)
       .then(res => {
         setProperties(res.data.properties);
       });

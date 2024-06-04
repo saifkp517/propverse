@@ -11,7 +11,7 @@ module.exports = {
   },
   reactStrictMode: true,
   env: {
-    SERVER_DOMAIN: process.env.SERVER_DOMAIN
+    NEXT_PUBLIC_SERVER_DOMAIN: process.env.NEXT_PUBLIC_SERVER_DOMAIN
   },
   images: {
     formats: ['image/webp'],

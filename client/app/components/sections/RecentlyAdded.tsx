@@ -33,7 +33,7 @@ export default function RecentlyAdded() {
     })
 
     useEffect(() => {
-        axios.get(`${process.env.SERVER_DOMAIN}/properties`)
+        axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/properties`)
             .then(res => {
                 setPropDetails(res.data.properties)
             })
