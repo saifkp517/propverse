@@ -9,7 +9,6 @@ import { useWindowSize } from "@uidotdev/usehooks";
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import Card from "../cards/newProperty";
 
-
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -20,10 +19,7 @@ export default function RecentlyAdded() {
 
     const size = useWindowSize();
     const [NoCards, setNoCards] = useState(3);
-    const [propDetails, setPropDetails] = useState<any>([])
-
-    console.log(process.env.NEXT_PUBLIC_SERVER_DOMAIN)
-
+    const [propDetails, setPropDetails] = useState<any>([]);
 
     useEffect(() => {
         if (size.width! < 1000 && size.width! > 750) {
@@ -40,9 +36,9 @@ export default function RecentlyAdded() {
         axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/properties`)
             .then(res => {
                 setPropDetails(res.data.properties)
+                console.log(res.data.properties)
             })
     }, [])
-
 
     return (
         <div className='select-none h-screen'>
@@ -82,16 +78,8 @@ export default function RecentlyAdded() {
                             </div>
                         ))
                     }
-
                 </Swiper>
-
-
-
             </div>
         </div>
-
-
-
-
     )
 }
