@@ -22,6 +22,8 @@ export default function RecentlyAdded() {
     const [NoCards, setNoCards] = useState(3);
     const [propDetails, setPropDetails] = useState<any>([])
 
+    console.log(process.env.NEXT_PUBLIC_SERVER_DOMAIN)
+
 
     useEffect(() => {
         if (size.width! < 1000 && size.width! > 750) {
