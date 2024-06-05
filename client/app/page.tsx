@@ -17,6 +17,8 @@ import OurServices from "./components/sections/OurServices";
 
 export default function Home() {
 
+  console.log()
+
   useEffect(() => {
     const targets = document.querySelectorAll(".logo-container img");
     const numberOfTargets = targets.length;
