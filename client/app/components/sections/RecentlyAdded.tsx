@@ -66,6 +66,7 @@ export default function RecentlyAdded() {
                                 <SwiperSlide>
                                     <div>
                                         <Card
+                                            id={property.id}
                                             name={property.building_name}
                                             image={property.images[0]}
                                             location={property.location}

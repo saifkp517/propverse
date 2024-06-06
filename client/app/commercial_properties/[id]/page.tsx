@@ -14,13 +14,14 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useSession } from "next-auth/react";
 import { Chart as ChartJS, registerables } from 'chart.js';
+import { useParams } from 'next/navigation';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 ChartJS.register(...registerables, ChartDataLabels);
 
-
-
 export default function PropertyDetails() {
+
+  const params = useParams();
 
   const { data, status } = useSession();
   console.log(data?.user)
@@ -74,9 +75,9 @@ export default function PropertyDetails() {
   });
 
   useEffect(() => {
-    axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/properties`)
+    axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/property/${params.id}`)
       .then((data: any) => {
-        setDetails(data.data.properties[0])
+        setDetails(data.data.property)
       })
       .catch(err => console.log(err))
   }, [])

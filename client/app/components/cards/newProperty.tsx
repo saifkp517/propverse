@@ -2,7 +2,8 @@
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Image from "next/image"
 
-export default function newProperty({ name, image, location, funded, invamt, irr }: any) {
+export default function newProperty({id, name, image, location, funded, invamt, irr }: any) {
+
 
     const href = name.split(" ").join("_").toLowerCase();
 
@@ -57,7 +58,7 @@ export default function newProperty({ name, image, location, funded, invamt, irr
                                 <sub className="text-xs">Risk Factor</sub>
                             </div>
                         </div>
-                        <a href={`/commercial_properties/${href}`}>
+                        <a href={`/commercial_properties/${id}?name=${name}`}>
                             <button className='relative mx-16 mb-4 py-2 px-4 rounded-lg bg-blueTheme text-white font-robot tracking-tight'>
 
                                 View Opportunity?

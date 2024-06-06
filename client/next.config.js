@@ -33,7 +33,8 @@ module.exports = {
       'images.ctfassets.net',
       'i.postimg.cc',
       'images.yourstory.com',
-      'server.propertyverse.co.in'
+      'server.propertyverse.co.in',
+      'localhost'
     ],
   }
 }
