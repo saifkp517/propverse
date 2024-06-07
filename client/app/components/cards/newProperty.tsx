@@ -18,7 +18,7 @@ export default function newProperty({id, name, image, location, funded, invamt, 
                         <h5 className="mb-2 text-2xl font-bold    tracking-tighter text-gray-600 line-clamp-1">{name}</h5>
                         <div className="flex">
                             <LocationOnIcon className=" text-red-500" />
-                            <p className="text-md mb-3     tracking-tighter  text-gray-400 ">{location}</p>
+                            <p className="text-md mb-3 line-clamp-1 tracking-tighter  text-gray-400 ">{location}</p>
                         </div>
 
                         <div className="w-5/6 mx-auto">
