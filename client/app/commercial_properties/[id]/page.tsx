@@ -117,7 +117,7 @@ export default function PropertyDetails() {
         <div className="grid grid-cols-1 lg:grid-cols-3">
           <div className="m-8 lg:m-0 col-span-2 ">
             <Image
-              src={`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/${details.images[2]}`}
+              src={`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/${details.images[0]}`}
               alt={"main"}
               width={1000}
               height={1000}
@@ -293,18 +293,35 @@ export default function PropertyDetails() {
                 const chartData = details.additional[key].data;
                 if (chartData && chartData.labels && chartData.values) {
                   return (
-                    <div key={key} className="my-20">
+                    <div key={key} className="lg:my-20">
                       <h1 className="font-bold text-gray-600 text-3xl my-5">{details.additional[key].heading}</h1>
                       <p className="my-5 text-xl">{details.additional[key].description}</p>
-                      <div className="mx-auto max-w-screen-lg">
+                      <div className="mx-auto max-w-screen-lg h-96">
                         <Bar
                           key="uniqueKey" // Ensure a unique key for each chart
                           options={{
                             scales: {
                               x: {
-                                type: 'category'
+                                type: 'category',
+                                ticks: {
+                                  color: 'black', // color of the labels
+                                },
+                                grid: {
+                                  color: 'gray', // color of the grid lines
+                                  lineWidth: 1 // width of the grid lines
+                                },
+                              },
+                              y: {
+                                ticks: {
+                                  color: 'black', // color of the labels
+                                },
+                                grid: {
+                                  color: 'gray', // color of the grid lines
+                                  lineWidth: 1 // width of the grid lines
+                                },
                               }
                             },
+                            maintainAspectRatio: false,
                             responsive: true,
                             plugins: {
                               legend: {
@@ -316,11 +333,9 @@ export default function PropertyDetails() {
                               title: {
                                 display: true,
                                 color: 'black', // Set font color for title
-                                padding: 30,
                                 fullSize: true,
                                 font: {
                                   weight: 'bold',
-                                  size: 24
                                 }
                               },
                               datalabels: {
@@ -328,7 +343,7 @@ export default function PropertyDetails() {
                                 align: 'top',
                                 color: 'black', // Set font color for data labels
                                 font: {
-                                  size: 24
+                                  size: 16,
                                 },
                                 formatter: (value) => value.toString() // Convert the value to a string if needed
                               }
@@ -340,8 +355,11 @@ export default function PropertyDetails() {
                               {
                                 label: 'Returns',
                                 data: chartData.values.map((value: string) => parseFloat(value)),
-                                backgroundColor: ['#4287f5'],
+                                backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+                                borderColor: ['#4287f5'],
+                                borderWidth: 2,
                                 barPercentage: 0.5,
+                                categoryPercentage: 1.5
                               },
                             ],
                           }}
@@ -360,18 +378,14 @@ export default function PropertyDetails() {
                     <div key={key} className="my-20 overflow-auto rounded-lg">
                       <h1 className="font-bold text-gray-600 text-3xl my-5">{details.additional[key].heading}</h1>
                       <p className="my-5 text-xl">{details.additional[key].description}</p>
-                      <table className="table-auto w-full border-collapse bg-white">
+                      <table className="table-auto overflow-auto lg:overflow-hidden w-full border-collapse bg-white">
                         <tbody>
                           {tableData.map((row: any, rowIndex: number) => (
                             rowIndex == 0 ? (
                               <tr key={rowIndex}>
                                 {row.map((cell: any, colIndex: number) => (
                                   <th className="border border-black bg-blue-500 text-white px-4 py-2" key={colIndex}>
-                                    <input
-                                      type="text"
-                                      className="bg-transparent border-none w-full text-center"
-                                      value={cell}
-                                    />
+                                    {cell}
                                   </th>
                                 ))}
                               </tr>
@@ -381,11 +395,7 @@ export default function PropertyDetails() {
                                 <tr key={rowIndex}>
                                   {row.map((cell: any, colIndex: number) => (
                                     <td className="border border-black px-4 py-2" key={colIndex}>
-                                      <input
-                                        type="text"
-                                        className="bg-transparent border-none w-full text-center"
-                                        value={cell}
-                                      />
+                                      {cell}
                                     </td>
                                   ))}
                                 </tr>

@@ -181,7 +181,7 @@ export default function Home() {
         <RecentlyAdded />
       </section>
       <section className="my-2 mb-28 mx-8 md:mx-16 lg:mx-32">
-        <div className="bg-blueTheme text-white p-8 md:p-12 lg:p-16 rounded-3xl m-0 md:m-8 lg:m-20 grid grid-cols-2">
+        <div className="bg-blueTheme text-white p-8 md:p-12 lg:p-16 rounded-3xl m-0 md:m-8 lg:m-20 grid grid-cols-1 lg:grid-cols-2">
           <div className="">
             <Typography variant="h3" className="font-bold mb-10 ">Why Choose Us?</Typography>
             <p className=" max-w-sm leading-8">
@@ -192,7 +192,7 @@ export default function Home() {
             </p>
             <button type="button" className="focus:outline-none text-blueTheme hover:text-blueTheme bg-white   font-bold rounded-xl text-sm my-8 px-8 py-3 ">CONTACT US</button>
           </div>
-          <div className=" h-96">
+          <div className="hidden lg:block h-96">
             <Image alt="whychooseusgid" className="w-full h-full object-contain" height={1000} width={1000} src={"/whychooseus.gif"} />
           </div>
         </div>
