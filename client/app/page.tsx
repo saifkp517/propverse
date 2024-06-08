@@ -169,7 +169,7 @@ export default function Home() {
                     </dt>
                     <ul className="mt-2 list-['-_'] text-base leading-7 text-gray-600">{
                       feature.points.map(point => (
-                        <li>{point}</li>
+                        <li key={point}>{point}</li>
                       ))
                     }</ul>
                   </div>
