@@ -31,7 +31,7 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        robot: ['Roboto', 'sans-serif'],
+        roboto: ['Roboto', 'sans-serif'],
       },
       height: {
         '112': '28rem', // Custom height of 28rem

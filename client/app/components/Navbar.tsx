@@ -42,7 +42,7 @@ export default function MyNav({ fixed }: any) {
                         <ul className="flex flex-col lg:flex-row list-none lg:ml-auto uppercase text-lg">
                             <li className="nav-item">
                                 <a
-                                    className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug  hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug  hover:opacity-75 hover:before:scale-x-100 hover:before:origin-left relative before:w-full before:h-0.5 before:origin-right before:transition-transform before:duration-300 before:scale-x-0 before:bg-blueTheme before:absolute before:left-0 before:bottom-0  underline-offset-8"
                                     href="/"
                                 >
                                     <i className="fab fa-facebook-square text-lg leading-lg  opacity-75"></i><span className="ml-2">Home</span>
@@ -50,7 +50,7 @@ export default function MyNav({ fixed }: any) {
                             </li>
                             <li className="nav-item">
                                 <a
-                                    className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug  hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug  hover:opacity-75 hover:before:scale-x-100 hover:before:origin-left relative before:w-full before:h-0.5 before:origin-right before:transition-transform before:duration-300 before:scale-x-0 before:bg-blueTheme before:absolute before:left-0 before:bottom-0  underline-offset-8"
                                     href="/properties"
                                 >
                                     <i className="fab fa-twitter text-lg leading-lg opacity-75"></i><span className="ml-2">Properties</span>
@@ -58,7 +58,7 @@ export default function MyNav({ fixed }: any) {
                             </li>
                             {/* <li className="nav-item">
                                 <a
-                                    className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug  hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug  hover:opacity-75 hover:before:scale-x-100 hover:before:origin-left relative before:w-full before:h-0.5 before:origin-right before:transition-transform before:duration-300 before:scale-x-0 before:bg-blueTheme before:absolute before:left-0 before:bottom-0  underline-offset-8"
                                     href="/completed_projects"
                                 >
                                     <i className="fab fa-pinterest text-lg leading-lg  opacity-75"></i><span className="ml-2">Completed Projects</span>
@@ -66,7 +66,7 @@ export default function MyNav({ fixed }: any) {
                             </li> */}
                             <li className="nav-item">
                                 <a
-                                    className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug  hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug  hover:opacity-75 hover:before:scale-x-100 hover:before:origin-left relative before:w-full before:h-0.5 before:origin-right before:transition-transform before:duration-300 before:scale-x-0 before:bg-blueTheme before:absolute before:left-0 before:bottom-0  underline-offset-8"
                                     href="/knowledge-base"
                                 >
                                     <i className="fab fa-pinterest text-lg leading-lg  opacity-75"></i><span className="ml-2">Knowledge Base</span>

@@ -42,9 +42,9 @@ export default function RecentlyAdded() {
 
     return (
         <div className='select-none'>
-            <section className=" mt-56 px-8 md:px- lg:px-24 max-w-screen-xl mx-auto">
-                <h1 className="text-2xl lg:text-5xl text-gray-800 tracking-tighter font-bold my-auto text-center mb-16">Recently Added</h1>
-                <div className='text-center'>
+            <section className="px-8 md:px- lg:px-24 max-w-screen-xl mx-auto">
+                <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl my-auto text-center mb-8">Recently Added</h1>
+                <div className='text-center '>
                     <Link className="my-auto" href={'/properties'}>
                         <h1 className="text-blueTheme font-bold no-underline hover:underline">View All</h1>
                     </Link>

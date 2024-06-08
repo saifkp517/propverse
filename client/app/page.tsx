@@ -99,35 +99,85 @@ export default function Home() {
 
   }, [])
 
+  const features = [
+    {
+      name: 'Why Fractional Ownership?',
+      points:
+        ['Introduction to fractional Ownership', 'Reasons for choosing fractional ownership', 'Legal & Regulatory Aspects of fractional ownership', 'Types of fractional ownership']
+    },
+    {
+      name: 'Why PropertyVerse?',
+      points:
+        ['PropertyVerse - A one stop destination for all your fractional ownership needs', 'Streamlined access to diverse fractional ownership platforms', 'Credit Risk Analysis Report of every Project', 'Educational Content & Guides']
+    },
+    {
+      name: 'Why to Invest?',
+      points:
+        ['Wealth diversification through fractional ownership', 'Access to high-value assets with lower capital', 'Enjoy financial returns of premium real estate', 'Access to nation-wide micro-markets']
+    },
+  ]
+
   return (
     <div className="">
       <MyNav />
       <section>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2">
-          <div className="mx-4 lg:mx-auto py-0 lg:py-20 px-2 lg:px-44">
-            <Typography variant="h1" className="text-blueTheme text-4xl md:text-6xl lg:text-8xl font-bold">Property<br /><span className="text-green-600">Verse</span></Typography>
-            <Typography className="mt-4 ml-2 mb-10 text-lg tracking-tighter">Welcome to a redefinition of property management. Discover seamless solutions for property owners and tenants alike.</Typography>
-            <button type="button" className="focus:outline-none text-white hover:text-blueTheme bg-blueTheme hover:bg-transparent hover:ring-1 hover:ring-blueTheme font-medium rounded-xl text-sm px-5 py-2.5 ">Explore Properties</button>
+        <div className="max-h-screen max-w-screen-xl xl:mx-auto grid grid-cols-1 lg:grid-cols-2">
+          <div className="mx-8 lg:mx-auto py-0 lg:py-20 px-6">
+            <h1 className="text-blueTheme text-7xl lg:text-8xl font-medium lg:font-semibold tracking-tighter">Property<br /><span className="text-green-600">Verse</span></h1>
+            <p className="mt-4 ml-2 my-5 text-md font-semibold text-gray-800">Welcome to a redefinition of property management. Discover seamless solutions for property owners and tenants alike.</p>
+            <button type="button" className="focus:outline-none text-white hover:text-blueTheme bg-blueTheme hover:bg-transparent hover:ring-1 hover:ring-blueTheme duration-300/ font-medium rounded-xl text-sm px-5 py-2.5 ">Explore Properties</button>
           </div>
-          <div className="mx-auto flex items-center justify-center">
+          <div className="mx-2 lg:mx-auto flex items-center justify-center">
             <Image
               alt="bg"
               src={"/main.gif"}
               width="0"
               height="0"
               sizes="100vw"
-              className="w-10/12 lg:w-full h-auto "
+              className="w-full h-auto "
             />
           </div>
         </div>
       </section>
       <br />
-      <section className="my-20 ">
+      <section className="mt-10">
         <OurPartners />
       </section>
-      <section className="my-20 ">
-        <OurServices />
+      <section className="">
+        <div className="py-24 sm:py-32">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl lg:text-center">
+              <h2 className="text-base font-semibold leading-7 text-blueTheme">Introduction</h2>
+              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                Comprehensive Guide to Fractional Real Estate Investment
+              </p>
+              <p className="mt-6 text-lg leading-8 text-gray-600">
+                Key Insights and Advantages of Fractional Ownership and PropertyVerse
+                Section 1: Why Fractional Ownership?
+              </p>
+            </div>
+            <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+              <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+                {features.map((feature) => (
+                  <div key={feature.name} className="relative pl-16">
+                    <dt className="text-base font-semibold leading-7 text-gray-900">
+                      <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-blueTheme">
+                        {/* <feature.icon className="h-6 w-6 text-white" aria-hidden="true" /> */}
+                      </div>
+                      {feature.name}
+                    </dt>
+                    <ul className="mt-2 list-['-_'] text-base leading-7 text-gray-600">{
+                      feature.points.map(point => (
+                        <li>{point}</li>
+                      ))
+                    }</ul>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
+        </div>
         {/* <div className="mx-8 md:mx-16 lg:mx-32 p-4 lg:p-8 text-center rounded-lg text-white bg-blueTheme">
 
           <Typography variant="h4" className="mb-2 text-center     font-semibold tracking-normal">Diversified Investment Opportunities</Typography>
