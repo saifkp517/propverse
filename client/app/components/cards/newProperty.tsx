@@ -61,7 +61,7 @@ export default function newProperty({id, name, image, location, funded, invamt, 
                         <a href={`/commercial_properties/${id}?name=${name}`}>
                             <button className='relative mx-16 mb-4 py-2 px-4 rounded-lg bg-blueTheme text-white font-robot tracking-tight'>
 
-                                View Opportunity?
+                                View Project
 
                                 <span className="absolute top-0 right-0 inline-flex rounded-full h-2 w-2 bg-white">
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>

@@ -6,7 +6,7 @@ export default function MyNav({ fixed }: any) {
     const [navbarOpen, setNavbarOpen] = React.useState(false);
     return (
         <>
-            <nav className="flex flex-wrap items-center justify-between px-2 py-3 bg-emerald-500 mb-3 sticky top-0 bg-white bg-opacity-10 inset-0 backdrop-blur-md border-b border-gray-300 text-blueTheme z-10">
+            <nav className="flex flex-wrap items-center justify-between bg-emerald-500 mb-3 sticky top-0 bg-white bg-opacity-10 inset-0 backdrop-blur-md border-b border-gray-300 text-blueTheme z-10">
                 <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
                     <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                         <a

@@ -70,7 +70,7 @@ export default function Home() {
         </select>
       </div>
 
-      <section className="my-8 mx-4 lg:mx-28 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <section className="my-8 mx-4 lg:mx-28 grid grid-cols-1 gap-1 md:grid-cols-2 lg:grid-cols-4">
         {filteredProperties.map((property: any, index) => (
           <div key={index} className="mx-auto">
             <Property
