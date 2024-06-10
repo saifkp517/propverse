@@ -1,11 +1,12 @@
 'use client'
 
 import Image from "next/image";
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState, Component } from 'react';
 import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Head from 'next/head';
+import Modal from 'react-modal';
 import MyNav from "./components/Navbar";
 import Footer from "./components/Footer";
 import Card from "./components/cards/newProperty";
@@ -14,11 +15,53 @@ import RecentlyAdded from "./components/sections/RecentlyAdded";
 import OurPartners from "./components/sections/OurPartners";
 import OurServices from "./components/sections/OurServices";
 
+class Calendly extends Component {
+  componentDidMount() {
+    const head = document.querySelector('head');
+    const script = document.createElement('script');
+    script.setAttribute('src', 'https://assets.calendly.com/assets/external/widget.js');
+    head!.appendChild(script);
+  }
+
+  componentWillUnmount() {
+    // Cleanup if necessary
+  }
+
+  render() {
+    return (
+      <div>
+        <div id="schedule_form">
+          <div className="calendly-inline-widget" data-url="https://calendly.com/saifkhan501721/30min" style={{ minWidth: '320px', height: '700px' }} />
+        </div>
+      </div>
+    );
+  }
+}
+
 
 export default function Home() {
 
-  console.log()
+  //calendly
+  const subtitle = useRef<HTMLHeadingElement>(null);
 
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    if (subtitle.current) {
+      subtitle.current.style.color = '#f00';
+    }
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  //marquee
   useEffect(() => {
     const targets = document.querySelectorAll(".logo-container img");
     const numberOfTargets = targets.length;
@@ -230,7 +273,7 @@ export default function Home() {
       <section>
         <RecentlyAdded />
       </section>
-      <section className="my-2 mb-28 mx-8 md:mx-16 lg:mx-32">
+      <section className="my-10 mb-28 mx-8 md:mx-16 lg:mx-32">
         <div className="bg-blueTheme text-white p-8 md:p-12 lg:p-16 rounded-3xl m-0 md:m-8 lg:m-20 grid grid-cols-1 lg:grid-cols-2">
           <div className="">
             <Typography variant="h3" className="font-bold mb-10 ">Why Choose Us?</Typography>
@@ -240,7 +283,34 @@ export default function Home() {
               Whether it's residential, commercial, or vacation
               properties, we tailor our offerings to meet your specific financial goals for a customized investment experience.
             </p>
-            <button type="button" className="focus:outline-none text-blueTheme hover:text-blueTheme bg-white   font-bold rounded-xl text-sm my-8 px-8 py-3 ">CONTACT US</button>
+            <Modal
+              isOpen={modalIsOpen}
+              onAfterOpen={afterOpenModal}
+              onRequestClose={closeModal}
+              style={{
+                overlay: {
+                  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  zIndex: 50,
+                },
+                content: {
+                  width: 'auto', // Let the content determine the width dynamically
+                  height: 'auto', // Let the content determine the height dynamically
+                  margin: 'auto', // Center the modal horizontally
+                  marginTop: '5%', // Adjust the top margin if necessary
+                  border: 'none', // Remove border around the content
+                  padding: 0, // Remove padding around the content
+                  overflow: 'visible', // Allow content to overflow if needed
+                }
+              }}
+              contentLabel="Calendly"
+            >
+              <Calendly />
+            </Modal>
+
+            <button onClick={openModal} type="button" className="focus:outline-none text-blueTheme hover:text-blueTheme bg-white   font-bold rounded-xl text-sm my-8 px-8 py-3 ">CONTACT US</button>
           </div>
           <div className="hidden lg:block h-96">
             <Image alt="whychooseusgid" className="w-full h-full object-contain" height={1000} width={1000} src={"/whychooseus.gif"} />

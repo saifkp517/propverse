@@ -8,7 +8,6 @@ import { Typography } from "@mui/material";
 import Carousel from 'react-material-ui-carousel'
 import { Bar } from 'react-chartjs-2';
 import { useState, useEffect, useRef } from "react";
-import Modal from 'react-modal';
 import axios from 'axios';
 import { useSession } from "next-auth/react";
 import { Chart as ChartJS, registerables, LinearScale, BarElement } from 'chart.js';
