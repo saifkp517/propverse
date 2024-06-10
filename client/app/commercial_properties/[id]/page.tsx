@@ -11,7 +11,7 @@ import { useState, useEffect, useRef } from "react";
 import Modal from 'react-modal';
 import axios from 'axios';
 import { useSession } from "next-auth/react";
-import { Chart as ChartJS, registerables, LinearScale, BarElement} from 'chart.js';
+import { Chart as ChartJS, registerables, LinearScale, BarElement } from 'chart.js';
 import chartTrendline from 'chartjs-plugin-trendline';
 import { useParams } from 'next/navigation';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
@@ -223,7 +223,7 @@ export default function PropertyDetails() {
                               plugins: {
                                 tooltip: {
                                   callbacks: {
-                                    label: function(context) {
+                                    label: function (context) {
                                       let value = context.raw;
                                       return `${value}%`
                                     }
@@ -266,7 +266,7 @@ export default function PropertyDetails() {
                                   barPercentage: 0.5,
                                   categoryPercentage: 1,
                                 },
-                              ],  
+                              ],
                             }}
                           />
 
@@ -283,31 +283,33 @@ export default function PropertyDetails() {
                       <div key={key} className="my-20 rounded-lg">
                         <h1 className="font-bold text-gray-600 text-3xl my-5">{details.additional[key].heading}</h1>
                         <p className="my-5 text-xl">{details.additional[key].description}</p>
-                        <table className="table-auto overflow-auto lg:overflow-hidden w-full border-collapse bg-white">
-                          <tbody>
-                            {tableData.map((row: any, rowIndex: number) => (
-                              rowIndex == 0 ? (
-                                <tr key={rowIndex}>
-                                  {row.map((cell: any, colIndex: number) => (
-                                    <th className="border border-black bg-blue-500 text-white px-4 py-2" key={colIndex}>
-                                      {cell}
-                                    </th>
-                                  ))}
-                                </tr>
-                              )
-                                :
-                                (
+                        <div className="overflow-x-auto">
+                          <table className="table-auto overflow-auto w-full border-collapse bg-white">
+                            <tbody>
+                              {tableData.map((row: any, rowIndex: number) => (
+                                rowIndex == 0 ? (
                                   <tr key={rowIndex}>
                                     {row.map((cell: any, colIndex: number) => (
-                                      <td className="border border-black px-4 py-2" key={colIndex}>
+                                      <th className="border border-black bg-blue-500 text-white px-4 py-2" key={colIndex}>
                                         {cell}
-                                      </td>
+                                      </th>
                                     ))}
                                   </tr>
                                 )
-                            ))}
-                          </tbody>
-                        </table>
+                                  :
+                                  (
+                                    <tr key={rowIndex}>
+                                      {row.map((cell: any, colIndex: number) => (
+                                        <td className="border border-black px-4 py-2" key={colIndex}>
+                                          {cell}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
                       </div>
                     );
                   }
