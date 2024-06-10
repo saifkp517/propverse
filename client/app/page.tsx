@@ -126,7 +126,7 @@ export default function Home() {
           <div className="lg:mx-auto py-0 lg:py-20 px-6">
             <h1 className="text-blueTheme text-7xl lg:text-6xl font-medium lg:font-semibold tracking-tighter">Property<br /><span className="text-green-600">Verse</span></h1>
             <p className="mt-4 ml-2 my-5 text-md font-semibold text-gray-800">Welcome to a redefinition of property management. Discover seamless solutions for property owners and tenants alike.</p>
-            <button type="button" className="focus:outline-none text-white hover:text-blueTheme bg-blueTheme hover:bg-transparent hover:ring-1 hover:ring-blueTheme duration-300/ font-medium rounded-xl text-sm px-5 py-2.5 ">Explore Properties</button>
+            <a href="/properties"><button type="button" className="focus:outline-none text-white hover:text-blueTheme bg-blueTheme hover:bg-transparent hover:ring-1 hover:ring-blueTheme duration-300/ font-medium rounded-xl text-sm px-5 py-2.5 ">Explore Properties</button></a>
           </div>
           <div className="lg:mx-auto flex items-center justify-center">
             <Image
