@@ -195,7 +195,7 @@ export default function PropertyDetails() {
                       <div key={key} className="lg:my-20">
                         <h1 className="font-bold text-gray-600 text-3xl my-5">{details.additional[key].heading}</h1>
                         <p className="my-5 text-xl">{details.additional[key].description}</p>
-                        <div className="mx-auto max-w-screen-lg h-[70vh]">
+                        <div className="mx-auto max-w-screen-lg h-[30vh] md:h-[50vh] lg:h-[70vh]">
                           <Bar
                             key="uniqueKey" // Ensure a unique key for each chart
                             options={{
