@@ -70,10 +70,11 @@ export default function Home() {
         </select>
       </div>
 
-      <section className="my-8 mx-4 lg:mx-28 grid grid-cols-1 gap-1 md:grid-cols-2 lg:grid-cols-4">
+      <section className="my-20 mx-4 lg:mx-28">
         {filteredProperties.map((property: any, index) => (
-          <div key={index} className="mx-auto">
+          <div key={index} className="inline-block mx-5">
             <Property
+              id={property.id}
               name={property.building_name}
               image={property.images[0]}
               location={property.location}

@@ -11,12 +11,13 @@ import { useState, useEffect, useRef } from "react";
 import Modal from 'react-modal';
 import axios from 'axios';
 import { useSession } from "next-auth/react";
-import { Chart as ChartJS, registerables } from 'chart.js';
+import { Chart as ChartJS, registerables, LinearScale, BarElement} from 'chart.js';
+import chartTrendline from 'chartjs-plugin-trendline';
 import { useParams } from 'next/navigation';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import MyModal from "@/app/components/MyModal";
 
-ChartJS.register(...registerables, ChartDataLabels);
+ChartJS.register(...registerables, ChartDataLabels, LinearScale, BarElement, chartTrendline);
 
 export default function PropertyDetails() {
 
@@ -194,7 +195,7 @@ export default function PropertyDetails() {
                       <div key={key} className="lg:my-20">
                         <h1 className="font-bold text-gray-600 text-3xl my-5">{details.additional[key].heading}</h1>
                         <p className="my-5 text-xl">{details.additional[key].description}</p>
-                        <div className="mx-auto max-w-screen-lg h-96">
+                        <div className="mx-auto max-w-screen-lg h-[70vh]">
                           <Bar
                             key="uniqueKey" // Ensure a unique key for each chart
                             options={{
@@ -205,8 +206,7 @@ export default function PropertyDetails() {
                                     color: 'black', // color of the labels
                                   },
                                   grid: {
-                                    color: 'gray', // color of the grid lines
-                                    lineWidth: 1 // width of the grid lines
+                                    display: false,
                                   },
                                 },
                                 y: {
@@ -214,14 +214,21 @@ export default function PropertyDetails() {
                                     color: 'black', // color of the labels
                                   },
                                   grid: {
-                                    color: 'gray', // color of the grid lines
-                                    lineWidth: 1 // width of the grid lines
+                                    display: false,
                                   },
-                                }
+                                },
                               },
                               maintainAspectRatio: false,
                               responsive: true,
                               plugins: {
+                                tooltip: {
+                                  callbacks: {
+                                    label: function(context) {
+                                      let value = context.raw;
+                                      return `${value}%`
+                                    }
+                                  }
+                                },
                                 legend: {
                                   position: 'top',
                                   labels: {
@@ -243,7 +250,7 @@ export default function PropertyDetails() {
                                   font: {
                                     size: 16,
                                   },
-                                  formatter: (value) => value.toString() // Convert the value to a string if needed
+                                  formatter: (value) => value.toString() + '%' // Convert the value to a string if needed
                                 }
                               }
                             }}
@@ -255,11 +262,11 @@ export default function PropertyDetails() {
                                   data: chartData.values.map((value: string) => parseFloat(value)),
                                   backgroundColor: ['rgba(54, 162, 235, 0.2)'],
                                   borderColor: ['#4287f5'],
-                                  borderWidth: 2,
+                                  borderWidth: 1,
                                   barPercentage: 0.5,
-                                  categoryPercentage: 1.5
+                                  categoryPercentage: 1,
                                 },
-                              ],
+                              ],  
                             }}
                           />
 
@@ -273,7 +280,7 @@ export default function PropertyDetails() {
                   const tableData = details.additional[key].data;
                   if (tableData) {
                     return (
-                      <div key={key} className="my-20 overflow-auto rounded-lg">
+                      <div key={key} className="my-20 rounded-lg">
                         <h1 className="font-bold text-gray-600 text-3xl my-5">{details.additional[key].heading}</h1>
                         <p className="my-5 text-xl">{details.additional[key].description}</p>
                         <table className="table-auto overflow-auto lg:overflow-hidden w-full border-collapse bg-white">
