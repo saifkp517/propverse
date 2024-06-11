@@ -201,11 +201,11 @@ export default function Home() {
           <div className="p-10 mx-auto">
             <div className="flex">
               <div className="grid grid-cols-2">
-                <div className="inline-block p-10">
+                <div className="inline-block p-2 lg:p-10">
                   <h1 className="text-4xl font-semibold text-gray-700 tracking-tighter">$650 Billion</h1>
                   <p className="text-sm  text-gray-600">Expected Market Size by 2025</p>
                 </div>
-                <div className="inline-block p-10">
+                <div className="inline-block p-2 lg:p-10">
                   <h1 className="text-4xl font-semibold text-gray-700 tracking-tighter">13%</h1>
                   <p className="text-sm  text-gray-600">Contribution to GDP by 2025</p>
                 </div>
@@ -213,11 +213,11 @@ export default function Home() {
             </div>
             <div className="flex">
               <div className="grid grid-cols-2">
-                <div className="inline-block p-10">
+                <div className="inline-block p-2 lg:p-10">
                   <h1 className="text-4xl font-semibold text-gray-700 tracking-tighter">$200 Billion</h1>
                   <p className="text-sm  text-gray-600">Market Size in 2021</p>
                 </div>
-                <div className="inline-block p-10">
+                <div className="inline-block p-2 lg:p-10">
                   <h1 className="text-4xl font-semibold text-gray-700 tracking-tighter">19.5%</h1>
                   <p className="text-sm  text-gray-600">Annual Growth Rate (2017-2028)</p>
                 </div>
