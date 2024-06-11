@@ -5,6 +5,8 @@ const Speedometer: React.FC<{riskPercentage: number}> = ({ riskPercentage }) => 
     const circumference = 2 * Math.PI * radius;
     const offset = circumference - (riskPercentage / 100) * circumference;
 
+
+    //just for git
     return (
         <div className="">
             <svg width="120" height="60" viewBox="0 0 120 60" className="mb-2">
