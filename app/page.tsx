@@ -192,7 +192,7 @@ export default function Home() {
           <div className="p-10">
             <h2 className="text-base font-semibold leading-7 text-blueTheme">Projected Market Size</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Real Estate Of <span className="bg-gradient-to-r from-orange-500 via-white to-green-400 inline-block text-transparent bg-clip-text">India</span>
+              Real Estate Of <span className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] bg-gradient-to-r from-orange-500 via-white to-green-400 inline-block text-transparent bg-clip-text">India</span>
             </p>
             <p className="mt-6 text-md tracking-tight leading-8 text-gray-700">
               Efficiently growing and contributing significantly to the GDP, the real estate industry in India is poised for substantial expansion. This growth is driven by rapid urbanization, increasing foreign investments, and supportive government policies and reforms, setting the stage for the industry to reach a market size of $650 billion by 2025.
