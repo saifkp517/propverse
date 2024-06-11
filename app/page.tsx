@@ -184,23 +184,61 @@ export default function Home() {
         </div>
       </section>
       <br />
-      <section className="mt-10">
+      <section className="mb-20">
         <OurPartners />
       </section>
-      <section className="">
-        <div className="py-24 sm:py-32">
+      <section className="bg-blue-50 my-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+          <div className="p-10">
+            <h2 className="text-base font-semibold leading-7 text-blueTheme">Projected Market Size</h2>
+            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Real Estate Of <span className="bg-gradient-to-r from-orange-500 via-white to-green-400 inline-block text-transparent bg-clip-text">India</span>
+            </p>
+            <p className="mt-6 text-md tracking-tight leading-8 text-gray-700">
+              Efficiently growing and contributing significantly to the GDP, the real estate industry in India is poised for substantial expansion. This growth is driven by rapid urbanization, increasing foreign investments, and supportive government policies and reforms, setting the stage for the industry to reach a market size of $650 billion by 2025.
+            </p>
+          </div>
+          <div className="p-10 mx-auto">
+            <div className="flex">
+              <div className="grid grid-cols-2">
+                <div className="inline-block p-10">
+                  <h1 className="text-4xl font-semibold text-gray-700 tracking-tighter">$650 Billion</h1>
+                  <p className="text-sm  text-gray-600">Expected Market Size by 2025</p>
+                </div>
+                <div className="inline-block p-10">
+                  <h1 className="text-4xl font-semibold text-gray-700 tracking-tighter">13%</h1>
+                  <p className="text-sm  text-gray-600">Contribution to GDP by 2025</p>
+                </div>
+              </div>
+            </div>
+            <div className="flex">
+              <div className="grid grid-cols-2">
+                <div className="inline-block p-10">
+                  <h1 className="text-4xl font-semibold text-gray-700 tracking-tighter">$200 Billion</h1>
+                  <p className="text-sm  text-gray-600">Market Size in 2021</p>
+                </div>
+                <div className="inline-block p-10">
+                  <h1 className="text-4xl font-semibold text-gray-700 tracking-tighter">19.5%</h1>
+                  <p className="text-sm  text-gray-600">Annual Growth Rate (2017-2028)</p>
+                </div>
+              
+              </div>
+            </div>
+           
+          </div>
+        </div>
+        <div className="py-10 sm:py-12">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl lg:text-center">
+            <div className="mx-auto lg:text-center">
               <h2 className="text-base font-semibold leading-7 text-blueTheme">Introduction</h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Comprehensive Guide to Fractional Real Estate Investment
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
                 Key Insights and Advantages of Fractional Ownership and PropertyVerse
-                Section 1: Why Fractional Ownership?
               </p>
             </div>
-            <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+            <div className="mx-auto mt-16 sm:mt-20 lg:mt-24 ">
               <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
                 {features.map((feature) => (
                   <div key={feature.name} className="relative pl-16">
@@ -274,11 +312,10 @@ export default function Home() {
         <RecentlyAdded />
       </section>
       <section className="my-10 mb-28 mx-8 md:mx-16 lg:mx-32">
-        <div className="bg-blueTheme text-white p-8 md:p-12 lg:p-16 rounded-3xl m-0 md:m-8 lg:m-20 grid grid-cols-1 lg:grid-cols-2">
+        <div className="bg-blueTheme text-white p-8 md:p-12 lg:p-16 rounded-3xl m-0 md:m-8 grid grid-cols-1 lg:grid-cols-2">
           <div className="">
             <Typography variant="h3" className="font-bold mb-10 ">Why Choose Us?</Typography>
-            <p className=" max-w-sm leading-8">
-              <b>Explore a diverse range of carefully selected real estate investments at our fractional ownership brokerage.</b>
+            <p className="max-w-sm leading-8">
               Our expert team ensures each property aligns with profitability and caters to various investor preferences.
               Whether it's residential, commercial, or vacation
               properties, we tailor our offerings to meet your specific financial goals for a customized investment experience.
@@ -297,9 +334,8 @@ export default function Home() {
                 },
                 content: {
                   width: 'auto', // Let the content determine the width dynamically
-                  height: 'auto', // Let the content determine the height dynamically
+                  height: '100vh', // Let the content determine the height dynamically
                   margin: 'auto', // Center the modal horizontally
-                  marginTop: '5%', // Adjust the top margin if necessary
                   border: 'none', // Remove border around the content
                   padding: 0, // Remove padding around the content
                   overflow: 'visible', // Allow content to overflow if needed

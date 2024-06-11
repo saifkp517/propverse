@@ -7,9 +7,9 @@ export default function OurPartners() {
     return (
         <div className="">
             <div className="relative flex py-5 max-w-screen-xl mx-auto items-center">
-                <div className="flex-grow border-t border-gray-400"></div>
-                <h1 className="text-2xl lg:text-4xl text-gray-700 font-semibold text-center mx-1 lg:mx-4 tracking-tight">Our Partners</h1>
-                <div className="flex-grow border-t border-gray-400"></div>
+                <div className="flex-grow border-t border-transparent"></div>
+                <h1 className="text-xl lg:text-2xl text-gray-700 font-semibold text-center mx-1 lg:mx-4 tracking-tight">Our Partners</h1>
+                <div className="flex-grow border-t border-transparent"></div>
             </div>
             <div className='logo-container max-w-screen-xl mx-auto'>
                 <Marquee

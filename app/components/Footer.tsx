@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <div>
             <footer className="bg-blueTheme text-white">
-                <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+                <div className="mx-auto w-full max-w-screen-2xl p-4 py-6 lg:py-8">
                     <div className="md:flex md:justify-between">
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-16 sm:gap-6 sm:grid-cols-4">
@@ -38,15 +38,17 @@ export default function Footer() {
                                 <div>
                                     <input type="email" id="first_name" className="bg-gray-50 mt-4 border text-sm rounded-lg focus:ring-blueTheme-500 focus:border-blueTheme-500 block w-full p-2.5" placeholder="Email" required />
                                 </div>
-                            </div>
-                            <div>
+                                <br />
                                 <Typography variant="h6" className="mb-6 font-semibold tracking-tighter">Contact Us</Typography>
                                 <p className="text-sm leading-loose font-light"><span className="font-bold">Phone:</span> +91 098370 54542, 094572 31937</p>
                                 <p className="text-sm leading-loose font-light"><span className="font-bold">Email:</span> support@propertyverse.co.in</p>
                             </div>
+                            <div>
+                                
+                            </div>
                         </div>
                     </div>
-                    <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+                    <hr className="border-gray-200 sm:mx-auto dark:border-gray-700 " />
                     <div className="sm:flex sm:items-center sm:justify-between">
                         <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="#" className="hover:underline">PropertyVerse™</a>. All Rights Reserved.
                         </span>
