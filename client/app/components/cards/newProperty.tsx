@@ -2,22 +2,23 @@
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Image from "next/image"
 
-export default function newProperty({ name, image, location, funded, invamt, irr }: any) {
+export default function newProperty({id, name, image, location, funded, invamt, irr }: any) {
+
 
     const href = name.split(" ").join("_").toLowerCase();
 
     return (
-        <div className="mb-24 mx-auto max-h-full">
+        <div className=" mx-2 max-h-full">
             <div className="static mt-10 w-80 bg-card border shadow-xl border-blueTheme rounded-lg  ">
                 <div className="flex flex-col items-center">
                     <div className=" w-11/12 m-4 h-48  relative">
-                        <Image fill unoptimized className="object-fill rounded-lg" src={`/${image}`} alt="" />
+                        <Image fill unoptimized className="object-fill rounded-lg" src={`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/${image}`} alt="" />
                     </div>
                     <div className="flex flex-col justify-between px-4">
                         <h5 className="mb-2 text-2xl font-bold    tracking-tighter text-gray-600 line-clamp-1">{name}</h5>
                         <div className="flex">
                             <LocationOnIcon className=" text-red-500" />
-                            <p className="text-md mb-3     tracking-tighter  text-gray-400 ">{location}</p>
+                            <p className="text-md mb-3 line-clamp-1 tracking-tighter  text-gray-400 ">{location}</p>
                         </div>
 
                         <div className="w-5/6 mx-auto">
@@ -57,10 +58,10 @@ export default function newProperty({ name, image, location, funded, invamt, irr
                                 <sub className="text-xs">Risk Factor</sub>
                             </div>
                         </div>
-                        <a href={`/commercial_properties/${href}`}>
+                        <a href={`/commercial_properties/${id}?name=${name}`}>
                             <button className='relative mx-16 mb-4 py-2 px-4 rounded-lg bg-blueTheme text-white font-robot tracking-tight'>
 
-                                View Opportunity?
+                                View Project
 
                                 <span className="absolute top-0 right-0 inline-flex rounded-full h-2 w-2 bg-white">
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>

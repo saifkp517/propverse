@@ -1,13 +1,13 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import Link from "next/link";
+import axios from 'axios'
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useWindowSize } from "@uidotdev/usehooks";
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import Card from "../cards/newProperty";
-
 
 // Import Swiper styles
 import 'swiper/css';
@@ -19,68 +19,38 @@ export default function RecentlyAdded() {
 
     const size = useWindowSize();
     const [NoCards, setNoCards] = useState(3);
-    
+    const [propDetails, setPropDetails] = useState<any>([]);
 
     useEffect(() => {
-        if(size.width! < 940)
-        {
+        if (size.width! < 1000 && size.width! > 750) {
+            setNoCards(2)
+        }
+        else if (size.width! < 750) {
             setNoCards(1)
         }
         else
-        {
             setNoCards(3)
-        }
-    })
+    }, [size.width])
 
-
-    const propDetails = [
-        {
-            name: "Brigade Tech Park",
-            image: "briagadetechpark1.png",
-            location: "Whitefield, Bangaluru",
-            funded: 4,
-            invamt: "25",
-            irr: "16.13"
-        },
-        {
-            name: "Sky One Opportunity",
-            image: "skyoneopportunity.png",
-            location: "Viman Nagar, Pune",
-            funded: 5,
-            invamt: "25",
-            irr: "15.1"
-        },
-        {
-            name: "NASDAQ & NYSE Listed MNC's",
-            image: "nysemnc.png",
-            location: "Magarpatta, Pune",
-            funded: 5,
-            invamt: "25",
-            irr: "15.15"
-        },
-        {
-            name: "Jaipur Logstics Park",
-            image: "jaipurlogisticspark.png",
-            location: "Magarpatta, Pune",
-            funded: 5,
-            invamt: "25",
-            irr: "15.15"
-        },
-
-    ]
+    useEffect(() => {
+        axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/properties`)
+            .then(res => {
+                setPropDetails(res.data.properties)
+                console.log(res.data.properties)
+            })
+    }, [])
 
     return (
-        <div>
-            <section className="mt-24 px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto">
-                <div className="flex justify-between">
-                    <h1 className="text-2xl lg:text-4xl  o text-gray-600 tracking-tighter font-bold my-auto">Recently Added</h1>
-
+        <div className='select-none'>
+            <section className="px-8 md:px- lg:px-24 max-w-screen-xl mx-auto">
+                <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl my-auto text-center mb-8">Explore Opportunities</h1>
+                <div className='text-center '>
                     <Link className="my-auto" href={'/properties'}>
-                        <h1 className="text-blueTheme font-bold no-underline hover:underline">See All</h1>
+                        <h1 className="text-blueTheme font-bold no-underline hover:underline">View All</h1>
                     </Link>
                 </div>
             </section>
-            <div className="mx-auto max-w-80 lg:max-w-screen-lg">
+            <div className="mx-auto max-w-80 md:max-w-screen-md lg:max-w-screen-lg">
                 <Swiper
                     className=''
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -91,32 +61,27 @@ export default function RecentlyAdded() {
                     onSlideChange={() => console.log('slide change')}
                 >
                     {
-                        propDetails.map(property => (
-                            <div key={property.name} >
+                        propDetails.map((property: any) => (
+                            <div key={property.building_name} >
                                 <SwiperSlide>
                                     <div>
                                         <Card
-                                            name={property.name}
-                                            image={property.image}
+                                            id={property.id}
+                                            name={property.building_name}
+                                            image={property.images[0]}
                                             location={property.location}
-                                            funded={property.funded}
-                                            invamt={property.invamt}
+                                            funded={"8"}
+                                            invamt={property.minimum_investment}
                                             irr={property.irr}
                                         />
                                     </div>
+                                    
                                 </SwiperSlide>
                             </div>
                         ))
                     }
                 </Swiper>
-
-
-
             </div>
         </div>
-
-
-
-
     )
 }
