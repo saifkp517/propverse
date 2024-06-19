@@ -20,6 +20,7 @@ const config: Config = {
       green: colors.green,
       red: colors.red,
       orange: colors.orange,
+      purple: colors.purple,
       white: colors.white,
       black: colors.black,
       gray: colors.gray,

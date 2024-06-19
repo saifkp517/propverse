@@ -1,8 +1,17 @@
 "use client"
 import React from "react";
 import Image from 'next/image'
+import { useSession, getSession } from "next-auth/react";
 
 export default function MyNav({ fixed }: any) {
+
+    const { data: session, status } = useSession();
+
+    if (status === "authenticated") {
+        console.log(session)
+
+    }
+
     const [navbarOpen, setNavbarOpen] = React.useState(false);
     return (
         <>
@@ -34,7 +43,7 @@ export default function MyNav({ fixed }: any) {
                     </div>
                     <div
                         className={
-                            "lg:flex flex-grow items-center" +
+                            "lg:flex flex-grow justify-end items-end" +
                             (navbarOpen ? " flex" : " hidden")
                         }
                         id="example-navbar-danger"
@@ -42,15 +51,15 @@ export default function MyNav({ fixed }: any) {
                         <ul className="flex flex-col lg:flex-row list-none lg:ml-auto uppercase text-lg">
                             <li className="nav-item">
                                 <a
-                                    className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug  hover:opacity-75 hover:before:scale-x-100 hover:before:origin-left relative before:w-full before:h-0.5 before:origin-right before:transition-transform before:duration-300 before:scale-x-0 before:bg-blueTheme before:absolute before:left-0 before:bottom-0  underline-offset-8"
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug  hover:opacity-75 hover:before:scale-x-100 hover:before:origin-left relative before:w-full before:h-0.5 before:origin-right before:transition-transform before:duration-300 before:scale-x-0 before:bg-blueTheme before:absolute before:left-0 before:bottom-0  underline-offset-8"
                                     href="/"
                                 >
-                                    <i className="fab fa-facebook-square text-lg leading-lg  opacity-75"></i><span className="ml-2">Home</span>
+                                    <i className="fab fa-facebook-square text-sm leading-lg  opacity-75"></i><span className="ml-2">Home</span>
                                 </a>
                             </li>
                             <li className="nav-item">
                                 <a
-                                    className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug  hover:opacity-75 hover:before:scale-x-100 hover:before:origin-left relative before:w-full before:h-0.5 before:origin-right before:transition-transform before:duration-300 before:scale-x-0 before:bg-blueTheme before:absolute before:left-0 before:bottom-0  underline-offset-8"
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug  hover:opacity-75 hover:before:scale-x-100 hover:before:origin-left relative before:w-full before:h-0.5 before:origin-right before:transition-transform before:duration-300 before:scale-x-0 before:bg-blueTheme before:absolute before:left-0 before:bottom-0  underline-offset-8"
                                     href="/properties"
                                 >
                                     <i className="fab fa-twitter text-lg leading-lg opacity-75"></i><span className="ml-2">Properties</span>
@@ -58,7 +67,7 @@ export default function MyNav({ fixed }: any) {
                             </li>
                             {/* <li className="nav-item">
                                 <a
-                                    className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug  hover:opacity-75 hover:before:scale-x-100 hover:before:origin-left relative before:w-full before:h-0.5 before:origin-right before:transition-transform before:duration-300 before:scale-x-0 before:bg-blueTheme before:absolute before:left-0 before:bottom-0  underline-offset-8"
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug  hover:opacity-75 hover:before:scale-x-100 hover:before:origin-left relative before:w-full before:h-0.5 before:origin-right before:transition-transform before:duration-300 before:scale-x-0 before:bg-blueTheme before:absolute before:left-0 before:bottom-0  underline-offset-8"
                                     href="/completed_projects"
                                 >
                                     <i className="fab fa-pinterest text-lg leading-lg  opacity-75"></i><span className="ml-2">Completed Projects</span>
@@ -66,12 +75,45 @@ export default function MyNav({ fixed }: any) {
                             </li> */}
                             <li className="nav-item">
                                 <a
-                                    className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug  hover:opacity-75 hover:before:scale-x-100 hover:before:origin-left relative before:w-full before:h-0.5 before:origin-right before:transition-transform before:duration-300 before:scale-x-0 before:bg-blueTheme before:absolute before:left-0 before:bottom-0  underline-offset-8"
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug  hover:opacity-75 hover:before:scale-x-100 hover:before:origin-left relative before:w-full before:h-0.5 before:origin-right before:transition-transform before:duration-300 before:scale-x-0 before:bg-blueTheme before:absolute before:left-0 before:bottom-0  underline-offset-8"
                                     href="/knowledge-base"
                                 >
                                     <i className="fab fa-pinterest text-lg leading-lg  opacity-75"></i><span className="ml-2">Knowledge Base</span>
                                 </a>
                             </li>
+                            {
+                                status === "authenticated"
+                                    ?
+                                    (
+                                        <li className="nav-item">
+                                            <div className="px-3 flex items-center">
+
+                                                <a
+                                                    className="ml-3 text-xs uppercase font-bold leading-snug hover:opacity-75"
+                                                    href="/profile"
+                                                >
+                                                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-green-500 flex items-center justify-center text-white text-sm font-semibold">
+                                                        {session.user.email?.charAt(0)}
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    )
+                                    :
+                                    (
+                                        <li className="nav-item">
+                                            <a
+                                                className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75 hover:before:scale-x-100 hover:before:origin-left relative before:w-full before:h-0.5 before:origin-right before:transition-transform before:duration-300 before:scale-x-0 before:bg-blueTheme before:absolute before:left-0 before:bottom-0 underline-offset-8"
+                                                href="/login"
+                                            >
+                                                <i className="fas fa-sign-in-alt text-lg leading-lg opacity-75"></i><span className="ml-2">Login</span>
+                                            </a>
+                                        </li>
+
+                                    )
+
+                            }
+
                         </ul>
                     </div>
                 </div>

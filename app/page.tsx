@@ -14,6 +14,7 @@ import { Typography } from "@mui/material";
 import RecentlyAdded from "./components/sections/RecentlyAdded";
 import OurPartners from "./components/sections/OurPartners";
 import OurServices from "./components/sections/OurServices";
+import { useSession } from "next-auth/react";
 
 class Calendly extends Component {
   componentDidMount() {
@@ -40,6 +41,10 @@ class Calendly extends Component {
 
 
 export default function Home() {
+
+  const { data: session, status } = useSession();
+
+  console.log(status)
 
   //calendly
   const subtitle = useRef<HTMLHeadingElement>(null);
@@ -176,6 +181,7 @@ export default function Home() {
               alt="bg"
               src={"/main.gif"}
               width="0"
+              unoptimized
               height="0"
               sizes="100vw"
               className="w-full h-auto "
@@ -349,7 +355,7 @@ export default function Home() {
             <button onClick={openModal} type="button" className="focus:outline-none text-blueTheme hover:text-blueTheme bg-white   font-bold rounded-xl text-sm my-8 px-8 py-3 ">CONTACT US</button>
           </div>
           <div className="hidden lg:block h-96">
-            <Image alt="whychooseusgid" className="w-full h-full object-contain" height={1000} width={1000} src={"/whychooseus.gif"} />
+            <Image alt="whychooseusgid" className="w-full h-full object-contain" unoptimized height={1000} width={1000} src={"/whychooseus.gif"} />
           </div>
         </div>
       </section>
