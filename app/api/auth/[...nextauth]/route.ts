@@ -1,4 +1,5 @@
 import NextAuth, { Session } from "next-auth";
+import { redirect } from 'next/navigation'
 import { useRouter } from 'next/router';
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -10,8 +11,11 @@ declare module 'next-auth' {
     interface Session {
         accessToken?: string;
         user: {
+            id?: string;
             name?: string;
             email?: string;
+            phone?: string;
+            isProfileComplete?: boolean;
         };
     }
 }
@@ -74,13 +78,13 @@ const handler = NextAuth({
                         email: profile?.email,
                     });
                 }
+
             } catch (error: any) {
                 console.log(error);
             }
             return true;
         },
         async redirect({url, baseUrl}) {
-            console.log(baseUrl);
             return baseUrl;
         },
         async jwt({ token, user }: { token: JWT, user?: any }) {
@@ -91,10 +95,12 @@ const handler = NextAuth({
         },
         async session({ session, token }: { session: Session | any, token: JWT }) {
             session.user = token.user;
+            localStorage.setItem('isProfileComplete',JSON.stringify(!!(session.user.name && session.user.phone)));
             return session;
         }
     },
-    secret: 'Secret',
+    secret: '2kj4bl3i4jtb3lre;9ufegi',
 });
 
 export { handler as GET, handler as POST };
+

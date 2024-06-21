@@ -8,7 +8,9 @@ export default function MyNav({ fixed }: any) {
     const { data: session, status } = useSession();
 
     if (status === "authenticated") {
-        console.log(session)
+        if(localStorage.getItem('isProfileComplete') === "false") {
+            window.location.href = '/details'
+        }
     }
 
     const [navbarOpen, setNavbarOpen] = React.useState(false);

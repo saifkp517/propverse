@@ -15,17 +15,17 @@ export default function Login() {
 
     async function CredentialsLogin(e: any) {
         e.preventDefault();
-        const response = await signIn('credentials', { email, password, redirect: false })
-        console.log(response)
+        const response = await signIn('credentials', { email, password, redirect: true})
         if (response?.error) {
             console.error('Authentication failed:', response.error);
             setErrors(response.error)
         }
         else {
             console.log(response)
-            window.location.href = '/'
         }
     }
+
+    
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2 h-screen">
@@ -58,7 +58,7 @@ export default function Login() {
                         <div className="mb-1">
                             <input onChange={e => setEmail(e.target.value)} type="email" id="email" className="bg-gray-50 border border-blueTheme text-gray-900 text-xs rounded-md focus:ring-gray-500 focus:border-gray-500 block w-full px-2.5 py-2" placeholder="Email" required />
                         </div>
-                        <div className="mb-1">
+                        <div className="mb-5">
                             <input onChange={e => setPassword(e.target.value)} type="password" id="password" className="bg-gray-50 border border-blueTheme text-gray-900 text-xs rounded-md focus:ring-gray-500 focus:border-gray-500 block w-full px-2.5 py-2" placeholder="Password" required />
                         </div>
                         {/* <div className="flex items-start mb-5">
