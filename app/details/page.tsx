@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import { Typography } from "@mui/material";
 import { signIn } from "next-auth/react";
@@ -16,8 +15,6 @@ interface Errors {
 }
 
 export default function Detail() {
-
-    const router = useRouter();
 
     const { data: session, status } = useSession()
 
@@ -38,7 +35,7 @@ export default function Detail() {
                 id: session.user.id
             })
             localStorage.setItem('isProfileComplete', 'true');
-            router.push('/')
+            window.location.href = '/'
 
 
         } catch(e) {
