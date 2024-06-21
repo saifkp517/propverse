@@ -1,8 +1,6 @@
 'use client'
-import React, { useEffect, useRef, useState } from 'react';
-import { useParams } from 'next/navigation'
+import React, { useEffect, useRef, useState, Suspense } from 'react';
 import axios from 'axios';
-
 import { useSearchParams } from 'next/navigation';
 
 const MobileVerification = () => {
@@ -10,7 +8,7 @@ const MobileVerification = () => {
     const [otpArray, setOtpArray] = useState<string[]>([])
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState("");
-    const searchParams = useSearchParams()
+    const searchParams = useSearchParams();
     const email = searchParams.get('email')
 
     const inputsRef = useRef<any>([]);
@@ -93,17 +91,17 @@ const MobileVerification = () => {
         e.preventDefault();
 
         try {
-            const otpString = otpArray.join('');            
+            const otpString = otpArray.join('');
             const otpVerified = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/verify-otp`, {
                 email: email,
                 otp: otpString
             });
-            if(otpVerified) {
+            if (otpVerified) {
                 console.log(otpVerified)
                 setSuccess(true);
                 window.location.href = '/login';
             }
-        } catch(e: any) {
+        } catch (e: any) {
             console.log(e);
             setError(e.response.data);
         }
@@ -124,7 +122,7 @@ const MobileVerification = () => {
                             <input
                                 key={index}
                                 type="text"
-                                ref={(el) => inputsRef.current[index] = el}
+                                ref={(el: HTMLInputElement | null) => inputsRef.current[index] = el}
                                 className="w-14 h-14 text-center text-2xl font-extrabold text-slate-900 bg-slate-100 border border-gray-400 hover:border-slate-200 appearance-none rounded p-4 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
                                 pattern="\d*"
                                 maxLength={1}
@@ -145,4 +143,10 @@ const MobileVerification = () => {
     );
 };
 
-export default MobileVerification;
+export default function OTP() {
+    return (
+        <Suspense>
+            <MobileVerification />
+        </Suspense>
+    )
+};
