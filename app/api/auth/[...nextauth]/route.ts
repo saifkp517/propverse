@@ -95,7 +95,6 @@ const handler = NextAuth({
         },
         async session({ session, token }: { session: Session | any, token: JWT }) {
             session.user = token.user;
-            localStorage.setItem('isProfileComplete',JSON.stringify(!!(session.user.name && session.user.phone)));
             return session;
         }
     },

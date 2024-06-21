@@ -21,6 +21,41 @@ ChartJS.register(...registerables, ChartDataLabels, LinearScale, BarElement, cha
 
 export default function PropertyDetails() {
 
+
+  const [investment, setInvestment] = useState(10); // Default investment in Lakhs
+  const [irr, setIRR] = useState(10); // Default IRR in percentage
+  const [period, setPeriod] = useState(5); // Default period in years
+  const [returns, setReturns] = useState(0);
+
+  const calculateReturns = () => {
+    // Convert investment to Lakhs
+    const investmentInCrores = investment / 100;
+
+    // Calculate returns using a simplified formula (you may need to use a more complex formula for accurate IRR calculations)
+    const calculatedReturns = investmentInCrores * Math.pow(1 + irr / 100, period);
+
+    // Update state with calculated returns
+    setReturns(calculatedReturns);
+  };
+
+  const handleInputChange = (e, type) => {
+    calculateReturns();
+    const value = parseFloat(e.target.value);
+    switch (type) {
+      case 'investment':
+        setInvestment(value);
+        break;
+      case 'irr':
+        setIRR(value);
+        break;
+      case 'period':
+        setPeriod(value);
+        break;
+      default:
+        break;
+    }
+  };
+
   const params = useParams();
 
   const { data, status } = useSession();
@@ -162,43 +197,71 @@ export default function PropertyDetails() {
                       }
                     </Carousel>
                   </div>
+                  {/* <Speedometer riskPercentage={50} /> */}
                   <div className="my-auto">
-                    <div className=" rounded-3xl shadow-md bg-gray-50 border-blueTheme border lg:mt-0 h-fit lg:h-fit w-full p-1 lg:p-5">
+                    <div className="rounded-3xl shadow-md bg-gray-50 border-blueTheme border lg:mt-0 h-fit lg:h-fit w-full p-1 lg:p-5">
                       <h1 className="font-bold text-xl tracking-tight mb-5">Calculate Your Investment</h1>
 
-                      <div className="">
+                      {/* Investment Input */}
+                      <div className="mb-5">
                         <div className="flex justify-between">
-                          <label className="block text-xs font-medium text-gray-900">Investment</label>
-                          <label className="block text-xs font-medium text-gray-900">{details.minimum_investment} Lakhs</label>
+                          <label className="block text-xs font-medium text-gray-900">Investment (in Lakhs)</label>
+                          <label className="block text-xs font-medium text-gray-900">{investment} Lakhs</label>
                         </div>
-                        <input id="default-range" type="range" value={details.minimum_investment} className="w-full h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer border border-black" />
+                        <input
+                          type="range"
+                          min="25"
+                          max="100"
+                          value={investment}
+                          onChange={(e) => handleInputChange(e, 'investment')}
+                          className="w-full h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer border border-black"
+                        />
                       </div>
 
-
-
-                      <div className="">
+                      {/* IRR Input */}
+                      <div className="mb-5">
                         <div className="flex justify-between">
-                          <label className="block text-xs font-medium text-gray-900">IRR</label>
-                          <label className="block text-xs font-medium text-gray-900">{details.irr}%</label>
+                          <label className="block text-xs font-medium text-gray-900">IRR (%)</label>
+                          <label className="block text-xs font-medium text-gray-900">{irr}%</label>
                         </div>
-                        <input id="default-range" type="range" value={details.irr} className="w-full h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer border border-black" />
+                        <input
+                          type="range"
+                          min="0"
+                          max="2"
+                          value={irr}
+                          onChange={(e) => handleInputChange(e, 'irr')}
+                          className="w-full h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer border border-black"
+                        />
                       </div>
 
-                      <div className="">
+                      {/* Period Input */}
+                      <div className="mb-5">
                         <div className="flex justify-between">
-                          <label className="block text-xs font-medium text-gray-900">Period</label>
-                          <label className="block text-xs font-medium text-gray-900">{details.lockin}</label>
+                          <label className="block text-xs font-medium text-gray-900">Period (in years)</label>
+                          <label className="block text-xs font-medium text-gray-900">{period} years</label>
                         </div>
-                        <input id="default-range" type="range" value="50" className="w-full h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer border border-black" />
+                        <input
+                          type="range"
+                          min="1"
+                          max="5"
+                          value={period}
+                          onChange={(e) => handleInputChange(e, 'period')}
+                          className="w-full h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer border border-black"
+                        />
                       </div>
 
-
+                      {/* Returns Display */}
                       <div className="flex justify-between my-5">
                         <h1 className="font-semibold text-xl tracking-tight">Returns:</h1>
-                        <h1 className="font-bold text-xl tracking-tight">$ 24,00,000</h1>
+                        <h1 className="font-bold text-xl tracking-tight">{Number(returns) > 1 ? returns.toFixed(2) + " Crores" : (Number(returns) * 100).toFixed(2) + " Lakhs"} </h1>
                       </div>
 
-                      <Speedometer riskPercentage={50} />
+                      {/* Calculate Button */}
+                      <button
+                        className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md"
+                      >
+                        Interested?
+                      </button>
                     </div>
                   </div>
                 </div >
@@ -227,8 +290,8 @@ export default function PropertyDetails() {
                           </svg>
                         </div>
                         <div className="h-16 w-fit">
-                            <h1 className="text-xs font-semibold text-start  text-gray-600">{item.label}</h1>
-                            <p className="text-xl leading-tight font-bold text-start text-blueTheme">{item.value}</p>
+                          <h1 className="text-xs font-semibold text-start  text-gray-600">{item.label}</h1>
+                          <p className="text-xl leading-tight font-bold text-start text-blueTheme">{item.value}</p>
                         </div>
                       </div>
                     ))}

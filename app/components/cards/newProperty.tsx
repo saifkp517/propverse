@@ -1,10 +1,11 @@
 
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import {useSession} from "next-auth/react";
 import Image from "next/image"
 
 export default function newProperty({id, name, image, location, funded, invamt, irr }: any) {
 
-
+    const {data: session, status} = useSession();
     const href = name.split(" ").join("_").toLowerCase();
 
     return (
@@ -58,7 +59,7 @@ export default function newProperty({id, name, image, location, funded, invamt, 
                                 <sub className="text-xs">Risk Factor</sub>
                             </div>
                         </div>
-                        <a href={`/commercial_properties/${id}?name=${name}`}>
+                        <a href={status === "authenticated" ? `/commercial_properties/${id}?name=${name}` : '/login'}>
                             <button className='relative mx-16 mb-4 py-2 px-4 rounded-lg bg-blueTheme text-white font-robot tracking-tight'>
 
                                 View Project
