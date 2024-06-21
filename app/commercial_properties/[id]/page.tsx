@@ -141,9 +141,9 @@ export default function PropertyDetails() {
             <div className="px-6 lg:px-20">
               <div className="mt-10 mx-auto">
                 <h1 className="text-start text-4xl font-extrabold leading-none tracking-tight text-gray-700 md:text-5xl lg:text-4xl ">{details.building_name}</h1>
-                <h1 className="my-2 text-gray-600 mb-12">{details.location}</h1>
-                <div className="grid grid-cols-1 lg:grid-cols-3">
-                  <div className="m-0 h-full col-span-2 ">
+                <h1 className="mt-2 text-gray-600">{details.location}</h1>
+                <div className="grid grid-cols-1 lg:grid-cols-3 space-x-10">
+                  <div className="m-0 h-full col-span-2">
                     <Carousel>
                       {
                         details.images.map((image) => (
@@ -162,35 +162,44 @@ export default function PropertyDetails() {
                       }
                     </Carousel>
                   </div>
-                  <div className=" rounded-3xl shadow-md bg-gray-50 border-blueTheme border mt-10 lg:mt-0 h-fit lg:h-144 w-full p-5 lg:p-10">
-                    <h1 className="font-bold text-2xl tracking-tight mb-10">Calculate Your Investment</h1>
+                  <div className="my-auto">
+                    <div className=" rounded-3xl shadow-md bg-gray-50 border-blueTheme border lg:mt-0 h-fit lg:h-fit w-full p-1 lg:p-5">
+                      <h1 className="font-bold text-xl tracking-tight mb-5">Calculate Your Investment</h1>
 
-                    <div className="flex justify-between">
-                      <label className="block text-sm font-medium text-gray-900">Investment</label>
-                      <label className="block text-sm font-medium text-gray-900">Investment</label>
+                      <div className="">
+                        <div className="flex justify-between">
+                          <label className="block text-xs font-medium text-gray-900">Investment</label>
+                          <label className="block text-xs font-medium text-gray-900">{details.minimum_investment} Lakhs</label>
+                        </div>
+                        <input id="default-range" type="range" value={details.minimum_investment} className="w-full h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer border border-black" />
+                      </div>
+
+
+
+                      <div className="">
+                        <div className="flex justify-between">
+                          <label className="block text-xs font-medium text-gray-900">IRR</label>
+                          <label className="block text-xs font-medium text-gray-900">{details.irr}%</label>
+                        </div>
+                        <input id="default-range" type="range" value={details.irr} className="w-full h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer border border-black" />
+                      </div>
+
+                      <div className="">
+                        <div className="flex justify-between">
+                          <label className="block text-xs font-medium text-gray-900">Period</label>
+                          <label className="block text-xs font-medium text-gray-900">{details.lockin}</label>
+                        </div>
+                        <input id="default-range" type="range" value="50" className="w-full h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer border border-black" />
+                      </div>
+
+
+                      <div className="flex justify-between my-5">
+                        <h1 className="font-semibold text-xl tracking-tight">Returns:</h1>
+                        <h1 className="font-bold text-xl tracking-tight">$ 24,00,000</h1>
+                      </div>
+
+                      <Speedometer riskPercentage={50} />
                     </div>
-                    <input id="default-range" type="range" value="50" className="w-full h-3 mb-5 bg-gray-200 rounded-lg appearance-none cursor-pointer border border-black" />
-
-
-                    <div className="flex justify-between">
-                      <label className="block text-sm font-medium text-gray-900">IRR</label>
-                      <label className="block text-sm font-medium text-gray-900">Investment</label>
-                    </div>
-                    <input id="default-range" type="range" value="" className="w-full h-3 mb-5 bg-gray-200 rounded-lg appearance-none cursor-pointer border border-black" />
-
-
-                    <div className="flex justify-between">
-                      <label className="block text-sm font-medium text-gray-900">Period</label>
-                      <label className="block text-sm font-medium text-gray-900">Investment</label>
-                    </div>
-                    <input id="default-range" type="range" value="50" className="w-full h-3 mb-5 bg-gray-200 rounded-lg appearance-none cursor-pointer border border-black" />
-
-                    <div className="flex justify-between mt-5">
-                      <h1 className="font-semibold text-2xl tracking-tight mb-10">Returns:</h1>
-                      <h1 className="font-bold text-2xl tracking-tight mb-10">$ 24,00,000</h1>
-                    </div>
-
-                    <Speedometer riskPercentage={50} />
                   </div>
                 </div >
                 <div className="my-10">
@@ -199,99 +208,33 @@ export default function PropertyDetails() {
                 </div>
 
                 <div className="my-10">
-                  <h1 className="tracking-tight text-2xl text-blueTheme font-bold mb-2">Highlights</h1>
-                  <div className="grid gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full lg:w-2/3">
-                    <div className="flex items-center">
-                      <div className="bg-gray-200 rounded-full h-10 w-10 flex justify-center items-center mr-2">
-                        <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M4 10V22H10V14H14V22H20V10L12 4L4 10Z"></path>
-                        </svg>
+                  <h1 className="tracking-tight text-2xl text-blueTheme font-bold mb-3">Highlights</h1>
+                  <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full lg:w-2/3 rounded-3xl border-gray-100 border bg-gray-50 p-5">
+                    {[
+                      { label: "Building Name", value: details.building_name, icon: "M4 10V22H10V14H14V22H20V10L12 4L4 10Z" },
+                      { label: "Asset Type", value: details.asset_type, icon: "M12 2L1 21H23L12 2Z" },
+                      { label: "Investment Size", value: `${details.investment_size} sq.ft`, icon: "M12 7L3 11V17L12 21L21 17V11L12 7Z" },
+                      { label: "Lease Lock-in", value: details.lockin, icon: "M12 2L1 21H23L12 2ZM12 16.5L7 21H17L12 16.5Z" },
+                      { label: "Gross Entry Yield", value: `${details.entry_yeild}%`, icon: "M3 11H21V13H3V11Z" },
+                      { label: "Target IRR", value: `${details.irr}%`, icon: "M13 12H21V14H13V12ZM3 6H15V8H3V6ZM3 18H15V20H3V18Z" },
+                      { label: "Multiplier", value: `${details.multiplier}x`, icon: "M3 11H21V13H3V11Z" },
+                      { label: "Minimum Investment", value: `${details.minimum_investment} Lacs`, icon: "M12 3C6.48 3 2 7.48 2 13C2 18.52 6.48 23 12 23C17.52 23 22 18.52 22 13C22 7.48 17.52 3 12 3ZM12 21C7.59 21 4 17.41 4 13C4 8.59 7.59 5 12 5C16.41 5 20 8.59 20 13C20 17.41 16.41 21 12 21ZM11 7H13V14H11V7ZM11 17H13V19H11V17Z" }
+                    ].map((item, index) => (
+                      <div className="flex items-center" key={index}>
+                        <div className="bg-gray-200 rounded-full h-fit w-fit p-2 flex justify-center items-center mr-2">
+                          <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d={item.icon}></path>
+                          </svg>
+                        </div>
+                        <div className="h-16 w-fit">
+                            <h1 className="text-xs font-semibold text-start  text-gray-600">{item.label}</h1>
+                            <p className="text-xl leading-tight font-bold text-start text-blueTheme">{item.value}</p>
+                        </div>
                       </div>
-                      <div className="block">
-                        <h1 className="text-sm font-bold text-start text-gray-600">Building Name</h1>
-                        <p className="text-lg font-bold text-start text-blueTheme">{details.building_name}</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="bg-gray-200 rounded-full h-10 w-10 flex justify-center items-center mr-2">
-                        <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 2L1 21H23L12 2Z"></path>
-                        </svg>
-                      </div>
-                      <div className="block">
-                        <h1 className="text-sm font-bold text-start text-gray-600">Asset Type</h1>
-                        <p className="text-lg font-bold text-start text-blueTheme">{details.asset_type}</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="bg-gray-200 rounded-full h-10 w-10 flex justify-center items-center mr-2">
-                        <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 7L3 11V17L12 21L21 17V11L12 7Z"></path>
-                        </svg>
-                      </div>
-                      <div className="block">
-                        <h1 className="text-sm font-bold text-start text-gray-600">Investment Size</h1>
-                        <p className="text-lg font-bold text-start text-blueTheme">{details.investment_size} sq.ft</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="bg-gray-200 rounded-full h-10 w-10 flex justify-center items-center mr-2">
-                        <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 2L1 21H23L12 2ZM12 16.5L7 21H17L12 16.5Z"></path>
-                        </svg>
-                      </div>
-                      <div className="block">
-                        <h1 className="text-sm font-bold text-start text-gray-600">Lease Lock-in</h1>
-                        <p className="text-lg font-bold text-start text-blueTheme">{details.lockin}</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="bg-gray-200 rounded-full h-10 w-10 flex justify-center items-center mr-2">
-                        <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M3 11H21V13H3V11Z"></path>
-                        </svg>
-                      </div>
-                      <div className="block">
-                        <h1 className="text-sm font-bold text-start text-gray-600">Gross Entry Yield</h1>
-                        <p className="text-lg font-bold text-start text-blueTheme">{details.entry_yeild}%</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="bg-gray-200 rounded-full h-10 w-10 flex justify-center items-center mr-2">
-                        <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M13 12H21V14H13V12ZM3 6H15V8H3V6ZM3 18H15V20H3V18Z"></path>
-                        </svg>
-                      </div>
-                      <div className="block">
-                        <h1 className="text-sm font-bold text-start text-gray-600">Target IRR</h1>
-                        <p className="text-lg font-bold text-start text-blueTheme">{details.irr}%</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="bg-gray-200 rounded-full h-10 w-10 flex justify-center items-center mr-2">
-                        <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M3 11H21V13H3V11Z"></path>
-                        </svg>
-                      </div>
-                      <div className="block">
-                        <h1 className="text-sm font-bold text-start text-gray-600">Multiplier</h1>
-                        <p className="text-lg font-bold text-start text-blueTheme">{details.multiplier}x</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="bg-gray-200 rounded-full h-10 w-10 flex justify-center items-center mr-2">
-                        <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 3C6.48 3 2 7.48 2 13C2 18.52 6.48 23 12 23C17.52 23 22 18.52 22 13C22 7.48 17.52 3 12 3ZM12 21C7.59 21 4 17.41 4 13C4 8.59 7.59 5 12 5C16.41 5 20 8.59 20 13C20 17.41 16.41 21 12 21ZM11 7H13V14H11V7ZM11 17H13V19H11V17Z"></path>
-                        </svg>
-                      </div>
-                      <div className="block">
-                        <h1 className="text-sm font-bold text-start text-gray-600">Minimum Investment</h1>
-                        <p className="text-lg font-bold text-start text-blueTheme">{details.minimum_investment} Lacs</p>
-                      </div>
-                    </div>
+                    ))}
                   </div>
-
                 </div>
+
 
                 <div className="my-10 block">
                   <h1 className="tracking-tight text-2xl text-blueTheme font-bold mb-2">Tenant Details</h1>
@@ -343,10 +286,7 @@ export default function PropertyDetails() {
                                         }
                                       },
                                       legend: {
-                                        position: 'top',
-                                        labels: {
-                                          color: 'black' // Set font color for legend
-                                        }
+                                        display: false
                                       },
                                       title: {
                                         display: true,
@@ -371,11 +311,11 @@ export default function PropertyDetails() {
                                     labels: chartData.labels,
                                     datasets: [
                                       {
-                                        label: 'Returns',
+                                        label: '',
                                         data: chartData.values.map((value: string) => parseFloat(value)),
-                                        backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+                                        backgroundColor: ['rgba(54, 162, 235, 0.6)'],
                                         borderColor: ['#4287f5'],
-                                        borderWidth: 1,
+                                        borderWidth: 2,
                                         barPercentage: 0.5,
                                         categoryPercentage: 1,
                                       },

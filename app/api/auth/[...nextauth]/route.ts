@@ -1,4 +1,5 @@
 import NextAuth, { Session } from "next-auth";
+import { useRouter } from 'next/router';
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import axios from 'axios';
@@ -30,7 +31,7 @@ async function verifyUserCredentials(email: string | undefined, password: string
             provider: "propertyverse"
         });
         // Assuming the response contains a token upon successful login
-        const {user} = response.data;
+        const { user } = response.data;
         return user;
     } catch (error: any) {
         // Handle errors here, such as network errors or invalid credentials
@@ -63,11 +64,27 @@ const handler = NextAuth({
     ],
     session: {
         strategy: 'jwt',
-        maxAge: 60*60,
+        maxAge: 60 * 60,
     },
     callbacks: {
-        async jwt({token, user}: {token: JWT, user?: any}) {
-            if(user) {
+        async signIn({ account, profile }) {
+            try {
+                if (account?.provider === "google") {
+                    await axios.post(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/oauth/investor`, {
+                        email: profile?.email,
+                    });
+                }
+            } catch (error: any) {
+                console.log(error);
+            }
+            return true;
+        },
+        async redirect({url, baseUrl}) {
+            console.log(baseUrl);
+            return baseUrl;
+        },
+        async jwt({ token, user }: { token: JWT, user?: any }) {
+            if (user) {
                 token.user = user;
             }
             return token;

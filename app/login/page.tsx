@@ -23,7 +23,7 @@ export default function Login() {
         }
         else {
             console.log(response)
-            //window.location.href = '/'
+            window.location.href = '/'
         }
     }
 
