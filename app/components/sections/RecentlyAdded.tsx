@@ -82,7 +82,7 @@ export default function RecentlyAdded() {
                                                     <Card
                                                         id={property.id}
                                                         name={property.building_name}
-                                                        image={property.images[0]}
+                                                        image={property.images[property.images.length - 1]}
                                                         location={property.location}
                                                         funded={"8"}
                                                         invamt={property.minimum_investment}
