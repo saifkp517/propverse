@@ -1,7 +1,7 @@
 'use client'
 
 import Image from "next/image";
-import React, { useRef, useEffect, useState, Component } from 'react';
+import React, { useRef, useEffect, useState, Component, Suspense } from 'react';
 import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -166,106 +166,107 @@ export default function Home() {
   ]
 
   return (
-    <div className="">
-      <MyNav />
-      <section>
+    <Suspense>
+      <div className="">
+        <MyNav />
+        <section>
 
-        <div className="max-h-screen max-w-screen-xl xl:mx-auto grid grid-cols-1 lg:grid-cols-2 mx-2">
-          <div className="lg:mx-auto py-0 lg:py-20 px-6">
-            <h1 className="text-blueTheme text-7xl lg:text-5xl font-medium lg:font-bold">Property<br /><span className="text-green-700">Verse</span></h1>
-            <p className="mt-4 ml-2 my-5 text-md font-medium text-gray-800">Welcome to a redefinition of property management. Discover seamless solutions for property owners and tenants alike.</p>
-            <a href="/properties"><button type="button" className="focus:outline-none text-white hover:text-blueTheme bg-blueTheme hover:bg-transparent hover:ring-1 hover:ring-blueTheme duration-300/ font-medium rounded-xl text-sm px-5 py-2.5 ">Explore Properties</button></a>
-          </div>
-          <div className="lg:mx-auto flex items-center justify-center">
-            <Image
-              alt="bg"
-              src={"/main.gif"}
-              width="0"
-              unoptimized
-              height="0"
-              sizes="100vw"
-              className="w-full h-auto "
-            />
-          </div>
-        </div>
-      </section>
-      <br />
-      <section className="mb-20">
-        <OurPartners />
-      </section>
-      <section className="bg-blue-50 my-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2">
-          <div className="p-10">
-            <h2 className="text-base font-semibold leading-7 text-blueTheme">Projected Market Size</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Real Estate Of <span className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] bg-gradient-to-r from-orange-500 via-white to-green-400 inline-block text-transparent bg-clip-text">India</span>
-            </p>
-            <p className="mt-6 text-md tracking-tight leading-8 text-gray-700">
-              Efficiently growing and contributing significantly to the GDP, the real estate industry in India is poised for substantial expansion. This growth is driven by rapid urbanization, increasing foreign investments, and supportive government policies and reforms, setting the stage for the industry to reach a market size of $650 billion by 2025.
-            </p>
-          </div>
-          <div className="p-10 mx-auto">
-            <div className="flex">
-              <div className="grid grid-cols-2">
-                <div className="inline-block p-2 lg:p-10">
-                  <h1 className="text-4xl font-semibold text-gray-700 tracking-tighter">$650 Billion</h1>
-                  <p className="text-sm  text-gray-600">Expected Market Size by 2025</p>
-                </div>
-                <div className="inline-block p-2 lg:p-10">
-                  <h1 className="text-4xl font-semibold text-gray-700 tracking-tighter">13%</h1>
-                  <p className="text-sm  text-gray-600">Contribution to GDP by 2025</p>
-                </div>
-              </div>
+          <div className="max-h-screen max-w-screen-xl xl:mx-auto grid grid-cols-1 lg:grid-cols-2 mx-2">
+            <div className="lg:mx-auto py-0 lg:py-20 px-6">
+              <h1 className="text-blueTheme text-7xl lg:text-5xl font-medium lg:font-bold">Property<br /><span className="text-green-700">Verse</span></h1>
+              <p className="mt-4 ml-2 my-5 text-md font-medium text-gray-800">Welcome to a redefinition of property management. Discover seamless solutions for property owners and tenants alike.</p>
+              <a href="/properties"><button type="button" className="focus:outline-none text-white hover:text-blueTheme bg-blueTheme hover:bg-transparent hover:ring-1 hover:ring-blueTheme duration-300/ font-medium rounded-xl text-sm px-5 py-2.5 ">Explore Properties</button></a>
             </div>
-            <div className="flex">
-              <div className="grid grid-cols-2">
-                <div className="inline-block p-2 lg:p-10">
-                  <h1 className="text-4xl font-semibold text-gray-700 tracking-tighter">$200 Billion</h1>
-                  <p className="text-sm  text-gray-600">Market Size in 2021</p>
-                </div>
-                <div className="inline-block p-2 lg:p-10">
-                  <h1 className="text-4xl font-semibold text-gray-700 tracking-tighter">19.5%</h1>
-                  <p className="text-sm  text-gray-600">Annual Growth Rate (2017-2028)</p>
-                </div>
-              
-              </div>
+            <div className="lg:mx-auto flex items-center justify-center">
+              <Image
+                alt="bg"
+                src={"/main.gif"}
+                width="0"
+                unoptimized
+                height="0"
+                sizes="100vw"
+                className="w-full h-auto "
+              />
             </div>
-           
           </div>
-        </div>
-        <div className="py-10 sm:py-12">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto lg:text-center">
-              <h2 className="text-base font-semibold leading-7 text-blueTheme">Introduction</h2>
+        </section>
+        <br />
+        <section className="mb-20">
+          <OurPartners />
+        </section>
+        <section className="bg-blue-50 my-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2">
+            <div className="p-10">
+              <h2 className="text-base font-semibold leading-7 text-blueTheme">Projected Market Size</h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Comprehensive Guide to Fractional Real Estate Investment
+                Real Estate Of <span className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] bg-gradient-to-r from-orange-500 via-white to-green-400 inline-block text-transparent bg-clip-text">India</span>
               </p>
-              <p className="mt-6 text-lg leading-8 text-gray-600">
-                Key Insights and Advantages of Fractional Ownership and PropertyVerse
+              <p className="mt-6 text-md tracking-tight leading-8 text-gray-700">
+                Efficiently growing and contributing significantly to the GDP, the real estate industry in India is poised for substantial expansion. This growth is driven by rapid urbanization, increasing foreign investments, and supportive government policies and reforms, setting the stage for the industry to reach a market size of $650 billion by 2025.
               </p>
             </div>
-            <div className="mx-auto mt-16 sm:mt-20 lg:mt-24 ">
-              <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
-                {features.map((feature) => (
-                  <div key={feature.name} className="relative pl-16">
-                    <dt className="text-base font-semibold leading-7 text-gray-900">
-                      <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-blueTheme">
-                        {/* <feature.icon className="h-6 w-6 text-white" aria-hidden="true" /> */}
-                      </div>
-                      {feature.name}
-                    </dt>
-                    <ul className="mt-2 list-['-_'] text-base leading-7 text-gray-600">{
-                      feature.points.map(point => (
-                        <li key={point}>{point}</li>
-                      ))
-                    }</ul>
+            <div className="p-10 mx-auto">
+              <div className="flex">
+                <div className="grid grid-cols-2">
+                  <div className="inline-block p-2 lg:p-10">
+                    <h1 className="text-4xl font-semibold text-gray-700 tracking-tighter">$650 Billion</h1>
+                    <p className="text-sm  text-gray-600">Expected Market Size by 2025</p>
                   </div>
-                ))}
-              </dl>
+                  <div className="inline-block p-2 lg:p-10">
+                    <h1 className="text-4xl font-semibold text-gray-700 tracking-tighter">13%</h1>
+                    <p className="text-sm  text-gray-600">Contribution to GDP by 2025</p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex">
+                <div className="grid grid-cols-2">
+                  <div className="inline-block p-2 lg:p-10">
+                    <h1 className="text-4xl font-semibold text-gray-700 tracking-tighter">$200 Billion</h1>
+                    <p className="text-sm  text-gray-600">Market Size in 2021</p>
+                  </div>
+                  <div className="inline-block p-2 lg:p-10">
+                    <h1 className="text-4xl font-semibold text-gray-700 tracking-tighter">19.5%</h1>
+                    <p className="text-sm  text-gray-600">Annual Growth Rate (2017-2028)</p>
+                  </div>
+
+                </div>
+              </div>
+
             </div>
           </div>
-        </div>
-        {/* <div className="mx-8 md:mx-16 lg:mx-32 p-4 lg:p-8 text-center rounded-lg text-white bg-blueTheme">
+          <div className="py-10 sm:py-12">
+            <div className="mx-auto max-w-7xl px-6 lg:px-8">
+              <div className="mx-auto lg:text-center">
+                <h2 className="text-base font-semibold leading-7 text-blueTheme">Introduction</h2>
+                <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                  Comprehensive Guide to Fractional Real Estate Investment
+                </p>
+                <p className="mt-6 text-lg leading-8 text-gray-600">
+                  Key Insights and Advantages of Fractional Ownership and PropertyVerse
+                </p>
+              </div>
+              <div className="mx-auto mt-16 sm:mt-20 lg:mt-24 ">
+                <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+                  {features.map((feature) => (
+                    <div key={feature.name} className="relative pl-16">
+                      <dt className="text-base font-semibold leading-7 text-gray-900">
+                        <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-blueTheme">
+                          {/* <feature.icon className="h-6 w-6 text-white" aria-hidden="true" /> */}
+                        </div>
+                        {feature.name}
+                      </dt>
+                      <ul className="mt-2 list-['-_'] text-base leading-7 text-gray-600">{
+                        feature.points.map(point => (
+                          <li key={point}>{point}</li>
+                        ))
+                      }</ul>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </div>
+          </div>
+          {/* <div className="mx-8 md:mx-16 lg:mx-32 p-4 lg:p-8 text-center rounded-lg text-white bg-blueTheme">
 
           <Typography variant="h4" className="mb-2 text-center     font-semibold tracking-normal">Diversified Investment Opportunities</Typography>
           <Typography className="">Explore a diverse range of fractional ownership opportunities in premium real estate</Typography>
@@ -313,55 +314,56 @@ export default function Home() {
 
           </div>
         </div> */}
-      </section>
-      <section>
-        <RecentlyAdded />
-      </section>
-      <section className="my-10 mb-28 mx-8 md:mx-16 lg:mx-32">
-        <div className="bg-blueTheme text-white p-8 md:p-12 lg:p-16 rounded-3xl m-0 md:m-8 grid grid-cols-1 lg:grid-cols-2">
-          <div className="">
-            <Typography variant="h3" className="font-bold mb-10 ">Why Choose Us?</Typography>
-            <p className="max-w-sm leading-8">
-              Our expert team ensures each property aligns with profitability and caters to various investor preferences.
-              Whether it's residential, commercial, or vacation
-              properties, we tailor our offerings to meet your specific financial goals for a customized investment experience.
-            </p>
-            <Modal
-              isOpen={modalIsOpen}
-              onAfterOpen={afterOpenModal}
-              onRequestClose={closeModal}
-              style={{
-                overlay: {
-                  backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  zIndex: 50,
-                },
-                content: {
-                  width: 'auto', // Let the content determine the width dynamically
-                  height: '100vh', // Let the content determine the height dynamically
-                  margin: 'auto', // Center the modal horizontally
-                  border: 'none', // Remove border around the content
-                  padding: 0, // Remove padding around the content
-                  overflow: 'visible', // Allow content to overflow if needed
-                }
-              }}
-              contentLabel="Calendly"
-            >
-              <Calendly />
-            </Modal>
+        </section>
+        <section>
+          <RecentlyAdded />
+        </section>
+        <section className="my-10 mb-28 mx-8 md:mx-16 lg:mx-32">
+          <div className="bg-blueTheme text-white p-8 md:p-12 lg:p-16 rounded-3xl m-0 md:m-8 grid grid-cols-1 lg:grid-cols-2">
+            <div className="">
+              <Typography variant="h3" className="font-bold mb-10 ">Why Choose Us?</Typography>
+              <p className="max-w-sm leading-8">
+                Our expert team ensures each property aligns with profitability and caters to various investor preferences.
+                Whether it's residential, commercial, or vacation
+                properties, we tailor our offerings to meet your specific financial goals for a customized investment experience.
+              </p>
+              <Modal
+                isOpen={modalIsOpen}
+                onAfterOpen={afterOpenModal}
+                onRequestClose={closeModal}
+                style={{
+                  overlay: {
+                    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    zIndex: 50,
+                  },
+                  content: {
+                    width: 'auto', // Let the content determine the width dynamically
+                    height: '100vh', // Let the content determine the height dynamically
+                    margin: 'auto', // Center the modal horizontally
+                    border: 'none', // Remove border around the content
+                    padding: 0, // Remove padding around the content
+                    overflow: 'visible', // Allow content to overflow if needed
+                  }
+                }}
+                contentLabel="Calendly"
+              >
+                <Calendly />
+              </Modal>
 
-            <button onClick={openModal} type="button" className="focus:outline-none text-blueTheme hover:text-blueTheme bg-white   font-bold rounded-xl text-sm my-8 px-8 py-3 ">CONTACT US</button>
+              <button onClick={openModal} type="button" className="focus:outline-none text-blueTheme hover:text-blueTheme bg-white   font-bold rounded-xl text-sm my-8 px-8 py-3 ">CONTACT US</button>
+            </div>
+            <div className="hidden lg:block h-96">
+              <Image alt="whychooseusgid" className="w-full h-full object-contain" unoptimized height={1000} width={1000} src={"/whychooseus.gif"} />
+            </div>
           </div>
-          <div className="hidden lg:block h-96">
-            <Image alt="whychooseusgid" className="w-full h-full object-contain" unoptimized height={1000} width={1000} src={"/whychooseus.gif"} />
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <Footer />
+        <Footer />
 
-    </div>
+      </div>
+    </Suspense>
   );
 }

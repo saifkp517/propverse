@@ -5,7 +5,6 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { Typography } from "@mui/material";
 import { signIn } from "next-auth/react";
-import { useSearchParams } from 'next/navigation';
 import axios from 'axios';
 import { useEffect, useState } from "react";
 
@@ -19,10 +18,6 @@ export default function Detail() {
     const { data: session, status } = useSession();
     console.log(session)
 
-    const searchParams = useSearchParams();
-
-    const email = searchParams.get('email');
-    const id = searchParams.get('id');
 
     const [loader, setLoader] = useState(false)
     let [phone, setphone] = useState("")
