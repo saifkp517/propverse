@@ -5,22 +5,27 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { Typography } from "@mui/material";
 import { signIn } from "next-auth/react";
+import { useSearchParams } from 'next/navigation';
 import axios from 'axios';
 import { useEffect, useState } from "react";
 
 interface Errors {
-    name?: string,
     phone?: string,
     exists?: string,
 }
 
 export default function Detail() {
 
-    const { data: session, status } = useSession()
+    const { data: session, status } = useSession();
+    console.log(session)
 
-    const [name, setName] = useState("")
+    const searchParams = useSearchParams();
+
+    const email = searchParams.get('email');
+    const id = searchParams.get('id');
+
     const [loader, setLoader] = useState(false)
-    const [phone, setphone] = useState("")
+    let [phone, setphone] = useState("")
     const [confirmPass, setConfirmPass] = useState("")
     const [errors, setErrors] = useState<Errors>({})
     const [serverError, setServerError] = useState("");
@@ -28,19 +33,33 @@ export default function Detail() {
     async function handleSubmit(e: any) {
 
         e.preventDefault();
-        try {
-            await axios.post(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/investor/update`, {
-                name: name,
-                phoneno: phone,
-                id: session.user.id
-            })
-            localStorage.setItem('isProfileComplete', 'true');
-            window.location.href = '/'
 
+        phone = phone.split(" ").join("");
 
-        } catch(e) {
-            alert("error uploading details");
-            console.log(e)
+        if (phone.length !== 10) {
+            setServerError("Invalid Phone Number")
+        } else {
+            
+            try {
+                await axios.post(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/investor/update`, {
+                    phoneno: phone,
+                    id: session.userId
+                })
+
+                const otpResponse = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/generate-otp`, {
+                    email: session.user.email
+                });
+
+                axios.post(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/otp-sms`, {
+                    phone: phone,
+                    OTP: otpResponse.data.otp
+                });
+
+                window.location.href = `/otp?id=${session.userId}&email=${session.user.email}`
+            } catch (e) {
+                setServerError("error uploading details")
+                console.log(e)
+            }
         }
     }
 
@@ -50,25 +69,32 @@ export default function Detail() {
             <div className="w-full lg:w-2/5 h-screen flex items-center justify-center mx-auto ">
                 <div className="mx-10 lg:mx-0">
                     <h2 className="font-bold text-2xl tracking-tigher mb-2 ">Welcome to <span className="text-blueTheme">Property</span><span className="text-green-800">Verse! 🎉</span></h2>
-                    <h2 className="font-light text-sm">We need a few details before we get started!</h2>
+                    <h2 className="font-light text-sm">Verify your Phone Number before getting started!</h2>
                     <br />
 
 
-                  
+
 
 
                     {serverError !== "" ? <sub className="text-red-500 text-xs">{serverError}</sub> : <></>}
 
                     <form onSubmit={handleSubmit} className="max-w-sm mx-auto">
-                        <div className="mb-1">
-                            <input onChange={e => setName(e.target.value)} type="name" id="name" className="bg-gray-50 border border-blueTheme text-gray-900 text-xs rounded-md focus:ring-gray-500 focus:border-gray-500 block w-full px-2.5 py-2" placeholder="Name" required />
-                            {errors.name && <sub className="text-red-500 text-xs">{errors.name}</sub>}
-                        </div>
                         <div className="mb-5">
-                            <input onChange={e => setphone(e.target.value)} type="phone" id="phone" className="bg-gray-50 border border-blueTheme text-gray-900 text-xs rounded-md focus:ring-gray-500 focus:border-gray-500 block w-full px-2.5 py-2" placeholder="Phone No" required />
+                            <div className="relative">
+                                <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">+91</span>
+                                <input
+                                    onChange={e => setphone(e.target.value)}
+                                    type="tel"
+                                    id="phone"
+                                    className="bg-gray-50 border border-blueTheme text-gray-900 text-xs rounded-md focus:ring-gray-500 focus:border-gray-500 block w-full pl-12 pr-2.5 py-2"
+                                    placeholder="Phone No"
+                                    required
+                                />
+                            </div>
+
                             {errors.phone && <sub className="text-red-500 text-xs">{errors.phone}</sub>}
                         </div>
-                    
+
                         {/* <div className="flex items-start mb-5">
                             <div className="flex items-center h-5">
                                 <input id="remember" type="checkbox" value="" className="w-4 h-4 border border-blueTheme  focus:ring-3" required />

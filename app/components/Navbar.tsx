@@ -1,7 +1,7 @@
 "use client"
 import React from "react";
 import Image from 'next/image'
-import { useSession, getSession } from "next-auth/react";
+import { useSession, getSession, signOut } from "next-auth/react";
 
 export default function MyNav({ fixed }: any) {
 
@@ -107,11 +107,9 @@ export default function MyNav({ fixed }: any) {
                                                 </div>
                                             </li>
                                             <li className="nav-item my-auto">
-                                                <a href="/login">
-                                                    <button className="px-2 lg:px-3 py-1 lg:py-2 flex items-center text-xs lg:text-sm font-medium leading-snug border rounded-lg text-white bg-blueTheme duration-200 text-center hover:opacity-75 ">
+                                                    <button onClick={() => signOut()} className="px-2 lg:px-3 py-1 lg:py-2 flex items-center text-xs lg:text-sm font-medium leading-snug border rounded-lg text-white bg-blueTheme duration-200 text-center hover:opacity-75 ">
                                                         Logout
                                                     </button>
-                                                </a>
                                             </li>
                                         </>
 

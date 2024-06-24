@@ -17,6 +17,7 @@ declare module 'next-auth' {
             phone?: string;
             isProfileComplete?: boolean;
         };
+        userId?: string;
     }
 }
 
@@ -40,7 +41,7 @@ async function verifyUserCredentials(email: string | undefined, password: string
     } catch (error: any) {
         // Handle errors here, such as network errors or invalid credentials
         console.error('Error verifying user credentials:', error);
-        throw new Error(error.response?.data?.message || 'Failed to authenticate user');
+        throw new Error(error.response?.data?.message || 'Invalid Email or Password');
     }
 }
 
@@ -74,9 +75,11 @@ const handler = NextAuth({
         async signIn({ account, profile }) {
             try {
                 if (account?.provider === "google") {
-                    await axios.post(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/oauth/investor`, {
+                    const response = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/oauth/investor`, {
                         email: profile?.email,
                     });
+                    const userId = response.data.user.id;
+                    account.userId = userId;
                 }
 
             } catch (error: any) {
@@ -84,20 +87,27 @@ const handler = NextAuth({
             }
             return true;
         },
-        async redirect({url, baseUrl}) {
-            return baseUrl;
-        },
-        async jwt({ token, user }: { token: JWT, user?: any }) {
+        async jwt({ token, user, account }: { token: JWT, user?: any, account?: any }) {
+            console.log(account)
+            if(account?.userId) {
+                token.userId = account.userId;
+            }
             if (user) {
                 token.user = user;
             }
             return token;
         },
         async session({ session, token }: { session: Session | any, token: JWT }) {
+
+            if (token?.userId) {
+                session.userId = token.userId;
+            }
+
             session.user = token.user;
             return session;
         }
     },
+
     secret: '2kj4bl3i4jtb3lre;9ufegi',
 });
 

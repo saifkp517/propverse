@@ -10,6 +10,7 @@ const MobileVerification = () => {
     const [error, setError] = useState("");
     const searchParams = useSearchParams();
     const email = searchParams.get('email')
+    const id = searchParams.get('id');
 
     const inputsRef = useRef<any>([]);
 
@@ -94,12 +95,13 @@ const MobileVerification = () => {
             const otpString = otpArray.join('');
             const otpVerified = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/verify-otp`, {
                 email: email,
+                id: id,
                 otp: otpString
             });
             if (otpVerified) {
                 console.log(otpVerified)
                 setSuccess(true);
-                window.location.href = '/login';
+                window.location.href = '/';
             }
         } catch (e: any) {
             console.log(e);
