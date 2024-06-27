@@ -84,7 +84,7 @@ export default function RecentlyAdded() {
                                                         name={property.building_name}
                                                         image={property.images[property.images.length - 1]}
                                                         location={property.location}
-                                                        funded={"8"}
+                                                        funded={property.funded}
                                                         invamt={property.minimum_investment}
                                                         irr={property.irr}
                                                     />

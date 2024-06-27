@@ -4,23 +4,69 @@ import Image from "next/image";
 import Link from "next/link";
 import MyNav from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
-import { Typography } from "@mui/material";
+import Modal from 'react-modal';
 import Carousel from 'react-material-ui-carousel'
 import { Bar } from 'react-chartjs-2';
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, Component, useRef } from "react";
 import axios from 'axios';
 import { useSession } from "next-auth/react";
 import { Chart as ChartJS, registerables, LinearScale, BarElement } from 'chart.js';
 import chartTrendline from 'chartjs-plugin-trendline';
 import { useParams } from 'next/navigation';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import MyModal from "@/app/components/MyModal";
 import Speedometer from "@/app/components/SpeedoMeter";
 
 ChartJS.register(...registerables, ChartDataLabels, LinearScale, BarElement, chartTrendline);
 
+class Calendly extends Component {
+  componentDidMount() {
+    const head = document.querySelector('head');
+    const script = document.createElement('script');
+    script.setAttribute('src', 'https://assets.calendly.com/assets/external/widget.js');
+    head!.appendChild(script);
+  }
+
+  componentWillUnmount() {
+    // Cleanup if necessary
+  }
+
+  render() {
+    return (
+      <div>
+        <div id="schedule_form">
+          <div className="calendly-inline-widget" data-url="https://calendly.com/saifkhan501721/30min" style={{ minWidth: '320px', height: '700px' }} />
+        </div>
+      </div>
+    );
+  }
+}
+
 export default function PropertyDetails() {
 
+  const { data: session, status } = useSession();
+  if (status === "unauthenticated") {
+    window.location.href = "/"
+  }
+
+   //calendly
+   const subtitle = useRef<HTMLHeadingElement>(null);
+
+   const [modalIsOpen, setIsOpen] = useState(false);
+ 
+   function openModal() {
+     setIsOpen(true);
+   }
+ 
+   function afterOpenModal() {
+     // references are now sync'd and can be accessed.
+     if (subtitle.current) {
+       subtitle.current.style.color = '#f00';
+     }
+   }
+ 
+   function closeModal() {
+     setIsOpen(false);
+   }
 
   const [investment, setInvestment] = useState(10); // Default investment in Lakhs
   const [irr, setIRR] = useState(10); // Default IRR in percentage
@@ -58,8 +104,6 @@ export default function PropertyDetails() {
 
   const params = useParams();
 
-  const { data, status } = useSession();
-  console.log(data?.user)
 
   type DetailsType = {
     additional: any;
@@ -226,8 +270,8 @@ export default function PropertyDetails() {
                         </div>
                         <input
                           type="range"
-                          min="0"
-                          max="2"
+                          min={0}
+                          max={20}
                           value={irr}
                           onChange={(e) => handleInputChange(e, 'irr')}
                           className="w-full h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer border border-black"
@@ -257,7 +301,40 @@ export default function PropertyDetails() {
                       </div>
 
                       {/* Calculate Button */}
+                      <Modal
+                        isOpen={modalIsOpen}
+                        onAfterOpen={afterOpenModal}
+                        onRequestClose={closeModal}
+                        style={{
+                          overlay: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            zIndex: 50,
+                          },
+                          content: {
+                            position: 'relative',
+                            inset: 'auto',
+                            width: '80%', // Adjust width as needed
+                            maxWidth: '800px', // Ensures the modal doesn't get too wide
+                            height: 'auto', // Adjust height as needed
+                            maxHeight: '80vh', // Ensures the modal height is responsive
+                            margin: 'auto',
+                            border: 'none',
+                            borderRadius: '10px',
+                            padding: '20px',
+                            overflow: 'auto', // Prevents scrolling
+                            backgroundColor: '#fff',
+                            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+                          }
+                        }}
+                        contentLabel="Calendly"
+                      >
+                        <Calendly />
+                      </Modal>
                       <button
+                        onClick={openModal}
                         className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md"
                       >
                         Interested?
@@ -289,8 +366,8 @@ export default function PropertyDetails() {
                             <path d={item.icon}></path>
                           </svg>
                         </div>
-                        <div className="h-16 w-fit">
-                          <h1 className="text-xs font-semibold text-start  text-gray-600">{item.label}</h1>
+                        <div className="flex flex-col h-16 w-fit justify-around">
+                          <h1 className="text-xs font-semibold text-start text-gray-600">{item.label}</h1>
                           <p className="text-xl leading-tight font-bold text-start text-blueTheme">{item.value}</p>
                         </div>
                       </div>
