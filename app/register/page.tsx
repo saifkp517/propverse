@@ -88,10 +88,6 @@ export default function Login() {
                     });
 
                     const userId = investor.data.userId
-<<<<<<< HEAD
-=======
-                    
->>>>>>> eb02d528635ee57fcc3fdfa8e4326ee397a9f8b2
 
                     window.location.href = `/otp?id=${userId}&email=${email}`;
                 }
