@@ -143,7 +143,7 @@ export default function PropertyDetails() {
     overview: "",
     tables: null,
     tenant: "",
-    tenant_details: null,
+    tenant_details: "",
     userId: ""
   });
   const [loading, setLoading] = useState(true);
@@ -151,6 +151,7 @@ export default function PropertyDetails() {
   useEffect(() => {
     axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/property/${params.id}`)
       .then((data: any) => {
+        console.log(data.data.property)
         setDetails(data.data.property)
         setLoading(false);
       })
@@ -344,7 +345,8 @@ export default function PropertyDetails() {
                 </div >
                 <div className="my-10">
                   <h1 className=" text-blueTheme font-bold text-2xl mb-2 tracking-tight">Overview</h1>
-                  <p className="text-md">{details.overview}</p>
+                  <p className="text-md" dangerouslySetInnerHTML={{ __html: details.overview }} />
+                  
                 </div>
 
                 <div className="my-10">
@@ -367,7 +369,7 @@ export default function PropertyDetails() {
                           </svg>
                         </div>
                         <div className="flex flex-col h-16 w-fit justify-around">
-                          <h1 className="text-xs font-semibold text-start text-gray-600">{item.label}</h1>
+                          <h1 className="text-xs font-semibold text-start text-gray-600 truncate">{item.label}</h1>
                           <p className="text-xl leading-tight font-bold text-start text-blueTheme">{item.value}</p>
                         </div>
                       </div>
@@ -379,6 +381,8 @@ export default function PropertyDetails() {
                 <div className="my-10 block">
                   <h1 className="tracking-tight text-2xl text-blueTheme font-bold mb-2">Tenant Details</h1>
                   <h1 className="text-gray-800 font-bold">{details.tenant}</h1>
+                  <br />
+                  <p className="text-md" dangerouslySetInnerHTML={{ __html: details.tenant_details }} />
                 </div>
 
                 <div className="chart mx-auto">
