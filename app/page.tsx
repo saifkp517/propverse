@@ -171,10 +171,16 @@ export default function Home() {
       <section>
 
         <div className="max-h-screen max-w-screen-xl xl:mx-auto grid grid-cols-1 lg:grid-cols-2 mx-2">
-          <div className="lg:mx-auto py-0 lg:py-20 px-6">
+          {/* Beautiful UI Design awaits */}
+          {/* <div className="lg:mx-auto py-0 lg:py-20 px-6">
             <h2 className="text-base font-bold leading-7 bg-gradient-to-r from-blueTheme to-green-700 text-transparent inline-block bg-clip-text">PropertyVerse</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Fractional Real Estate Investing with Instant Liquidity and Secured Loans</p>
             <p className="my-5 font-semibold text-sm  text-gray-800">Unlock the potential of real estate investing with our innovative platform. Invest in property fractions, secure loans using your assets, and access quick liquidity. Experience the future of real estate trading, simplified and accessible.</p>
+            <a href="/properties"><button type="button" className="focus:outline-none text-white hover:text-blueTheme bg-blueTheme hover:bg-transparent hover:ring-1 hover:ring-blueTheme duration-300/ font-medium rounded-xl text-sm px-5 py-2.5 ">Explore Properties</button></a>
+          </div> */}
+          <div className="lg:mx-auto py-0 lg:py-20 px-6">
+            <h1 className="text-blueTheme text-7xl lg:text-6xl font-medium lg:font-semibold tracking-tighter">Property<br /><span className="text-green-700">Verse</span></h1>
+            <p className="mt-4 ml-2 my-5 text-md font-semibold text-gray-800">Welcome to a redefinition of property management. Discover seamless solutions for property owners and tenants alike.</p>
             <a href="/properties"><button type="button" className="focus:outline-none text-white hover:text-blueTheme bg-blueTheme hover:bg-transparent hover:ring-1 hover:ring-blueTheme duration-300/ font-medium rounded-xl text-sm px-5 py-2.5 ">Explore Properties</button></a>
           </div>
           <div className="lg:mx-auto flex items-center justify-center">
@@ -228,10 +234,10 @@ export default function Home() {
                   <h1 className="text-4xl font-semibold text-gray-700 tracking-tighter">19.5%</h1>
                   <p className="text-sm  text-gray-600">Annual Growth Rate (2017-2028)</p>
                 </div>
-              
+
               </div>
             </div>
-           
+
           </div>
         </div>
         <div className="py-10 sm:py-12">
