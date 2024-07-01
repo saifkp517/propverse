@@ -178,9 +178,10 @@ export default function Home() {
 
             <TabPanel value={1}>
               <section className="my-10">
-                {filteredProperties.map((property: any, index) => (
-                  <div key={index} className="flex justify-center items-center flex-wrap w-full ">
-                    <div className=" m-5">
+                <div className="flex justify-center items-center flex-wrap w-full ">
+
+                  {filteredProperties.map((property: any, index) => (
+                    <div key={index} className=" m-5">
                       <Property
                         id={property.id}
                         name={property.building_name}
@@ -191,8 +192,8 @@ export default function Home() {
                         irr={property.irr}
                       />
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </section>
             </TabPanel>
             <TabPanel value={2}>
