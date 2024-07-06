@@ -53,7 +53,7 @@ export default function RecentlyAdded() {
                     </Link>
                 </div>
             </section>
-            <div className="mx-auto max-w-80 md:max-w-screen-md lg:max-w-screen-lg">
+            <div className="mx-auto max-w-80 md:max-w-screen-lg lg:max-w-screen-xl">
                 {
                     loading ?
                         (
@@ -69,6 +69,7 @@ export default function RecentlyAdded() {
                                 className=''
                                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                                 spaceBetween={50}
+                                style={{padding: '10px'}}
                                 slidesPerView={NoCards}
                                 pagination={{ clickable: true }}
                                 onSwiper={(swiper) => console.log(swiper)}

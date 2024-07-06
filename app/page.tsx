@@ -3,6 +3,11 @@
 import Image from "next/image";
 import React, { useRef, useEffect, useState, Component, Suspense } from 'react';
 import Link from "next/link";
+import {
+  Accordion,
+  AccordionHeader,
+  AccordionBody,
+} from "@material-tailwind/react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Head from 'next/head';
@@ -50,6 +55,9 @@ export default function Home() {
   const subtitle = useRef<HTMLHeadingElement>(null);
 
   const [modalIsOpen, setIsOpen] = useState(false);
+
+  const [open, setOpen] = React.useState(1);
+  const handleOpen = (value) => setOpen(open === value ? 0 : value);
 
   function openModal() {
     setIsOpen(true);
@@ -172,17 +180,17 @@ export default function Home() {
 
         <div className="max-h-screen max-w-screen-xl xl:mx-auto grid grid-cols-1 lg:grid-cols-2 mx-2">
           {/* Beautiful UI Design awaits */}
-          {/* <div className="lg:mx-auto py-0 lg:py-20 px-6">
-            <h2 className="text-base font-bold leading-7 bg-gradient-to-r from-blueTheme to-green-700 text-transparent inline-block bg-clip-text">PropertyVerse</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Fractional Real Estate Investing with Instant Liquidity and Secured Loans</p>
-            <p className="my-5 font-semibold text-sm  text-gray-800">Unlock the potential of real estate investing with our innovative platform. Invest in property fractions, secure loans using your assets, and access quick liquidity. Experience the future of real estate trading, simplified and accessible.</p>
-            <a href="/properties"><button type="button" className="focus:outline-none text-white hover:text-blueTheme bg-blueTheme hover:bg-transparent hover:ring-1 hover:ring-blueTheme duration-300/ font-medium rounded-xl text-sm px-5 py-2.5 ">Explore Properties</button></a>
-          </div> */}
           <div className="lg:mx-auto py-0 lg:py-20 px-6">
+            <h2 className="text-lg font-bold leading-7 bg-gradient-to-r from-blueTheme to-green-700 text-transparent inline-block bg-clip-text">PropertyVerse</h2>
+            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Own a Slice of Luxury: Fractional Real Estate Investment</p>
+            <p className="my-5 font-semibold text-sm  text-gray-800">Unlock your dream property with Fractional Ownership: Invest in luxury real estate for a fraction of the cost and enjoy exclusive benefits!</p>
+            <a href="/properties"><button type="button" className="focus:outline-none text-white hover:text-blueTheme bg-blueTheme hover:bg-transparent hover:ring-1 hover:ring-blueTheme duration-300/ font-medium rounded-xl text-sm px-5 py-2.5 ">Explore Properties</button></a>
+          </div>
+          {/* <div className="lg:mx-auto py-0 lg:py-20 px-6">
             <h1 className="text-blueTheme text-7xl lg:text-6xl font-medium lg:font-semibold tracking-tighter">Property<br /><span className="text-green-700">Verse</span></h1>
             <p className="mt-4 ml-2 my-5 text-md font-semibold text-gray-800">Welcome to a redefinition of property management. Discover seamless solutions for property owners and tenants alike.</p>
             <a href="/properties"><button type="button" className="focus:outline-none text-white hover:text-blueTheme bg-blueTheme hover:bg-transparent hover:ring-1 hover:ring-blueTheme duration-300/ font-medium rounded-xl text-sm px-5 py-2.5 ">Explore Properties</button></a>
-          </div>
+          </div> */}
           <div className="lg:mx-auto flex items-center justify-center">
             <Image
               alt="bg"
@@ -200,9 +208,12 @@ export default function Home() {
       <section className="mb-20">
         <OurPartners />
       </section>
+      <section>
+        <RecentlyAdded />
+      </section>
       <section className="bg-blue-50 my-10">
         <div className="grid grid-cols-1 lg:grid-cols-2">
-          <div className="p-10">
+          <div className="p-10 mx-auto max-w-2xl">
             <h2 className="text-base font-semibold leading-7 text-blueTheme">Projected Market Size</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               Real Estate Of <span className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] bg-gradient-to-r from-orange-500 via-white to-green-400 inline-block text-transparent bg-clip-text">India</span>
@@ -240,91 +251,72 @@ export default function Home() {
 
           </div>
         </div>
-        <div className="py-10 sm:py-12">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto lg:text-center">
-              <h2 className="text-base font-semibold leading-7 text-blueTheme">Introduction</h2>
-              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Comprehensive Guide to Fractional Real Estate Investment
-              </p>
-              <p className="mt-6 text-lg leading-8 text-gray-600">
-                How It Works
-              </p>
-            </div>
-            <div className="mx-auto mt-16 sm:mt-20 lg:mt-24 ">
-              <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
-                {features.map((feature) => (
-                  <div key={feature.name} className="relative pl-16">
-                    <dt className="text-base font-semibold leading-7 text-gray-900">
-                      <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-blueTheme">
-                        {/* <feature.icon className="h-6 w-6 text-white" aria-hidden="true" /> */}
-                      </div>
-                      {feature.name}
-                    </dt>
-                    <ul className="mt-2 list-['-_'] text-base leading-7 text-gray-600">{
-                      feature.points.map(point => (
-                        <li key={point}>{point}</li>
-                      ))
-                    }</ul>
-                  </div>
-                ))}
-              </dl>
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+          <div className="">
+            <div className="p-10">
+              <Image alt="returns" src={"/howitworks.jpg"} height={1000} width={1000} className=" object-contain w-full rounded-xl" />
             </div>
           </div>
+          <div className="p-10 mx-auto max-w-2xl">
+            <p className="mt-10 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              How It Works
+            </p>
+            <br />
+
+            {/* Accordion */}
+            <Accordion placeholder={null} open={open === 1}>
+              <AccordionHeader placeholder={null} className={open == 1 ? "font-bold" : "text-gray-700"} onClick={() => handleOpen(1)}>Invest With Ease</AccordionHeader>
+              <hr className="border-b border-gray-300" />
+              <AccordionBody>
+                <div className="space-y-2">
+                  <h1 className="text-xl font-bold text-gray-900">Seamless and Secure Investment Process.</h1>
+                  <ul className=" list-disc font-medium space-y-3">
+                    <li><a href="/login" className="font-semibold text-blueTheme">Log In/Sign Up: </a> Access your account to start investing.</li>
+                    <li><a href="/properties" className="font-semibold text-blueTheme">Fill KYC Form: </a>  Complete your KYC process to get started.</li>
+                  </ul>
+                  
+                </div>
+              </AccordionBody>
+            </Accordion>
+            <Accordion placeholder={null} open={open === 2}>
+              <AccordionHeader placeholder={null} className={open == 2 ? "font-bold" : "text-gray-700"} onClick={() => handleOpen(2)}>Choose Your Property</AccordionHeader>
+              <hr className="border-b border-gray-300" />
+              <AccordionBody>
+              <div className="space-y-2">
+                  <h1 className="text-xl font-bold text-gray-900">Find your perfect investment.</h1>
+                  <p className=" font-medium">Browse our curated list of premium real estate properties. Each listing includes detailed information, images, and investment terms to help you make an informed decision.</p>
+                  <br />
+                  <ul className=" list-disc text-blueTheme font-semibold">
+                    <li><a href="#">View Available Properties</a></li>
+                  </ul>
+                </div>
+              </AccordionBody>
+            </Accordion>
+            <Accordion placeholder={null} open={open === 3}>
+              <AccordionHeader placeholder={null} className={open == 3 ? "font-bold" : "text-gray-700"} onClick={() => handleOpen(3)}>Maximize Your Returns</AccordionHeader>
+              <hr className="border-b border-gray-300" />
+              <AccordionBody>
+                <div className="space-y-2">
+                  <h1 className="text-xl font-bold text-gray-900">Enjoy The Benefits Of Ownership.</h1>
+                  <p className=" font-medium">As a fractional owner, you'll receive:</p>
+                  <br />
+                  <ul className=" list-disc font-medium space-y-3">
+                    <li><span className="font-semibold text-green-700">Rental Income: </span> Earn a share of the rental income generated by your property.</li>
+                    <li><span className="font-semibold text-green-700">Property Appreciation: </span> Benefit from potential property value increases over time.</li>
+                    <li><span className="font-semibold text-green-700">Persnal Usage: </span> Enjoy personal use of the property during designated times, enhancing your investment experience..</li>
+                  </ul>
+                </div>
+              </AccordionBody>
+            </Accordion>
+            
+          </div>
+
         </div>
-        {/* <div className="mx-8 md:mx-16 lg:mx-32 p-4 lg:p-8 text-center rounded-lg text-white bg-blueTheme">
 
-          <Typography variant="h4" className="mb-2 text-center     font-semibold tracking-normal">Diversified Investment Opportunities</Typography>
-          <Typography className="">Explore a diverse range of fractional ownership opportunities in premium real estate</Typography>
-          <br />
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <div className="relative bg-white text-black rounded-xl p-4">
-              <Typography variant="h5" className="text-gray-700 font-semibold tracking-tighter text-left">Why Fractional Ownership?</Typography>
-              <hr className="border-blueTheme border my-2 rounded-xl w-1/2" />
-              <ul className="text-left list-decimal list-inside leading-8">
-                <li>Introduction to fractional Ownership</li>
-                <li>Reasons for Choosing fractional Ownership</li>
-                <li>Legal & Regulatory Aspects of fractional ownership</li>
-                <li>Types of Fractional Ownership</li>
-              </ul>
-              <div className="absolute bottom-4 right-4">
-                <Image alt="cubes" width={100} height={100} src='/cubes.png' />
-              </div>
-            </div>
-            <div className="relative bg-white text-black rounded-xl p-4">
-              <Typography variant="h5" className="text-gray-700 font-semibold tracking-tighter text-left">Why to Invest?</Typography>
-              <hr className="border-blueTheme border my-2 rounded-xl w-1/2" />
-              <ul className="text-left list-decimal list-inside leading-8">
-                <li>Wealth diversification through fractional ownership</li>
-                <li>Access to high-value assets with low capital investment</li>
-                <li>Enjoy financial returns of Premium Real Estate</li>
-                <li>Access to Nation Wide micro-markets</li>
-              </ul>
-              <div className="absolute bottom-4 right-4">
-                <Image alt="cubes" width={100} height={100} src='/cubes.png' />
-              </div>
-            </div>
-            <div className="relative bg-white text-black rounded-xl p-4">
-              <Typography variant="h5" className="text-gray-700 font-semibold tracking-tighter text-left">Why PropertyVerse?</Typography>
-              <hr className="border-blueTheme border my-2 rounded-xl w-1/2" />
-              <ul className="text-left list-decimal list-inside leading-8">
-                <li>PropertyVerse is a one stop destination for all your fractional ownership needs</li>
-                <li>Streamlined access to diverse fractional ownership options</li>
-                <li>Credit Risk Analysis Report of Every Project</li>
-                <li>Educational Content & Guides</li>
-              </ul>
-              <div className="absolute bottom-4 right-4">
-                <Image alt="cubes" width={100} height={100} src='/cubes.png' />
-              </div>
-            </div>
 
-          </div>
-        </div> */}
       </section>
-      <section>
-        <RecentlyAdded />
-      </section>
-      <section className="my-10 mb-28 mx-8 md:mx-16 lg:mx-32">
+
+      <section className="my-20 mx-8">
         <div className="bg-blueTheme text-white p-8 md:p-12 lg:p-16 rounded-3xl m-0 md:m-8 grid grid-cols-1 lg:grid-cols-2">
           <div className="">
             <Typography variant="h3" className="font-bold mb-10 ">Why Choose Us?</Typography>

@@ -86,7 +86,6 @@ const TabsList = styled(BaseTabsList)(
   `,
 );
 
-
 export default function Home() {
 
   const [properties, setProperties] = useState([]);
