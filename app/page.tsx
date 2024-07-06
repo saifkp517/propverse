@@ -258,14 +258,14 @@ export default function Home() {
             </div>
           </div>
           <div className="p-10 mx-auto max-w-2xl">
-            <p className="mt-10 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <p className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               How It Works
             </p>
             <br />
 
             {/* Accordion */}
-            <Accordion placeholder={null} open={open === 1}>
-              <AccordionHeader placeholder={null} className={open == 1 ? "font-bold" : "text-gray-700"} onClick={() => handleOpen(1)}>Invest With Ease</AccordionHeader>
+            <Accordion placeholder={undefined} open={open === 1}>
+              <AccordionHeader placeholder={undefined} className={open == 1 ? "font-bold" : "text-gray-700"} onClick={() => handleOpen(1)}>Invest With Ease</AccordionHeader>
               <hr className="border-b border-gray-300" />
               <AccordionBody>
                 <div className="space-y-2">
@@ -278,8 +278,8 @@ export default function Home() {
                 </div>
               </AccordionBody>
             </Accordion>
-            <Accordion placeholder={null} open={open === 2}>
-              <AccordionHeader placeholder={null} className={open == 2 ? "font-bold" : "text-gray-700"} onClick={() => handleOpen(2)}>Choose Your Property</AccordionHeader>
+            <Accordion placeholder={undefined} open={open === 2}>
+              <AccordionHeader placeholder={undefined} className={open == 2 ? "font-bold" : "text-gray-700"} onClick={() => handleOpen(2)}>Choose Your Property</AccordionHeader>
               <hr className="border-b border-gray-300" />
               <AccordionBody>
               <div className="space-y-2">
@@ -292,8 +292,8 @@ export default function Home() {
                 </div>
               </AccordionBody>
             </Accordion>
-            <Accordion placeholder={null} open={open === 3}>
-              <AccordionHeader placeholder={null} className={open == 3 ? "font-bold" : "text-gray-700"} onClick={() => handleOpen(3)}>Maximize Your Returns</AccordionHeader>
+            <Accordion placeholder={undefined} open={open === 3}>
+              <AccordionHeader placeholder={undefined} className={open == 3 ? "font-bold" : "text-gray-700"} onClick={() => handleOpen(3)}>Maximize Your Returns</AccordionHeader>
               <hr className="border-b border-gray-300" />
               <AccordionBody>
                 <div className="space-y-2">
