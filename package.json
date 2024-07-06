@@ -11,6 +11,7 @@
   "dependencies": {
     "@ctrl/react-adsense": "^1.7.0",
     "@emotion/react": "^11.11.4",
+    
     "@emotion/styled": "^11.11.5",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@gsap/react": "^2.1.1",
@@ -46,7 +47,7 @@
     "@types/chartjs-plugin-trendline": "^1.0.4",
     "@types/jsonwebtoken": "^9.0.6",
     "@types/node": "^20",
-    "@types/react": "^18",
+    "@types/react": "18.2.42",
     "@types/react-datepicker": "^6.2.0",
     "@types/react-dom": "^18",
     "@types/react-modal": "^3.16.3",
