@@ -175,7 +175,6 @@ export default function Home() {
 
   return (
     <div className="">
-      <MyNav />
       <section>
 
         <div className="max-h-screen max-w-screen-xl xl:mx-auto grid grid-cols-1 lg:grid-cols-2 mx-2">
@@ -366,7 +365,6 @@ export default function Home() {
         </div>
       </section>
 
-      <Footer />
 
     </div>
   );

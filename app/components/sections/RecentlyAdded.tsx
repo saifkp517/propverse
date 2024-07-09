@@ -35,7 +35,7 @@ export default function RecentlyAdded() {
     }, [size.width])
 
     useEffect(() => {
-        axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/properties`)
+        axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/properties/commercial`)
             .then(res => {
                 setPropDetails(res.data.properties)
                 setLoading(false);
@@ -79,7 +79,7 @@ export default function RecentlyAdded() {
                                     propDetails.map((property: any) => (
                                         <div key={property.building_name} >
                                             <SwiperSlide>
-                                                <div>
+                                                <div className=' className="inline-flex space-x-10 mt-10"'>
                                                     <Card
                                                         id={property.id}
                                                         name={property.building_name}
