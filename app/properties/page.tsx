@@ -88,14 +88,20 @@ const TabsList = styled(BaseTabsList)(
 
 export default function Home() {
 
-  const [properties, setProperties] = useState([]);
+  const [commericalProperties, setCommercialProperties] = useState([]);
+  const [holidayHomes, setHolidayHomes] = useState([])
+  const [totalProperties, setTotalProperties] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/properties`)
+    axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/properties/commercial`)
       .then(res => {
-        setProperties(res.data.properties);
+        setCommercialProperties(res.data.properties);
+      });
+      axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/properties/holiday`)
+      .then(res => {
+        setHolidayHomes(res.data.properties)
       });
   }, []);
 
@@ -107,14 +113,20 @@ export default function Home() {
     setSearchQuery(event.target.value);
   };
 
-  const filteredProperties = properties.filter((property: any) =>
+  console.log(commericalProperties, holidayHomes)
+
+  const filterCommertialProp = commericalProperties.filter((property: any) =>
+    (selectedLocation ? property.location.includes(selectedLocation) : true) &&
+    (searchQuery ? property.building_name.toLowerCase().includes(searchQuery.toLowerCase()) : true)
+  );
+  const filterHolidayProp = holidayHomes.filter((property: any) =>
     (selectedLocation ? property.location.includes(selectedLocation) : true) &&
     (searchQuery ? property.building_name.toLowerCase().includes(searchQuery.toLowerCase()) : true)
   );
 
   return (
     <div>
-      <div className="py-10 bg-gray-100">
+      <div className="py-10">
         <div className="flex justify-between p-3 ">
 
 
@@ -176,10 +188,8 @@ export default function Home() {
 
             <TabPanel value={1}>
               <section className="my-10">
-                <div className="flex justify-center items-center flex-wrap w-full ">
-
-                  {filteredProperties.map((property: any, index) => (
-                    <div key={index} className=" m-5">
+                  {filterCommertialProp.map((property: any, index) => (
+                    <div key={index} className="inline-block m-5">
                       <Property
                         id={property.id}
                         name={property.building_name}
@@ -191,12 +201,11 @@ export default function Home() {
                       />
                     </div>
                   ))}
-                </div>
               </section>
             </TabPanel>
             <TabPanel value={2}>
               <section className="my-10">
-                {/* {filteredProperties.map((property: any, index) => (
+                {filterHolidayProp.map((property: any, index) => (
                   <div key={index} className="inline-block mx-5">
                     <Property
                       id={property.id}
@@ -208,8 +217,7 @@ export default function Home() {
                       irr={property.irr}
                     />
                   </div>
-                ))} */}
-                <p className="text-blueTheme font-bold text-center">No Properties Listed Currently</p>
+                ))}
               </section>
             </TabPanel>
             <TabPanel value={3}>
