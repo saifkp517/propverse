@@ -79,7 +79,7 @@ export default function Login() {
                 //Generate OTP after successful signup]
                 if (investor.data.verified == false) {
                     const otpResponse = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/generate-otp`, {
-                        email: email
+                        phone: phone
                     });
 
                     axios.post(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/otp-sms`, {
@@ -89,7 +89,8 @@ export default function Login() {
 
                     const userId = investor.data.userId
 
-                    window.location.href = `/otp?id=${userId}&email=${email}`;
+                    window.location.href = `/otp?id=${userId}&phone=${phone}`;
+
                 }
 
             } catch (error: any) {

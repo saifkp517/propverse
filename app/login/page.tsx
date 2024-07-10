@@ -26,6 +26,34 @@ export default function Login() {
         }
     }
 
+
+    async function handleOAuthLogin() {
+        try {
+          // Attempt to sign in with Google
+          const result = await signIn('google', { redirect: false });
+          
+          if (result.error) {
+            // Handle sign-in error
+            console.error('Sign-in error:', result.error);
+            return;
+          }
+      
+          // Check if the account exists in your database
+          const accountExists = true; // You'll need to implement this function
+      
+          if (accountExists) {
+            // Redirect to home page if account exists
+            window.location.href = '/home';
+          } else {
+            // Redirect to details page if account doesn't exist
+            window.location.href = '/details';
+          }
+        } catch (error) {
+          console.error('Error during OAuth login:', error);
+          // Handle any other errors that might occur
+        }
+      };
+
     
 
     return (

@@ -42,15 +42,15 @@ export default function Detail() {
                 })
 
                 const otpResponse = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/generate-otp`, {
-                    email: session.user.email
+                    phone,
                 });
 
                 axios.post(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/otp-sms`, {
-                    phone: phone,
+                    phone,
                     OTP: otpResponse.data.otp
                 });
 
-                window.location.href = `/otp?id=${session.userId}&email=${session.user.email}`
+                window.location.href = `/otp?id=${session.userId}&phone=${phone}`
             } catch (e) {
                 setServerError("error uploading details")
                 console.log(e)

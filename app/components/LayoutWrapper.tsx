@@ -7,7 +7,7 @@ import Footer from "./Footer";
 
 const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
-  const showNavAndFooter = pathname !== "/login" && pathname !== "/register";
+  const showNavAndFooter = pathname !== "/login" && pathname !== "/register" && pathname !== "/details" && pathname !== "/otp";
 
   return (
     <>
