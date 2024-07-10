@@ -11,13 +11,49 @@ const formSections = [
 
 export default function DetailForm() {
   const [activeSection, setActiveSection] = useState('basic')
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    // Add fields for other sections
-  })
+  const [formData, setFormData] = useState(
+    {
+      // basic details
+      name: '',
+      fathers_name: '',
+      profession: '',
+      organization: '',
+      residential_status: '',
+      dob: '',
+      gender: '',
+
+      // Guardian details
+      gaurdian_pan_name: '',
+      gaurdian_pan_number: '',
+      gaurdian_panfile: '',
+      gaurdian_country: '',
+      gaurdian_address_proof_type: '',
+      gaurdian_document_number: '',
+      gaurdian_address_proof_file: '',
+
+      // Investor address
+      country: '',
+      pincode: '',
+      fulladdress_string: '',
+      landmark: '',
+      state: '',
+      city: '',
+      address_proof_type: '',
+      document_number: '',
+      address_proof_file: '',
+
+      // User's PAN and bank details
+      pan_number: '',
+      pan_name: '',
+      pan_file: '',
+      bank: '',
+      bank_account_type: '',
+      bank_account_number: '',
+      ifsc_code: '',
+      bankstatement: ''
+    }
+
+  )
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -33,34 +69,58 @@ export default function DetailForm() {
       case 'basic':
         return (
           <>
-            <div className="grid grid-cols-2 gap-4">
-              <input
-                type="text"
-                name="firstName"
-                placeholder="First Name"
-                onChange={handleChange}
-                className="border p-2 rounded"
-              />
-              <input
-                type="text"
-                name="lastName"
-                placeholder="Last Name"
-                onChange={handleChange}
-                className="border p-2 rounded"
-              />
-            </div>
-            <div className="mt-4">
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                onChange={handleChange}
-                className="border p-2 rounded w-full"
-              />
-            </div>
-            {/* Add more basic details fields */}
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="text"
+              name="fathers_name"
+              placeholder="Father's Name"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="text"
+              name="profession"
+              placeholder="Profession"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="text"
+              name="organization"
+              placeholder="Organization"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="text"
+              name="residential_status"
+              placeholder="Residential Status"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="text"
+              name="dob"
+              placeholder="Date of Birth (DD/MM/YYYY)"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="text"
+              name="gender"
+              placeholder="Gender"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
           </>
-        )
+        );
+
       case 'guardian':
         return (
           <>
@@ -71,9 +131,177 @@ export default function DetailForm() {
               onChange={handleChange}
               className="border p-2 rounded w-full mb-4"
             />
-            {/* Add more guardian details fields */}
+            <input
+              type="text"
+              name="guardianPanNumber"
+              placeholder="Guardian PAN Number"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="file"
+              name="guardianPanFile"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="text"
+              name="guardianCountry"
+              placeholder="Guardian Country"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="text"
+              name="guardianAddressProofType"
+              placeholder="Guardian Address Proof Type"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="text"
+              name="guardianDocumentNumber"
+              placeholder="Guardian Document Number"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="file"
+              name="guardianAddressProofFile"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
           </>
-        )
+        );
+      case 'investor':
+        return (
+          <>
+            <input
+              type="text"
+              name="country"
+              placeholder="Country"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="text"
+              name="pincode"
+              placeholder="Pincode"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="text"
+              name="fulladdress_string"
+              placeholder="Full Address"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="text"
+              name="landmark"
+              placeholder="Landmark"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="text"
+              name="state"
+              placeholder="State"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="text"
+              name="city"
+              placeholder="City"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="text"
+              name="address_proof_type"
+              placeholder="Address Proof Type"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="text"
+              name="document_number"
+              placeholder="Document Number"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="file"
+              name="address_proof_file"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+          </>
+        );
+
+      case 'pan':
+        return (
+          <>
+            <input
+              type="text"
+              name="pan_number"
+              placeholder="PAN Number"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="text"
+              name="pan_name"
+              placeholder="PAN Holder Name"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="file"
+              name="pan_file"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="text"
+              name="bank"
+              placeholder="Bank Name"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="text"
+              name="bank_account_type"
+              placeholder="Account Type"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="text"
+              name="bank_account_number"
+              placeholder="Account Number"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="text"
+              name="ifsc_code"
+              placeholder="IFSC Code"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+            <input
+              type="file"
+              name="bankstatement"
+              onChange={handleChange}
+              className="border p-2 rounded w-full mb-4"
+            />
+          </>
+        );
+
+
       // Add cases for 'investor' and 'pan' sections
       default:
         return null
@@ -87,11 +315,10 @@ export default function DetailForm() {
           <button
             key={section.id}
             onClick={() => setActiveSection(section.id)}
-            className={`mr-4 pb-2 ${
-              activeSection === section.id
-                ? 'border-b-2 border-blueTheme text-blueTheme'
-                : 'text-gray-500'
-            }`}
+            className={`mr-4 pb-2 ${activeSection === section.id
+              ? 'border-b-2 border-blueTheme text-blueTheme'
+              : 'text-gray-500'
+              }`}
           >
             {section.label}
           </button>
