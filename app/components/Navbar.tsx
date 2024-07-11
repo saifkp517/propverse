@@ -94,7 +94,7 @@ export default function MyNav() {
                                                     <a
                                                         href="/login"
                                                         className={classNames(
-                                                            'bg-gray-900 text-white duration-300 hover:text-white',
+                                                            'bg-blueThemee text-white duration-300 hover:text-white',
                                                             'rounded-md tracking-tighter px-2 py-2 text-sm font-medium',
                                                         )}
                                                     >
