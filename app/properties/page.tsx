@@ -99,7 +99,7 @@ export default function Home() {
       .then(res => {
         setCommercialProperties(res.data.properties);
       });
-      axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/properties/holiday`)
+    axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/properties/holiday`)
       .then(res => {
         setHolidayHomes(res.data.properties)
       });
@@ -162,8 +162,8 @@ export default function Home() {
             <div className="mx-auto max-w-full sm:max-w-screen-xs md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl">
               <TabsList>
                 <Tab value={1}>Commercial</Tab>
-                <Tab value={2}>Residential</Tab>
-                <Tab value={3}>Holiday</Tab>
+                <Tab value={2}>Holiday</Tab>
+                <Tab value={3}>Residential</Tab>
               </TabsList>
               <br />
               <div className="flex gap-x-4">
@@ -188,36 +188,52 @@ export default function Home() {
 
             <TabPanel value={1}>
               <section className="my-10">
-                  {filterCommertialProp.map((property: any, index) => (
-                    <div key={index} className="inline-block m-5">
-                      <Property
-                        id={property.id}
-                        name={property.building_name}
-                        image={property.images[property.images.length - 1]}
-                        location={property.location}
-                        funded={property.funded}
-                        invamt={property.minimum_investment}
-                        irr={property.irr}
-                      />
-                    </div>
-                  ))}
+                {
+                  filterCommertialProp.length !== 0
+                    ?
+                    filterCommertialProp.map((property: any, index) => (
+                      <div key={index} className="inline-block m-5">
+                        <Property
+                          id={property.id}
+                          name={property.building_name}
+                          image={property.images[property.images.length - 1]}
+                          location={property.location}
+                          funded={property.funded}
+                          invamt={property.minimum_investment}
+                          irr={property.irr}
+                        />
+                      </div>
+                    ))
+                    :
+                    (
+                      <p className="text-blueTheme font-bold text-center">No Properties Listed Currently</p>
+                    )
+                }
               </section>
             </TabPanel>
             <TabPanel value={2}>
               <section className="my-10">
-                {filterHolidayProp.map((property: any, index) => (
-                  <div key={index} className="inline-block mx-5">
-                    <Property
-                      id={property.id}
-                      name={property.building_name}
-                      image={property.images[property.images.length - 1]}
-                      location={property.location}
-                      funded={property.funded}
-                      invamt={property.minimum_investment}
-                      irr={property.irr}
-                    />
-                  </div>
-                ))}
+                {
+                  filterHolidayProp.length !== 0
+                    ?
+                    filterHolidayProp.map((property: any, index) => (
+                      <div key={index} className="inline-block mx-5">
+                        <Property
+                          id={property.id}
+                          name={property.building_name}
+                          image={property.images[property.images.length - 1]}
+                          location={property.location}
+                          funded={property.funded}
+                          invamt={property.minimum_investment}
+                          irr={property.irr}
+                        />
+                      </div>
+                    ))
+                    :
+                    (
+                      <p className="text-blueTheme font-bold text-center">No Properties Listed Currently</p>
+                    )
+                }
               </section>
             </TabPanel>
             <TabPanel value={3}>

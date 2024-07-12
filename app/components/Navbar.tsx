@@ -9,7 +9,7 @@ const navigation = [
     { name: 'Home', href: '/', current: false },
     { name: 'Properties', href: '/properties', current: false },
     { name: 'Knowledge Base', href: '/knowledge-base', current: false },
-    { name: 'Completed Properties', href: '/completed-properties', current: false },
+    // { name: 'Completed Properties', href: '/completed-properties', current: false },
 ]
 
 function classNames(...classes) {
@@ -94,7 +94,7 @@ export default function MyNav() {
                                                     <a
                                                         href="/login"
                                                         className={classNames(
-                                                            'bg-blueThemee text-white duration-300 hover:text-white',
+                                                            'bg-blueTheme text-white duration-300 hover:text-white',
                                                             'rounded-md tracking-tighter px-2 py-2 text-sm font-medium',
                                                         )}
                                                     >
