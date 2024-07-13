@@ -8,6 +8,7 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/**/*.{js,jsx,ts,tsx}",
     "./node_modules/react-tailwindcss-datepicker/dist/index.esm.js",
+    'node_modules/preline/dist/*.js',
   ],
   theme: {
     colors: {
@@ -50,6 +51,7 @@ const config: Config = {
     },
   },
   plugins: [
+    require('preline/plugin'),
   ],
 };
 export default config;

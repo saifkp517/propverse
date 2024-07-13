@@ -5,85 +5,12 @@ import { useSearchParams } from 'next/navigation';
 
 const MobileVerification = () => {
 
-    const [otpArray, setOtpArray] = useState<string[]>([])
+    const [otp, setOtp] = useState('');
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState("");
     const searchParams = useSearchParams();
-    const email = searchParams.get('email')
+    const phone = searchParams.get('phone')
     const id = searchParams.get('id');
-
-    const inputsRef = useRef<any>([]);
-
-    useEffect(() => {
-        const inputs: HTMLInputElement[] = inputsRef.current;
-        const submit: any = document.querySelector('button[type=submit]');
-
-        const handleKeyDown = (e: any) => {
-
-            if (!/^[0-9]{1}$/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Delete' && e.key !== 'Tab' && !e.metaKey) {
-                e.preventDefault();
-            }
-
-            if (e.key === 'Delete' || e.key === 'Backspace') {
-                const index = inputs.indexOf(e.target);
-                if (index > 0) {
-                    inputs[index - 1].value = '';
-                    inputs[index - 1].focus();
-                }
-            }
-        };
-
-        const handleInput = (e: any) => {
-
-            //converting it to a string
-
-            console.log(typeof (e.data))
-            setOtpArray((prevArr) => [...prevArr, e.data])
-            console.log(otpArray)
-
-
-            const { target } = e;
-            const index = inputs.indexOf(target);
-            if (target.value) {
-                if (index < inputs.length - 1) {
-                    inputs[index + 1].focus();
-                } else {
-                    submit.focus();
-                }
-            }
-        };
-
-        const handleFocus = (e: any) => {
-            e.target.select();
-        };
-
-        const handlePaste = (e: any) => {
-            e.preventDefault();
-            const text = e.clipboardData.getData('text');
-            if (!new RegExp(`^[0-9]{${inputs.length}}$`).test(text)) {
-                return;
-            }
-            const digits = text.split('');
-            inputs.forEach((input: any, index: number) => input.value = digits[index]);
-            submit.focus();
-        };
-
-        inputs.forEach((input: any) => {
-            input.addEventListener('input', handleInput);
-            input.addEventListener('keydown', handleKeyDown);
-            input.addEventListener('focus', handleFocus);
-            input.addEventListener('paste', handlePaste);
-        });
-
-        return () => {
-            inputs.forEach((input: any) => {
-                input.removeEventListener('input', handleInput);
-                input.removeEventListener('keydown', handleKeyDown);
-                input.removeEventListener('focus', handleFocus);
-                input.removeEventListener('paste', handlePaste);
-            });
-        };
-    }, []);
 
     function handleChange() {
 
@@ -92,11 +19,10 @@ const MobileVerification = () => {
         e.preventDefault();
 
         try {
-            const otpString = otpArray.join('');
             const otpVerified = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/verify-otp`, {
-                email: email,
+                phone: phone,
                 id: id,
-                otp: otpString
+                otp,
             });
             if (otpVerified) {
                 console.log(otpVerified)
@@ -119,19 +45,10 @@ const MobileVerification = () => {
                     <p className="text-[15px] text-slate-500">Enter the 4-digit verification code that was sent to your email address.</p>
                 </header>
                 <form onSubmit={handleSubmit} id="otp-form">
-                    <div className="flex items-center justify-center gap-3">
-                        {[0, 1, 2, 3].map((index) => (
-                            <input
-                                key={index}
-                                type="text"
-                                ref={(el) => inputsRef.current[index] = el as any}
-                                className="w-14 h-14 text-center text-2xl font-extrabold text-slate-900 bg-slate-100 border border-gray-400 hover:border-slate-200 appearance-none rounded p-4 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
-                                pattern="\d*"
-                                maxLength={1}
-                            />
-                        ))}
+                    <div className=" justify-center gap-3">
+                        <input value={otp} onChange={e => setOtp(e.target.value)} type="text" className='border rounded-md border-black py-2 w-3/4 px-3 text-center' maxLength={4} />
                     </div>
-                    <div className="max-w-[260px] mx-auto mt-4">
+                    <div className="max-w-[260px] mx-auto mt-6">
                         <button type="submit" className="w-full inline-flex justify-center whitespace-nowrap rounded-lg bg-blueTheme px-3.5 py-2.5 text-sm font-medium text-white shadow-sm shadow-indigo-950/10 hover:opacity-75 focus:outline-none focus:ring focus:ring-indigo-300 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 transition-colors duration-150">
                             Verify Account
                         </button>

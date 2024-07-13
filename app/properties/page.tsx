@@ -88,14 +88,20 @@ const TabsList = styled(BaseTabsList)(
 
 export default function Home() {
 
-  const [properties, setProperties] = useState([]);
+  const [commericalProperties, setCommercialProperties] = useState([]);
+  const [holidayHomes, setHolidayHomes] = useState([])
+  const [totalProperties, setTotalProperties] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/properties`)
+    axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/properties/commercial`)
       .then(res => {
-        setProperties(res.data.properties);
+        setCommercialProperties(res.data.properties);
+      });
+    axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/properties/holiday`)
+      .then(res => {
+        setHolidayHomes(res.data.properties)
       });
   }, []);
 
@@ -107,15 +113,20 @@ export default function Home() {
     setSearchQuery(event.target.value);
   };
 
-  const filteredProperties = properties.filter((property: any) =>
+  console.log(commericalProperties, holidayHomes)
+
+  const filterCommertialProp = commericalProperties.filter((property: any) =>
+    (selectedLocation ? property.location.includes(selectedLocation) : true) &&
+    (searchQuery ? property.building_name.toLowerCase().includes(searchQuery.toLowerCase()) : true)
+  );
+  const filterHolidayProp = holidayHomes.filter((property: any) =>
     (selectedLocation ? property.location.includes(selectedLocation) : true) &&
     (searchQuery ? property.building_name.toLowerCase().includes(searchQuery.toLowerCase()) : true)
   );
 
   return (
     <div>
-      <MyNav />
-      <div className="py-10 bg-gray-100">
+      <div className="py-10">
         <div className="flex justify-between p-3 ">
 
 
@@ -151,8 +162,8 @@ export default function Home() {
             <div className="mx-auto max-w-full sm:max-w-screen-xs md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl">
               <TabsList>
                 <Tab value={1}>Commercial</Tab>
-                <Tab value={2}>Residential</Tab>
-                <Tab value={3}>Holiday</Tab>
+                <Tab value={2}>Holiday</Tab>
+                <Tab value={3}>Residential</Tab>
               </TabsList>
               <br />
               <div className="flex gap-x-4">
@@ -161,7 +172,7 @@ export default function Home() {
                   <div className="relative w-full">
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                       <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                        <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
                       </svg>
                     </div>
                     <input type="text" id="simple-search" className="bg-gray-50 border border-gray-600 text-gray-900 text-sm rounded-xl focus:ring-blueTheme-500 focus:border-blueTheme block w-full ps-10 p-2.5" placeholder="Search Property..." required
@@ -177,40 +188,52 @@ export default function Home() {
 
             <TabPanel value={1}>
               <section className="my-10">
-                <div className="flex justify-center items-center flex-wrap w-full ">
-
-                  {filteredProperties.map((property: any, index) => (
-                    <div key={index} className=" m-5">
-                      <Property
-                        id={property.id}
-                        name={property.building_name}
-                        image={property.images[property.images.length - 1]}
-                        location={property.location}
-                        funded={property.funded}
-                        invamt={property.minimum_investment}
-                        irr={property.irr}
-                      />
-                    </div>
-                  ))}
-                </div>
+                {
+                  filterCommertialProp.length !== 0
+                    ?
+                    filterCommertialProp.map((property: any, index) => (
+                      <div key={index} className="inline-block m-5">
+                        <Property
+                          id={property.id}
+                          name={property.building_name}
+                          image={property.images[property.images.length - 1]}
+                          location={property.location}
+                          funded={property.funded}
+                          invamt={property.minimum_investment}
+                          irr={property.irr}
+                        />
+                      </div>
+                    ))
+                    :
+                    (
+                      <p className="text-blueTheme font-bold text-center">No Properties Listed Currently</p>
+                    )
+                }
               </section>
             </TabPanel>
             <TabPanel value={2}>
               <section className="my-10">
-                {/* {filteredProperties.map((property: any, index) => (
-                  <div key={index} className="inline-block mx-5">
-                    <Property
-                      id={property.id}
-                      name={property.building_name}
-                      image={property.images[property.images.length - 1]}
-                      location={property.location}
-                      funded={property.funded}
-                      invamt={property.minimum_investment}
-                      irr={property.irr}
-                    />
-                  </div>
-                ))} */}
-                <p className="text-blueTheme font-bold text-center">No Properties Listed Currently</p>
+                {
+                  filterHolidayProp.length !== 0
+                    ?
+                    filterHolidayProp.map((property: any, index) => (
+                      <div key={index} className="inline-block mx-5">
+                        <Property
+                          id={property.id}
+                          name={property.building_name}
+                          image={property.images[property.images.length - 1]}
+                          location={property.location}
+                          funded={property.funded}
+                          invamt={property.minimum_investment}
+                          irr={property.irr}
+                        />
+                      </div>
+                    ))
+                    :
+                    (
+                      <p className="text-blueTheme font-bold text-center">No Properties Listed Currently</p>
+                    )
+                }
               </section>
             </TabPanel>
             <TabPanel value={3}>
@@ -236,7 +259,6 @@ export default function Home() {
 
       </div>
 
-      <Footer />
     </div>
   );
 }

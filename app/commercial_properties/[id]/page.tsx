@@ -149,7 +149,7 @@ export default function PropertyDetails() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/property/${params.id}`)
+    axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/property/commercial/${params.id}`)
       .then((data: any) => {
         console.log(data.data.property)
         setDetails(data.data.property)
@@ -173,7 +173,6 @@ export default function PropertyDetails() {
 
   return (
     <div className="">
-      <MyNav />
       {
         loading ?
           (
@@ -527,7 +526,6 @@ export default function PropertyDetails() {
             </div>
           )
       }
-      <Footer />
 
     </div >
 
