@@ -196,7 +196,7 @@ export default function Home() {
                         <Property
                           id={property.id}
                           name={property.building_name}
-                          image={property.images[property.images.length - 1]}
+                          image={property.images[0]}
                           location={property.location}
                           funded={property.funded}
                           invamt={property.minimum_investment}
@@ -221,7 +221,7 @@ export default function Home() {
                         <Property
                           id={property.id}
                           name={property.building_name}
-                          image={property.images[property.images.length - 1]}
+                          image={property.images[0]}
                           location={property.location}
                           funded={property.funded}
                           invamt={property.minimum_investment}
@@ -243,7 +243,7 @@ export default function Home() {
                     <Property
                       id={property.id}
                       name={property.building_name}
-                      image={property.images[property.images.length - 1]}
+                      image={property.images[0]}
                       location={property.location}
                       funded={property.funded}
                       invamt={property.minimum_investment}
