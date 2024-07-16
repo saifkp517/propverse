@@ -4,7 +4,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { useSession } from "next-auth/react";
 import Image from "next/image"
 
-export default function newProperty({ id, name, image, location, funded, invamt, irr }: any) {
+export default function commercialCard({ id, name, image, location, funded, invamt, irr }: any) {
 
     const { data: session, status } = useSession();
     const href = name.split(" ").join("_").toLowerCase();

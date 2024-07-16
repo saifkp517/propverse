@@ -11,7 +11,8 @@ import { TabPanel as BaseTabPanel } from '@mui/base/TabPanel';
 import { Tab as BaseTab, tabClasses } from '@mui/base/Tab';
 import { buttonClasses } from '@mui/base/Button';
 import MyNav from "../components/Navbar";
-import Property from "../components/cards/newProperty";
+import CommercialCard from "../components/cards/commercialCard";
+import HolidayCard from "../components/cards/holidayCard";
 import SwitchTypes from "../components/cards/SwitchType";
 import Footer from "../components/Footer";
 
@@ -193,10 +194,10 @@ export default function Home() {
                     ?
                     filterCommertialProp.map((property: any, index) => (
                       <div key={index} className="inline-block m-5">
-                        <Property
+                        <CommercialCard
                           id={property.id}
                           name={property.building_name}
-                          image={property.images[property.images.length - 1]}
+                          image={property.images[0]}
                           location={property.location}
                           funded={property.funded}
                           invamt={property.minimum_investment}
@@ -218,14 +219,14 @@ export default function Home() {
                     ?
                     filterHolidayProp.map((property: any, index) => (
                       <div key={index} className="inline-block mx-5">
-                        <Property
+                        <HolidayCard
                           id={property.id}
                           name={property.building_name}
-                          image={property.images[property.images.length - 1]}
+                          image={property.images[0]}
                           location={property.location}
-                          funded={property.funded}
-                          invamt={property.minimum_investment}
-                          irr={property.irr}
+                          persharecost={property.persharecost}
+                          rental_yeild={property.rental_yeild}
+                          commencement_date={property.commencement_date}
                         />
                       </div>
                     ))
@@ -243,7 +244,7 @@ export default function Home() {
                     <Property
                       id={property.id}
                       name={property.building_name}
-                      image={property.images[property.images.length - 1]}
+                      image={property.images[0]}
                       location={property.location}
                       funded={property.funded}
                       invamt={property.minimum_investment}

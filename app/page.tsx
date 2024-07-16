@@ -14,7 +14,7 @@ import Head from 'next/head';
 import Modal from 'react-modal';
 import MyNav from "./components/Navbar";
 import Footer from "./components/Footer";
-import Card from "./components/cards/newProperty";
+import Card from "./components/cards/commercialCard";
 import { Typography } from "@mui/material";
 import RecentlyAdded from "./components/sections/RecentlyAdded";
 import OurPartners from "./components/sections/OurPartners";

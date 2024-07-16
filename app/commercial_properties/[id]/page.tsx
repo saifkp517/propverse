@@ -48,25 +48,25 @@ export default function PropertyDetails() {
   //   window.location.href = "/"
   // }
 
-   //calendly
-   const subtitle = useRef<HTMLHeadingElement>(null);
+  //calendly
+  const subtitle = useRef<HTMLHeadingElement>(null);
 
-   const [modalIsOpen, setIsOpen] = useState(false);
- 
-   function openModal() {
-     setIsOpen(true);
-   }
- 
-   function afterOpenModal() {
-     // references are now sync'd and can be accessed.
-     if (subtitle.current) {
-       subtitle.current.style.color = '#f00';
-     }
-   }
- 
-   function closeModal() {
-     setIsOpen(false);
-   }
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    if (subtitle.current) {
+      subtitle.current.style.color = '#f00';
+    }
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   const [investment, setInvestment] = useState(10); // Default investment in Lakhs
   const [irr, setIRR] = useState(10); // Default IRR in percentage
@@ -345,7 +345,7 @@ export default function PropertyDetails() {
                 <div className="my-10">
                   <h1 className=" text-blueTheme font-bold text-2xl mb-2 tracking-tight">Overview</h1>
                   <p className="text-md" dangerouslySetInnerHTML={{ __html: details.overview }} />
-                  
+
                 </div>
 
                 <div className="my-10">
@@ -509,7 +509,34 @@ export default function PropertyDetails() {
                             </div>
                           );
                         }
+                      } else if (key.startsWith('amenities-')) {
+                        const logoList = details.additional[key].data;
+                        if (logoList) {
+                          return (
+                            <div key={key} className="border-black hover:border p-2 hover:rounded-lg">
+                              <div className="relative w-full h-full">
+                                <h1 className='font-bold text-lg text-green-500'>{details.additional[key].heading}</h1>
+                                <p className=''>{details.additional[key].description}</p>
+                                <ul className="space-y-4">
+                                  {logoList.map((item: any, index: number) => (
+                                    <li key={index} className="flex items-center p-1 border border-transparent">
+                                      <svg
+                                        className="w-8 h-8"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path d={item.logo} />
+                                      </svg>
+                                      <p>{item.description}</p>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            </div>
 
+                          )
+                        }
                       }
                       return null; // Return null if chart data is not available
                     })

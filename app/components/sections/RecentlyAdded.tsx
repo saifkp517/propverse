@@ -7,7 +7,7 @@ import axios from 'axios'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useWindowSize } from "@uidotdev/usehooks";
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-import Card from "../cards/newProperty";
+import Card from "../cards/commercialCard";
 
 // Import Swiper styles
 import 'swiper/css';
