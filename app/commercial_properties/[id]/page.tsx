@@ -144,7 +144,7 @@ export default function PropertyDetails() {
     tables: null,
     tenant: "",
     tenant_details: "",
-    userId: ""
+    userId: "" 
   });
   const [loading, setLoading] = useState(true);
 

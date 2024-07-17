@@ -15,16 +15,23 @@ const client = createClient({
 })
 
 
+async function getBlogs() {
+  const response = await client.getEntries({ content_type: "PropertyVerse" });
+  return response.items;
+}
+
 export default async function KnowledgeBase() {
 
-  const response = await client.getEntries({ content_type: "PropertyVerse" })
-  const blogs = response.items;
-
+  const blogs = await getBlogs();
 
   return (
     <div>
-      <p className="my-20 font-bold text-3xl text-center text-gray-800">Read More about Fractional Ownership</p>
-      <form className="flex items-center max-w-3xl mx-auto">
+      <div className="my-20 text-center">
+        <p className="font-bold text-4xl  text-gray-800 tracking-tight">Latest Blog Posts</p>
+        <p className="font-semibold">Stay Updated with the Latest Trends and Insights in Real Estate</p>
+      </div>
+
+      {/* <form className="flex items-center max-w-3xl mx-auto">
         <label className="sr-only">Search</label>
         <div className="relative w-full mx-8">
           <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -34,8 +41,8 @@ export default async function KnowledgeBase() {
           </div>
           <input type="text" id="simple-search" className="bg-gray-50 border border-blueTheme text-gray-900 text-sm rounded-xl focus:ring-blueTheme-500 focus:border-blueTheme block w-full ps-10 p-2.5  " placeholder="Search Property..." required />
         </div>
-      </form>
-      <section className="my-20 mx-4 lg:mx-36 grid grid-cols-1 lg:grid-cols-2 place-items-center">
+      </form> */}
+      <section className=" my-20 mx-4 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 place-items-center">
         {blogs.map((blog: any) => (
           <div key={blog.sys.id}>
             <BlogCard fields={blog.fields} />
