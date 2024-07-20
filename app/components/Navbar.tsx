@@ -2,8 +2,12 @@
 
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import Image from 'next/image'
+import Link from 'next/link';
 import { useSession, getSession, signOut } from "next-auth/react";
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import path from 'path';
 
 const navigation = [
     { name: 'Home', href: '/', current: false },
@@ -17,6 +21,15 @@ function classNames(...classes) {
 }
 
 export default function MyNav() {
+
+    const pathname = usePathname();
+
+    const updatedNavigation = navigation.map(item => ({
+        ...item,
+        current: item.href === pathname
+    }))
+
+
 
     const { data: session, status } = useSession();
 
@@ -52,18 +65,18 @@ export default function MyNav() {
                                 </div>
                                 <div className="hidden sm:ml-6 sm:block">
                                     <div className="flex space-x-2">
-                                        {navigation.map((item) => (
-                                            <a
+                                        {updatedNavigation.map((item) => (
+                                            <Link
                                                 key={item.name}
                                                 href={item.href}
                                                 className={classNames(
-                                                    item.current ? 'bg-gray-900 text-white' : 'text-gray-800 hover:bg-gray-700 duration-300 hover:text-white',
-                                                    'rounded-md tracking-tighter px-2 py-2 text-sm font-medium',
+                                                    item.current ? 'font-bold text-black' : 'text-gray-800 hover:text-black hover:font-bold duration-300',
+                                                    'rounded-md tracking-tighter px-2 py-2 text-sm '
                                                 )}
                                                 aria-current={item.current ? 'page' : undefined}
                                             >
                                                 {item.name}
-                                            </a>
+                                            </Link>
                                         ))}
                                     </div>
                                 </div>
@@ -137,7 +150,7 @@ export default function MyNav() {
 
                     <DisclosurePanel className="sm:hidden">
                         <div className="space-y-1 px-2 pb-3 pt-2">
-                            {navigation.map((item) => (
+                            {updatedNavigation.map((item) => (
                                 <DisclosureButton
                                     key={item.name}
                                     as="a"
