@@ -176,31 +176,32 @@ export default function Home() {
   return (
     <div className="">
       <section>
-
-        <div className="max-h-screen max-w-screen-xl xl:mx-auto grid grid-cols-1 lg:grid-cols-2 mx-2">
-          {/* Beautiful UI Design awaits */}
-          <div className="lg:mx-auto py-0 lg:py-20 px-6">
-            <h2 className="text-lg font-bold leading-7 bg-gradient-to-r from-blueTheme to-green-700 text-transparent inline-block bg-clip-text">PropertyVerse</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Own a Slice of Luxury: Fractional Real Estate Investment</p>
-            <p className="my-5 font-semibold text-sm  text-gray-800">Unlock your dream property with Fractional Ownership: Invest in luxury real estate for a fraction of the cost and enjoy exclusive benefits!</p>
-            <a href="/properties"><button type="button" className="focus:outline-none text-white hover:text-blueTheme bg-blueTheme hover:bg-transparent hover:ring-1 hover:ring-blueTheme duration-300/ font-medium rounded-xl text-sm px-5 py-2.5 ">Explore Properties</button></a>
-          </div>
-          {/* <div className="lg:mx-auto py-0 lg:py-20 px-6">
+        <div className="h-screen md:h-fit md:max-h-screen max-w-screen-xl xl:mx-auto flex items-center mx-2">
+          <div className="inline-block lg:flex">
+            <div className="lg:mx-auto py-0 lg:py-20 px-6">
+              <h2 className="text-lg font-bold leading-7 bg-gradient-to-r from-blueTheme to-green-700 text-transparent inline-block bg-clip-text">PropertyVerse</h2>
+              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Own a Slice of Luxury: Fractional Real Estate Investment</p>
+              <p className="my-5 font-semibold text-sm  text-gray-800">Unlock your dream property with Fractional Ownership: Invest in luxury real estate for a fraction of the cost and enjoy exclusive benefits!</p>
+              <a href="/properties"><button type="button" className="focus:outline-none text-white hover:text-blueTheme bg-blueTheme hover:bg-transparent hover:ring-1 hover:ring-blueTheme duration-300/ font-medium rounded-xl text-sm px-5 py-2.5 ">Explore Properties</button></a>
+            </div>
+            {/* <div className="lg:mx-auto py-0 lg:py-20 px-6">
             <h1 className="text-blueTheme text-7xl lg:text-6xl font-medium lg:font-semibold tracking-tighter">Property<br /><span className="text-green-700">Verse</span></h1>
             <p className="mt-4 ml-2 my-5 text-md font-semibold text-gray-800">Welcome to a redefinition of property management. Discover seamless solutions for property owners and tenants alike.</p>
             <a href="/properties"><button type="button" className="focus:outline-none text-white hover:text-blueTheme bg-blueTheme hover:bg-transparent hover:ring-1 hover:ring-blueTheme duration-300/ font-medium rounded-xl text-sm px-5 py-2.5 ">Explore Properties</button></a>
           </div> */}
-          <div className="lg:mx-auto flex items-center justify-center">
-            <Image
-              alt="bg"
-              src={"/main.gif"}
-              width="0"
-              unoptimized
-              height="0"
-              sizes="100vw"
-              className="w-full h-auto "
-            />
+            <div className="lg:mx-auto flex items-center justify-center">
+              <Image
+                alt="bg"
+                src={"/main.gif"}
+                width="0"
+                unoptimized
+                height="0"
+                sizes="100vw"
+                className="w-full h-auto "
+              />
+            </div>
           </div>
+
         </div>
       </section>
       <br />
@@ -273,7 +274,7 @@ export default function Home() {
                     <li><a href="/login" className="font-semibold text-blueTheme">Log In/Sign Up: </a> Access your account to start investing.</li>
                     <li><a href="/properties" className="font-semibold text-blueTheme">Fill KYC Form: </a>  Complete your KYC process to get started.</li>
                   </ul>
-                  
+
                 </div>
               </AccordionBody>
             </Accordion>
@@ -281,7 +282,7 @@ export default function Home() {
               <AccordionHeader placeholder={undefined} className={open == 2 ? "font-bold" : "text-gray-700"} onClick={() => handleOpen(2)}>Choose Your Property</AccordionHeader>
               <hr className="border-b border-gray-300" />
               <AccordionBody>
-              <div className="space-y-2">
+                <div className="space-y-2">
                   <h1 className="text-xl font-bold text-gray-900">Find your perfect investment.</h1>
                   <p className=" font-medium">Browse our curated list of premium real estate properties. Each listing includes detailed information, images, and investment terms to help you make an informed decision.</p>
                   <br />
@@ -307,7 +308,7 @@ export default function Home() {
                 </div>
               </AccordionBody>
             </Accordion>
-            
+
           </div>
 
         </div>

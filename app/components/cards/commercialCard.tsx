@@ -4,21 +4,22 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { useSession } from "next-auth/react";
 import Image from "next/image"
 
-export default function commercialCard({ id, name, image, location, funded, invamt, irr }: any) {
+export default function commercialCard({ id, building_name, images, location, funded, minimum_investment, irr }: any) {
 
     const { data: session, status } = useSession();
-    const href = name.split(" ").join("_").toLowerCase();
+    const href = building_name.split(" ").join("_").toLowerCase();
+
 
     return (
         <div className="mx-auto max-h-full">
             <div className="static mt-10 w-80 bg-white border shadow-md shadow-gray-500 rounded-xl">
                 <div className="flex flex-col items-center p-1">
                     <div className="w-full h-48 relative">
-                        <Image fill unoptimized className=" object-fill rounded-lg" src={`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/${image}`} alt="" />
+                        <Image fill unoptimized className=" object-fill rounded-lg" src={`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/${images[0]}`} alt="" />
                     </div>
                     <div className="flex flex-col justify-between">
                         <div className="flex justify-between mt-2">
-                            <h5 className=" text-lg font-bold tracking-tighter text-gray-600 line-clamp-1">{name}</h5>
+                            <h5 className=" text-lg font-bold tracking-tighter text-gray-600 line-clamp-1">{building_name}</h5>
                             <div className="flex justify-end">
                                 <span className="inline-flex gap-x-1 items-center bg-gray-50 border border-green-800 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full w-fit">
                                     <span className="inline-flex rounded-full h-2 w-2 bg-green-400">
@@ -46,7 +47,7 @@ export default function commercialCard({ id, name, image, location, funded, inva
                         <div className="my-3">
                             <div className="text-center grid grid-cols-3 font-bold tracking-tighter leading-tight">
                                 <div className="">
-                                    <p className="font-bold text-lg text-gray-600">{invamt} Lakhs</p>
+                                    <p className="font-bold text-lg text-gray-600">{minimum_investment} Lakhs</p>
                                     <p className="text-xs font-medium">Investment Amount</p>
                                 </div>
                                 <div className="">
