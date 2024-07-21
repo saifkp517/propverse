@@ -53,14 +53,12 @@ export default function RecentlyAdded() {
                     </Link>
                 </div>
             </section>
-            <div className="mx-auto max-w-80 md:max-w-screen-lg lg:max-w-screen-xl">
+            <div className="mx-auto max-w-screen-md md:max-w-screen-lg lg:max-w-screen-xl">
                 {
                     loading ?
                         (
-                            <div className="inline-flex space-x-10 mt-10">
-                                <SkeletonCard />
-                                <SkeletonCard />
-                                <SkeletonCard />
+                            <div className="flex justify-center items-center">
+                                <p>Loading...</p>
                             </div>
                         )
                         :
@@ -68,7 +66,7 @@ export default function RecentlyAdded() {
                             <Swiper
                                 className=''
                                 modules={[Navigation, Pagination, Scrollbar, A11y]}
-                                spaceBetween={50}
+                                spaceBetween={-200}
                                 style={{padding: '10px'}}
                                 slidesPerView={NoCards}
                                 pagination={{ clickable: true }}
@@ -77,17 +75,11 @@ export default function RecentlyAdded() {
                             >
                                 {
                                     propDetails.map((property: any) => (
-                                        <div key={property.building_name} >
+                                        <div key={property.id} >
                                             <SwiperSlide>
                                                 <div className=' className="inline-flex space-x-10 mt-10"'>
                                                     <Card
-                                                        id={property.id}
-                                                        name={property.building_name}
-                                                        image={property.images[0]}
-                                                        location={property.location}
-                                                        funded={property.funded}
-                                                        invamt={property.minimum_investment}
-                                                        irr={property.irr}
+                                                       {...property}
                                                     />
                                                 </div>
 
