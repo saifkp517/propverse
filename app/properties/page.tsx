@@ -157,7 +157,6 @@ export default function Home() {
 
           <div defaultValue={1}>
             <div className="mx-auto max-w-full sm:max-w-xs md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl">
-
               <div className="w-full">
                 <div className="relative right-0">
                   <ul className="relative flex flex-wrap p-1 gap-x-2 list-none rounded-lg bg-blue-gray-50/60" data-tabs="tabs" role="list">
