@@ -13,7 +13,7 @@ const navigation = [
     { name: 'Home', href: '/', current: false },
     { name: 'Properties', href: '/properties', current: false },
     { name: 'Knowledge Base', href: '/knowledge-base', current: false },
-    // { name: 'Completed Properties', href: '/completed-properties', current: false },
+    { name: 'Completed Properties', href: '/completed-properties', current: false },
 ]
 
 function classNames(...classes) {

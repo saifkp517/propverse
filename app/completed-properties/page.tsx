@@ -99,12 +99,12 @@ export default function Home() {
   useEffect(() => {
     axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/properties/commercial`)
       .then(res => {
-        setCommercialProperties(res.data.properties);
+        setCommercialProperties(res.data.properties.filter((property: any) => property.funded == 100));
         setLoading(false);
       });
     axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/properties/holiday`)
       .then(res => {
-        setHolidayHomes(res.data.properties)
+        setHolidayHomes(res.data.properties.filter((property: any) => property.funded === 100));
         setLoading(false)
       });
   }, []);
@@ -116,8 +116,6 @@ export default function Home() {
   const handleSearchChange = (event: any) => {
     setSearchQuery(event.target.value);
   };
-
-  console.log(commericalProperties, holidayHomes)
 
   const filterCommertialProp = commericalProperties.filter((property: any) =>
     (selectedLocation ? property.location.includes(selectedLocation) : true) &&
