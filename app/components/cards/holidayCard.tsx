@@ -24,7 +24,7 @@ const HolidayCard: React.FC<HolidayCardProps> = ({
     commencement_date
 }) => {
     const { data: session, status } = useSession();
-    const href = building_name.split(" ").join("_").toLowerCase();
+    const href = building_name ? building_name.split(" ").join("_").toLowerCase() : "";
 
     return (
         <div className="mx-auto max-h-full">
