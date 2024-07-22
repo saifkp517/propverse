@@ -114,11 +114,12 @@ export default function PropertyDetails() {
     id: string;
     images: string[];
     investment_size: string;
-    irr: string;
+    irr: number;
     location: string;
     lockin: string;
     minimum_investment: string;
     multiplier: string;
+    rental_yeild: number;
     overview: string;
     tables: any | null;
     tenant: string;
@@ -131,12 +132,13 @@ export default function PropertyDetails() {
     asset_type: "",
     building_name: "",
     entry_yeild: "",
-    floorplan: null,
+    floorplan: null,  
     id: "",
     images: [],
     investment_size: "",
-    irr: "",
+    irr: 0,
     location: "",
+    rental_yeild: 0,
     lockin: "",
     minimum_investment: "",
     multiplier: "",
@@ -144,7 +146,7 @@ export default function PropertyDetails() {
     tables: null,
     tenant: "",
     tenant_details: "",
-    userId: "" 
+    userId: ""
   });
   const [loading, setLoading] = useState(true);
 
@@ -266,7 +268,9 @@ export default function PropertyDetails() {
                       <div className="mb-5">
                         <div className="flex justify-between">
                           <label className="block text-xs font-medium text-gray-900">IRR (%)</label>
-                          <label className="block text-xs font-medium text-gray-900">{irr}%</label>
+                          <label className="block text-xs font-medium text-gray-900">
+                            {irr && !isNaN(irr) && irr !== 0 ? `${irr}%` : "IRR not mentioned"}
+                          </label>
                         </div>
                         <input
                           type="range"
@@ -357,9 +361,10 @@ export default function PropertyDetails() {
                       { label: "Investment Size", value: `${details.investment_size} sq.ft`, icon: "M12 7L3 11V17L12 21L21 17V11L12 7Z" },
                       { label: "Lease Lock-in", value: details.lockin, icon: "M12 2L1 21H23L12 2ZM12 16.5L7 21H17L12 16.5Z" },
                       { label: "Gross Entry Yield", value: `${details.entry_yeild}%`, icon: "M3 11H21V13H3V11Z" },
-                      { label: "Target IRR", value: `${details.irr}%`, icon: "M13 12H21V14H13V12ZM3 6H15V8H3V6ZM3 18H15V20H3V18Z" },
+                      { label: "Target IRR", value: details.irr && details.irr !== 0 ? `${details.irr}%` : "IRR not mentioned", icon: "M13 12H21V14H13V12ZM3 6H15V8H3V6ZM3 18H15V20H3V18Z" },
                       { label: "Multiplier", value: `${details.multiplier}x`, icon: "M3 11H21V13H3V11Z" },
-                      { label: "Minimum Investment", value: `${details.minimum_investment} Lacs`, icon: "M12 3C6.48 3 2 7.48 2 13C2 18.52 6.48 23 12 23C17.52 23 22 18.52 22 13C22 7.48 17.52 3 12 3ZM12 21C7.59 21 4 17.41 4 13C4 8.59 7.59 5 12 5C16.41 5 20 8.59 20 13C20 17.41 16.41 21 12 21ZM11 7H13V14H11V7ZM11 17H13V19H11V17Z" }
+                      { label: "Minimum Investment", value: `${details.minimum_investment} Lacs`, icon: "M12 3C6.48 3 2 7.48 2 13C2 18.52 6.48 23 12 23C17.52 23 22 18.52 22 13C22 7.48 17.52 3 12 3ZM12 21C7.59 21 4 17.41 4 13C4 8.59 7.59 5 12 5C16.41 5 20 8.59 20 13C20 17.41 16.41 21 12 21ZM11 7H13V14H11V7ZM11 17H13V19H11V17Z" },
+                      { label: "Rental Yield", value: details.rental_yeild && !isNaN(details.rental_yeild) && details.rental_yeild !== 0 ? `${details.rental_yeild}%` : "Rental Yield not mentioned", icon: "M12 2L1 21H23L12 2Z" },
                     ].map((item, index) => (
                       <div className="flex items-center" key={index}>
                         <div className="bg-gray-200 rounded-full h-fit w-fit p-2 flex justify-center items-center mr-2">
@@ -368,7 +373,7 @@ export default function PropertyDetails() {
                           </svg>
                         </div>
                         <div className="flex flex-col h-16 w-fit justify-around">
-                          <h1 className="text-xs font-semibold text-start text-gray-600 truncate">{item.label}</h1>
+                          <h1 className="text-xs font-semibold text-start text-gray-600">{item.label}</h1>
                           <p className="text-xl leading-tight font-bold text-start text-blueTheme">{item.value}</p>
                         </div>
                       </div>

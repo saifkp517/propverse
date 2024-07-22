@@ -63,14 +63,17 @@ export default function Home() {
 
   const renderContent = () => {
     const renderProperties = (properties, CardComponent) => (
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+      <div className="flex space-x-10">
         {properties.map((property, index) => {
           console.log(property); // Logs the property value
           return (
-            <CardComponent
-              key={property.id || index}
-              {...property}
-            />
+            <div className="">
+              <CardComponent
+
+                key={property.id || index}
+                {...property}
+              />
+            </div>
           );
         })}
       </div>
@@ -85,7 +88,7 @@ export default function Home() {
     switch (activeTab) {
       case 0:
         return (
-          <section className="my-10 p-6 bg-gray-50 rounded-lg shadow-md">
+          <section className="my-10 p-6">
             {filterCommertialProp.length ?
               renderProperties(filterCommertialProp, CommercialCard) :
               renderMessage(loading ? "Loading..." : "No Commercial Properties Listed Currently")
@@ -94,7 +97,7 @@ export default function Home() {
         );
       case 1:
         return (
-          <section className="my-10 p-6 bg-gray-50 rounded-lg shadow-md">
+          <section className="my-10 p-6">
             {filterHolidayProp.length ?
               renderProperties(filterHolidayProp, HolidayCard) :
               renderMessage(loading ? "Loading..." : "No Holiday Properties Listed Currently")
@@ -103,7 +106,7 @@ export default function Home() {
         );
       case 2:
         return (
-          <section className="my-10 p-6 bg-gray-50 rounded-lg shadow-md">
+          <section className="my-10 p-6">
             {renderMessage("No Residential Properties Listed Currently")}
           </section>
         );
@@ -156,7 +159,7 @@ export default function Home() {
         <div className="mx-auto p-5">
 
           <div defaultValue={1}>
-            <div className="mx-auto max-w-full sm:max-w-xs md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl">
+            <div className="mx-auto">
               <div className="w-full">
                 <div className="relative right-0">
                   <ul className="relative flex flex-wrap p-1 gap-x-2 list-none rounded-lg bg-blue-gray-50/60" data-tabs="tabs" role="list">

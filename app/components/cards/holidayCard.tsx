@@ -6,8 +6,8 @@ import Image from "next/image"
 
 interface HolidayCardProps {
     id: string;
-    name: string;
-    image: string;
+    building_name: string;
+    images: string[];
     location: string;
     persharecost: number;
     rental_yeild: number;
@@ -16,26 +16,26 @@ interface HolidayCardProps {
 
 const HolidayCard: React.FC<HolidayCardProps> = ({
     id,
-    name,
-    image,
+    building_name,
+    images,
     location,
     persharecost,
     rental_yeild,
     commencement_date
 }) => {
     const { data: session, status } = useSession();
-    const href = name.split(" ").join("_").toLowerCase();
+    const href = building_name.split(" ").join("_").toLowerCase();
 
     return (
         <div className="mx-auto max-h-full">
             <div className="static mt-10 w-80 bg-white border shadow-md shadow-gray-500 rounded-xl">
                 <div className="flex flex-col items-center p-1">
                     <div className="w-full h-48 relative">
-                        <Image fill unoptimized className=" object-fill rounded-lg" src={`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/${image}`} alt="" />
+                        <Image fill unoptimized className=" object-fill rounded-lg" src={`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/${images[0]}`} alt="" />
                     </div>
                     <div className="flex flex-col justify-between">
                         <div className="flex justify-between mt-2">
-                            <h5 className=" text-lg font-bold tracking-tighter text-gray-600 line-clamp-1">{name}</h5>
+                            <h5 className=" text-lg font-bold tracking-tighter text-gray-600 line-clamp-1">{building_name}</h5>
                             <div className="flex justify-end">
                                 <span className="inline-flex gap-x-1 items-center bg-gray-50 border border-green-800 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full w-fit">
                                     <span className="inline-flex rounded-full h-2 w-2 bg-green-400">
@@ -67,8 +67,10 @@ const HolidayCard: React.FC<HolidayCardProps> = ({
                                     <p className="text-xs font-medium">Per.Share Cost</p>
                                 </div>
                                 <div className="">
-                                    <p className="font-bold text-lg text-gray-600">{rental_yeild}%</p>
-                                    <p className="text-xs font-medium">Rental Yeild</p>
+                                    <p className="font-bold text-lg text-gray-600">
+                                        {rental_yeild && !isNaN(rental_yeild) && rental_yeild !== 0 ? `${rental_yeild}%` : <p className='text-xs mt-3'>Not Mentioned</p>}
+                                    </p>
+                                    <p className="text-xs font-medium">Rental Yield</p>
                                 </div>
                                 <div className="text-center">
                                     <div className="flex space-x-1 mt-3 mb-2">

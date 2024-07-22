@@ -106,45 +106,31 @@ export default function PropertyDetails() {
 
 
     type DetailsType = {
-        additional: any;
-        asset_type: string;
-        building_name: string;
-        entry_yeild: string;
-        floorplan: string | null;
         id: string;
-        images: string[];
-        investment_size: string;
-        irr: string;
+        building_name: string;
         location: string;
-        lockin: string;
-        minimum_investment: string;
-        multiplier: string;
+        persharecost: number;
+        rental_yeild: number;
+        funded?: number; // Optional with default value
+        irr: number;
+        commencement_date: string;
         propertydetails: string;
-        tables: any | null;
-        tenant: string;
-        tenant_details: any | null;
-        userId: string;
+        images: string[];
+        additional?: any; // Optional field
     };
 
     const [details, setDetails] = useState<DetailsType>({
-        additional: { table: [] },
-        asset_type: "",
-        building_name: "",
-        entry_yeild: "",
-        floorplan: null,
         id: "",
-        images: [],
-        investment_size: "",
-        irr: "",
+        building_name: "",
         location: "",
-        lockin: "",
-        minimum_investment: "",
-        multiplier: "",
+        persharecost: 0,
+        rental_yeild: 0,
+        funded: 0, // Default value
+        irr: 0,
+        commencement_date: "",
         propertydetails: "",
-        tables: null,
-        tenant: "",
-        tenant_details: "",
-        userId: ""
+        images: [],
+        additional: {}, // Optional field
     });
     const [loading, setLoading] = useState(true);
 
@@ -266,7 +252,10 @@ export default function PropertyDetails() {
                                             <div className="mb-5">
                                                 <div className="flex justify-between">
                                                     <label className="block text-xs font-medium text-gray-900">IRR (%)</label>
-                                                    <label className="block text-xs font-medium text-gray-900">{irr}%</label>
+                                                    <label className="block text-xs font-medium text-gray-900">
+                                                        {irr && !isNaN(irr) && irr !== 0 ? `${irr}%` : "IRR not mentioned"}
+                                                    </label>
+
                                                 </div>
                                                 <input
                                                     type="range"
@@ -343,15 +332,40 @@ export default function PropertyDetails() {
                                     </div>
                                 </div >
                                 <div className="my-10">
-                                    <h1 className=" text-blueTheme font-bold text-2xl mb-2 tracking-tight">Property Details</h1>
+                                    <h1 className="text-blueTheme font-bold text-2xl mb-2 tracking-tight">Property Details</h1>
                                     <p className="text-md" dangerouslySetInnerHTML={{ __html: details.propertydetails }} />
-
                                 </div>
+                                <div className="my-10">
+                                    <h1 className="tracking-tight text-2xl text-blueTheme font-bold mb-3">Highlights</h1>
+                                    <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full lg:w-2/3 rounded-3xl border-gray-100 border bg-gray-50 p-5">
+                                        {[
+                                            { label: "Per Share Cost", value: `${details.persharecost} INR`, icon: "M4 10V22H10V14H14V22H20V10L12 4L4 10Z" },
+                                            { label: "Rental Yield", value: details.rental_yeild && !isNaN(details.rental_yeild) && details.rental_yeild !== 0 ? `${details.rental_yeild}%` : "Rental Yield not mentioned", icon: "M12 2L1 21H23L12 2Z" },
+                                            { label: "Funded", value: `${details.funded} %`, icon: "M12 7L3 11V17L12 21L21 17V11L12 7Z" },
+                                            { label: "IRR", value: details.irr && !isNaN(details.irr) && details.irr !== 0 ? `${details.irr}%` : "IRR not mentioned", icon: "M13 12H21V14H13V12ZM3 6H15V8H3V6ZM3 18H15V20H3V18Z" },
+                                            { label: "Commencement Date", value: (details.commencement_date !== "" ? new Date(details.commencement_date).toLocaleDateString() : "Commencement date not mentioned"), icon: "M12 2L1 21H23L12 2ZM12 16.5L7 21H17L12 16.5Z" }
+                                        ].map((item, index) => (
+                                            <div className="flex items-center" key={index}>
+                                                <div className="bg-gray-200 rounded-full h-fit w-fit p-2 flex justify-center items-center mr-2">
+                                                    <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path d={item.icon}></path>
+                                                    </svg>
+                                                </div>
+                                                <div className="flex flex-col h-16 w-fit justify-around">
+                                                    <h1 className="text-xs font-semibold text-start text-gray-600">{item.label}</h1>
+                                                    <p className="text-xl leading-tight font-bold text-start text-blueTheme">{item.value}</p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+
 
                                 <div className="chart mx-auto">
                                     {
                                         Object.keys(details.additional).reverse().map(key => {
-                                            
+
                                             if (key.startsWith("chart-")) {
                                                 const chartData = details.additional[key].data;
                                                 if (chartData && chartData.labels && chartData.values) {
@@ -482,23 +496,23 @@ export default function PropertyDetails() {
                                                             <div className="relative w-full h-full">
                                                                 <h1 className="font-bold text-gray-600 text-3xl my-5">Amenities</h1>
                                                                 <div className="flex flex-wrap gap-4 w-full rounded-3xl border-gray-100 border bg-gray-50 p-5">
-                                                                        {(logoList.concat(logoList).concat(logoList)).map((item: any, index: number) => (
-                                                                            <div key={index} className="flex items-center">
-                                                                                <div className="rounded-full h-fit w-fit flex justify-center items-center mr-2">
-                                                                                    <svg
-                                                                                        className="w-8 h-8"
-                                                                                        fill="currentColor"
-                                                                                        viewBox="0 0 20 20"
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                    >
-                                                                                        <path d={item.logo} />
-                                                                                    </svg>
-                                                                                </div>
-                                                                                <div className="flex flex-col h-16 w-fit justify-around">
-                                                                                    <p className="text-md leading-tight mb-2 text-start text-blueTheme">{item.description}</p>
-                                                                                </div>
+                                                                    {(logoList.concat(logoList).concat(logoList)).map((item: any, index: number) => (
+                                                                        <div key={index} className="flex items-center">
+                                                                            <div className="rounded-full h-fit w-fit flex justify-center items-center mr-2">
+                                                                                <svg
+                                                                                    className="w-8 h-8"
+                                                                                    fill="currentColor"
+                                                                                    viewBox="0 0 20 20"
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                >
+                                                                                    <path d={item.logo} />
+                                                                                </svg>
                                                                             </div>
-                                                                        ))}
+                                                                            <div className="flex flex-col h-16 w-fit justify-around">
+                                                                                <p className="text-md leading-tight mb-2 text-start text-blueTheme">{item.description}</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    ))}
                                                                 </div>
 
 
