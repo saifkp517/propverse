@@ -4,11 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import axios from 'axios';
 import { useState, useEffect } from "react";
-import { Tabs } from '@mui/base/Tabs';
-import { styled } from '@mui/system';
-import { TabsList as BaseTabsList } from '@mui/base/TabsList';
-import { TabPanel as BaseTabPanel } from '@mui/base/TabPanel';
-import { Tab as BaseTab, tabClasses } from '@mui/base/Tab';
 import { buttonClasses } from '@mui/base/Button';
 import MyNav from "../components/Navbar";
 import CommercialCard from "../components/cards/commercialCard";
@@ -16,95 +11,33 @@ import HolidayCard from "../components/cards/holidayCard";
 import SwitchTypes from "../components/cards/SwitchType";
 import Footer from "../components/Footer";
 
-const baseColor = '#0A66C2';
-
-const blue = {
-  50: '#0A66C20D', // 5% opacity
-  100: '#0A66C21A', // 10% opacity
-  200: '#0A66C233', // 20% opacity
-  300: '#0A66C24D', // 30% opacity
-  400: '#0A66C266', // 40% opacity
-  500: '#0A66C2FF', // 100% opacity (fully opaque)
-  600: '#0A66C2B3', // 70% opacity
-  700: '#0A66C2CC', // 80% opacity
-  800: '#0A66C2E6', // 90% opacity
-  900: '#0A66C2FF', // 100% opacity (fully opaque, same as 500 for consistency)
-};
-
-const Tab = styled(BaseTab)`
-  color: white;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: bold;
-  background-color: transparent;
-  width: 100%;
-  line-height: 1.5;
-  padding: 8px 12px;
-  margin: 6px;
-  border: none;
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-
-  &:hover {
-    background-color: ${blue[400]};
-  }
-
-  &:focus {
-    color: #fff;
-    outline: 3px solid ${blue[200]};
-  }
-
-  &.${tabClasses.selected} {
-    background-color: #fff;
-    color: ${blue[600]};
-  }
-
-  &.${buttonClasses.disabled} {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-`;
-
-const TabPanel = styled(BaseTabPanel)`
-  width: 100%;
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.875rem;
-`;
-
-const TabsList = styled(BaseTabsList)(
-  ({ theme }) => `
-  min-width: 400px;
-  background-color: ${blue[500]};
-  border-radius: 12px;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-content: space-between;
-  box-shadow: 0px 4px 6px ${theme.palette.mode === 'dark' ? 'rgba(0,0,0, 0.4)' : 'rgba(0,0,0, 0.2)'
-    };
-  `,
-);
+const tabs = [
+  { title: 'Commercial', content: 'commercial' },
+  { title: 'Holiday', content: 'holiday' },
+  { title: 'Residential', content: 'residential' }, // Add residential logic as needed
+];
 
 export default function Home() {
 
   const [loading, setLoading] = useState(true);
   const [commericalProperties, setCommercialProperties] = useState([]);
   const [holidayHomes, setHolidayHomes] = useState([])
-  const [totalProperties, setTotalProperties] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
+  const [activeTab, setActiveTab] = useState(1);
+
 
   useEffect(() => {
     axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/properties/commercial`)
       .then(res => {
-        setCommercialProperties(res.data.properties.filter((property: any) => property.funded == 100));
+        console.log(res.data.properties.filter((property: any) => property.funded !== 100));
+        setCommercialProperties(res.data.properties.filter((property: any) => property.funded === 100));
+
         setLoading(false);
       });
     axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/properties/holiday`)
       .then(res => {
-        setHolidayHomes(res.data.properties.filter((property: any) => property.funded === 100));
+        setHolidayHomes(res.data.properties.filter((property: any) => property.funded === 100))
         setLoading(false)
       });
   }, []);
@@ -117,6 +50,8 @@ export default function Home() {
     setSearchQuery(event.target.value);
   };
 
+  console.log(commericalProperties, holidayHomes)
+
   const filterCommertialProp = commericalProperties.filter((property: any) =>
     (selectedLocation ? property.location.includes(selectedLocation) : true) &&
     (searchQuery ? property.building_name.toLowerCase().includes(searchQuery.toLowerCase()) : true)
@@ -125,6 +60,69 @@ export default function Home() {
     (selectedLocation ? property.location.includes(selectedLocation) : true) &&
     (searchQuery ? property.building_name.toLowerCase().includes(searchQuery.toLowerCase()) : true)
   );
+
+  const renderContent = () => {
+    const renderProperties = (properties, CardComponent) => (
+      <div className="flex space-x-10">
+        {properties.map((property, index) => {
+          console.log(property); // Logs the property value
+          return (
+            <div className="">
+              <CardComponent
+
+                key={property.id || index}
+                {...property}
+              />
+            </div>
+          );
+        })}
+      </div>
+    );
+
+    const renderMessage = (message) => (
+      <div className="flex justify-center items-center h-64">
+        <p className="text-blueTheme font-bold text-xl">{message}</p>
+      </div>
+    );
+
+    switch (activeTab) {
+      case 0:
+        return (
+          <section className="my-10 p-6">
+            {filterCommertialProp.length ?
+              renderProperties(filterCommertialProp, CommercialCard) :
+              renderMessage(loading ? "Loading..." : "No Commercial Properties Listed Currently")
+            }
+          </section>
+        );
+      case 1:
+        return (
+          <section className="my-10 p-6">
+            {filterHolidayProp.length ?
+              renderProperties(filterHolidayProp, HolidayCard) :
+              renderMessage(loading ? "Loading..." : "No Holiday Properties Listed Currently")
+            }
+          </section>
+        );
+      case 2:
+        return (
+          <section className="my-10 p-6">
+            {renderMessage("No Residential Properties Listed Currently")}
+          </section>
+        );
+      default:
+        return null;
+    }
+  };
+
+  const LoadingSkeleton = () => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+      {[...Array(6)].map((_, i) => (
+        <div key={i} className="w-full h-64 bg-gray-200 rounded-lg animate-pulse"></div>
+      ))}
+    </div>
+  );
+
 
   return (
     <div>
@@ -160,16 +158,35 @@ export default function Home() {
         </div>
         <div className="mx-auto p-5">
 
-          <Tabs defaultValue={1}>
-            <div className="mx-auto max-w-full sm:max-w-screen-xs md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl">
-              <TabsList>
-                <Tab value={1}>Commercial</Tab>
-                <Tab value={2}>Holiday</Tab>
-                <Tab value={3}>Residential</Tab>
-              </TabsList>
+          <div defaultValue={1}>
+            <div className="mx-auto">
+              <div className="w-full">
+                <div className="relative right-0">
+                  <ul className="relative flex flex-wrap p-1 gap-x-2 list-none rounded-lg bg-blue-gray-50/60" data-tabs="tabs" role="list">
+                    {tabs.map((tab, index) => (
+                      <li key={index} className="flex-auto text-center">
+                        <a
+                          className={`
+                       flex items-center justify-center w-full px-4 py-2 mb-0 
+                       transition-all duration-300 ease-in-out border-0 rounded-lg cursor-pointer 
+                       ${activeTab === index
+                              ? 'bg-blueTheme text-white shadow-md'
+                              : 'text-slate-700 bg-transparent hover:bg-blue-100'}
+                     `}
+                          onClick={() => setActiveTab(index)}
+                          role="tab"
+                          aria-selected={activeTab === index}
+                        >
+                          <span className="ml-1 font-medium">{tab.title}</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
               <br />
               <div className="flex gap-x-4">
-                <form className="flex items-center w-1/3">
+                <form className="flex items-center w-full lg:w-1/3">
                   <label className="sr-only">Search</label>
                   <div className="relative w-full">
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -184,89 +201,9 @@ export default function Home() {
                   </div>
                 </form>
               </div>
+              {renderContent()}
             </div>
-
-
-
-            <TabPanel value={1}>
-              <section className="my-10">
-                {
-                  filterCommertialProp.length !== 0
-                    ?
-                    filterCommertialProp.map((property: any, index) => (
-                      <div key={index} className="inline-block m-5">
-                        <CommercialCard
-                          id={property.id}
-                          name={property.building_name}
-                          image={property.images[0]}
-                          location={property.location}
-                          funded={property.funded}
-                          invamt={property.minimum_investment}
-                          irr={property.irr}
-                        />
-                      </div>
-                    ))
-                    :
-                    (
-                      loading ? (
-                        <p className="text-blueTheme font-bold text-center">Loading...</p>
-                      )
-                        : (
-                          <p className="text-blueTheme font-bold text-center">No Properties Listed Currently</p>
-                        )
-                    )
-                }
-              </section>
-            </TabPanel>
-            <TabPanel value={2}>
-              <section className="my-10">
-                {
-                  filterHolidayProp.length !== 0
-                    ?
-                    filterHolidayProp.map((property: any, index) => (
-                      <div key={index} className="inline-block mx-5">
-                        <HolidayCard
-                          id={property.id}
-                          name={property.building_name}
-                          image={property.images[0]}
-                          location={property.location}
-                          persharecost={property.persharecost}
-                          rental_yeild={property.rental_yeild}
-                          commencement_date={property.commencement_date}
-                        />
-                      </div>
-                    ))
-                    :
-                    (
-                      loading ? (
-                        <p className="text-blueTheme font-bold text-center">Loading...</p>
-                      )
-                        : (
-                          <p className="text-blueTheme font-bold text-center">No Properties Listed Currently</p>
-                        )
-                    )
-                }
-              </section>
-            </TabPanel>
-            <TabPanel value={3}>
-              <section className="my-10">
-                {/* {filteredProperties.map((property: any, index) => (
-                  <div key={index} className="inline-block mx-5">
-                    <Property
-                      id={property.id}
-                      name={property.building_name}
-                      image={property.images[0]}
-                      location={property.location}
-                      funded={property.funded}
-                      invamt={property.minimum_investment}
-                      irr={property.irr}
-                    />
-                  </div>
-                ))} */}
-                <p className="text-blueTheme font-bold text-center">No Properties Listed Currently</p>
-              </section>
-            </TabPanel>
-          </Tabs>
+          </div>
         </div>
 
       </div>
