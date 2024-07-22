@@ -91,7 +91,7 @@ const HolidayCard: React.FC<HolidayCardProps> = ({
                     </div>
                     <div className="w-11/12 mx-auto my-2">
                         {/* <a className='' href={status === "authenticated" ? `/commercial_properties/${id}?name=${name}` : '/login'}> */}
-                        <a className='' href={`/holiday_homes/${id}?name=${name}`}>
+                        <a className='' href={`/holiday_homes/${id}?name=${building_name}`}>
                             <button className='relative py-2 px-4 rounded-lg bg-blueTheme hover:opacity-75 focus:border-black focus:border-2 text-white font-robot tracking-tight w-full'>
 
                                 View Project
