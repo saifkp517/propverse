@@ -63,7 +63,7 @@ export default function Home() {
 
   const renderContent = () => {
     const renderProperties = (properties, CardComponent) => (
-      <div className="flex space-x-10">
+      <div className="inline-block md:flex space-x-0 md:space-x-10">
         {properties.map((property, index) => {
           console.log(property); // Logs the property value
           return (
@@ -88,10 +88,10 @@ export default function Home() {
     switch (activeTab) {
       case 0:
         return (
-          <section className="my-10 p-6">
+          <section className="my-10">
             {filterCommertialProp.length ?
               renderProperties(filterCommertialProp, CommercialCard) :
-              renderMessage(loading ? "Loading..." : "No Commercial Properties Listed Currently")
+              renderMessage(loading ? <LoadingSkeleton /> : "No Commercial Properties Listed Currently")
             }
           </section>
         );
@@ -100,7 +100,7 @@ export default function Home() {
           <section className="my-10 p-6">
             {filterHolidayProp.length ?
               renderProperties(filterHolidayProp, HolidayCard) :
-              renderMessage(loading ? "Loading..." : "No Holiday Properties Listed Currently")
+              renderMessage(loading ? <LoadingSkeleton /> : "No Holiday Properties Listed Currently")
             }
           </section>
         );
