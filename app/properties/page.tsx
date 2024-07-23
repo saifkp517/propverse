@@ -24,7 +24,7 @@ export default function Home() {
   const [holidayHomes, setHolidayHomes] = useState([])
   const [selectedLocation, setSelectedLocation] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
-  const [activeTab, setActiveTab] = useState(1);
+  const [activeTab, setActiveTab] = useState(0);
 
 
   useEffect(() => {

@@ -36,7 +36,8 @@ module.exports = {
       'i.postimg.cc',
       'images.yourstory.com',
       'server.propertyverse.co.in',
-      'localhost'
+      'localhost',
+      'lh3.googleusercontent.com'
     ],
   }
 }

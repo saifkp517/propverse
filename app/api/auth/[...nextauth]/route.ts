@@ -13,6 +13,7 @@ declare module 'next-auth' {
         user: {
             id?: string;
             name?: string;
+            image?: string;
             email?: string;
             phone?: string;
             isProfileComplete?: boolean;
@@ -88,7 +89,6 @@ const handler = NextAuth({
             return true;
         },
         async jwt({ token, user, account }: { token: JWT, user?: any, account?: any }) {
-            console.log(account)
             if(account?.userId) {
                 token.userId = account.userId;
             }

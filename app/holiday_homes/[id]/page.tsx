@@ -44,9 +44,9 @@ class Calendly extends Component {
 export default function PropertyDetails() {
 
     const { data: session, status } = useSession();
-    // if (status === "unauthenticated") {
-    //   window.location.href = "/"
-    // }
+    if (status === "unauthenticated") {
+        window.location.href = "/login"
+      }
 
     //calendly
     const subtitle = useRef<HTMLHeadingElement>(null);
