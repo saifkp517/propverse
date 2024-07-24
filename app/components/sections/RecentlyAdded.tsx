@@ -32,6 +32,7 @@ export default function RecentlyAdded() {
         }
         else
             setNoCards(3)
+
     }, [size.width])
 
     useEffect(() => {
@@ -53,7 +54,7 @@ export default function RecentlyAdded() {
                     </Link>
                 </div>
             </section>
-            <div className="mx-auto max-w-screen-md md:max-w-screen-lg lg:max-w-screen-xl">
+            <div className="flex items-center justify-center text-center">
                 {
                     loading ?
                         (
@@ -64,9 +65,9 @@ export default function RecentlyAdded() {
                         :
                         (
                             <Swiper
-                                className=''
+                                className='w-full'
                                 modules={[Navigation, Pagination, Scrollbar, A11y]}
-                                spaceBetween={-200}
+                                spaceBetween={20}
                                 style={{padding: '10px'}}
                                 slidesPerView={NoCards}
                                 pagination={{ clickable: true }}
@@ -77,7 +78,7 @@ export default function RecentlyAdded() {
                                     propDetails.map((property: any) => (
                                         <div key={property.id} >
                                             <SwiperSlide>
-                                                <div className=' className="inline-flex space-x-10 mt-10"'>
+                                                <div className='inline-flex space-x-10 mt-10"'>
                                                     <Card
                                                        {...property}
                                                     />

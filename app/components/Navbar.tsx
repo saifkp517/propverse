@@ -98,8 +98,10 @@ export default function MyNav() {
                                                         <span className="absolute -inset-1.5" />
                                                         <span className="sr-only">Open user menu</span>
                                                         <div className="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center">
-                                                            {profileImage ? (
-                                                                <img
+                                                            {profileImage !== undefined ? (
+                                                                <Image
+                                                                    width={1000}
+                                                                    height={1000}
                                                                     className="h-8 w-8 rounded-full"
                                                                     src={profileImage}
                                                                     alt="User profile"

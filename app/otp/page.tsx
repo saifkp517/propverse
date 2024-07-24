@@ -1,27 +1,33 @@
 'use client'
 import React, { useEffect, useRef, useState, Suspense } from 'react';
+import { decrypt } from '../utils/encryption';
+import { useSession } from 'next-auth/react';
 import axios from 'axios';
 import { useSearchParams } from 'next/navigation';
 
 const MobileVerification = () => {
 
+    const {data: session, status} = useSession()
+    
+    if(status === "unauthenticated") {
+        window.location.href = '/login'
+    }
+
     const [otp, setOtp] = useState('');
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState("");
     const searchParams = useSearchParams();
-    const phone = searchParams.get('phone')
-    const id = searchParams.get('id');
 
-    function handleChange() {
+    const encryptedPhone = localStorage.getItem('encryptedPhone')
+    const phone = decrypt(encryptedPhone);
 
-    }
     async function handleSubmit(e: any) {
         e.preventDefault();
 
         try {
             const otpVerified = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/verify-otp`, {
                 phone: phone,
-                id: id,
+                id: session.userId ? session.userId : session.user.id,
                 otp,
             });
             if (otpVerified) {
@@ -41,8 +47,8 @@ const MobileVerification = () => {
                 <header className="mb-8">
                     {success ? <sub className='text-green-500 font-semibold'>OTP verified Successfully!</sub> : <></>}
                     {error && <sub className='text-red-500'>{error}</sub>}
-                    <h1 className="text-2xl font-bold mb-1">Email Verification</h1>
-                    <p className="text-[15px] text-slate-500">Enter the 4-digit verification code that was sent to your email address.</p>
+                    <h1 className="text-2xl font-bold mb-1">Phone No Verification</h1>
+                    <p className="text-[15px] text-slate-500">Enter the 4-digit verification code that was sent to your Phone Number ending with XXXXXXX{phone.slice(-3)}.</p>
                 </header>
                 <form onSubmit={handleSubmit} id="otp-form">
                     <div className=" justify-center gap-3">

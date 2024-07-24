@@ -1,6 +1,7 @@
 'use client';
 
 import Image from "next/image";
+import { encrypt } from "../utils/encryption";
 import { useSession } from "next-auth/react";
 import Loader from "../components/Loader";
 import Link from "next/link";
@@ -8,6 +9,7 @@ import { Typography } from "@mui/material";
 import { signIn } from "next-auth/react";
 import axios from 'axios';
 import { useEffect, useState } from "react";
+import path from "path";
 
 interface Errors {
     phone?: string,
@@ -18,7 +20,6 @@ export default function Detail() {
 
     const { data: session, status } = useSession();
     console.log(session)
-    console.log(status)
 
 
     const [loading, setLoading] = useState(true)
@@ -28,7 +29,7 @@ export default function Detail() {
     const [serverError, setServerError] = useState("");
 
     if (status === "authenticated") {
-        axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/investor/${session.userId}`)
+        axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/investor/${session.userId ? session.userId : session.user.id}`)
             .then(response => {
                 if (response.data.userData.verified == true) {
                     window.location.href = '/'
@@ -38,11 +39,8 @@ export default function Detail() {
             })
             .catch(err => {
                 console.log(err);
-                window.location.href = '/login'
             })
     }
-
-
 
     async function handleSubmit(e: any) {
 
@@ -58,7 +56,7 @@ export default function Detail() {
             try {
                 await axios.post(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/investor/update`, {
                     phoneno: phone,
-                    id: session.userId
+                    id: session.userId ? session.userId : session.user.id
                 })
 
                 const otpResponse = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/generate-otp`, {
@@ -70,9 +68,15 @@ export default function Detail() {
                     OTP: otpResponse.data.otp
                 });
 
-                window.location.href = `/otp?id=${session.userId}&phone=${phone}`
+                const encryptedPhone = encrypt(phone);
+                console.log(encryptedPhone)
+                
+                localStorage.setItem('encryptedPhone', encryptedPhone);
+
+                window.location.href = '/otp'
+
             } catch (e) {
-                setServerError("error uploading details")
+                setServerError("error uploading details: ")
                 console.log(e)
             }
         }
