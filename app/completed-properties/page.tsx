@@ -14,7 +14,6 @@ import Footer from "../components/Footer";
 const tabs = [
   { title: 'Commercial', content: 'commercial' },
   { title: 'Holiday', content: 'holiday' },
-  { title: 'Residential', content: 'residential' }, // Add residential logic as needed
 ];
 
 export default function Home() {

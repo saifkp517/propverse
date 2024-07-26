@@ -341,7 +341,7 @@ export default function PropertyDetails() {
                                         {[
                                             { label: "Per Share Cost", value: `${details.persharecost} INR`, icon: "M4 10V22H10V14H14V22H20V10L12 4L4 10Z" },
                                             { label: "Rental Yield", value: details.rental_yeild && !isNaN(details.rental_yeild) && details.rental_yeild !== 0 ? `${details.rental_yeild}%` : "Rental Yield not mentioned", icon: "M12 2L1 21H23L12 2Z" },
-                                            { label: "Funded", value: `${details.funded} %`, icon: "M12 7L3 11V17L12 21L21 17V11L12 7Z" },
+                                            { label: "Funded", value: details.funded && !isNaN(details.funded) && details.funded !== 0 ? `${details.funded}%` : "Funded not mentioned", icon: "M12 7L3 11V17L12 21L21 17V11L12 7Z" },
                                             { label: "IRR", value: details.irr && !isNaN(details.irr) && details.irr !== 0 ? `${details.irr}%` : "IRR not mentioned", icon: "M13 12H21V14H13V12ZM3 6H15V8H3V6ZM3 18H15V20H3V18Z" },
                                             { label: "Commencement Date", value: (details.commencement_date !== "" ? new Date(details.commencement_date).toLocaleDateString() : "Commencement date not mentioned"), icon: "M12 2L1 21H23L12 2ZM12 16.5L7 21H17L12 16.5Z" }
                                         ].map((item, index) => (

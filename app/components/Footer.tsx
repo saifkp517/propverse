@@ -17,18 +17,15 @@ export default function Footer() {
                             </div>
                             <div>
                                 <Typography variant="h6" className="mb-6 font-semibold tracking-tighter ">Useful Links</Typography>
-                                <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                                <ul className="text-white font-medium">
                                     <li className="mb-6 font-normal">
-                                        <a href="#" className="hover:underline">About Us</a>
+                                        <a href="/knowledge-base" className="hover:underline">Knowledge Base</a>
                                     </li>
                                     <li className="mb-6 font-normal">
-                                        <a href="#" className="hover:underline">Knowledge Base</a>
+                                        <a href="/properties" className="hover:underline">Properties</a>
                                     </li>
                                     <li className="mb-6 font-normal">
-                                        <a href="#" className="hover:underline">Properties</a>
-                                    </li>
-                                    <li className="mb-6 font-normal">
-                                        <a href="#" className="hover:underline">Contact Us</a>
+                                        <a href="/completed-properties" className="hover:underline">Completed Properties</a>
                                     </li>
                                 </ul>
                             </div>

@@ -82,9 +82,9 @@ export default function Login() {
                         </div> */}
                         <button type="submit" className="bg-blueTheme border-blueTheme text-white font-bold text-xs rounded-md focus:ring-gray-500 focus:border-gray-500 block w-full px-2.5 py-3">Submit</button>
                         <p className="text-xs mt-2 tracking-tighter">
-                            Don't have an Account? Register <a className="text-blueTheme hover:underline" href="/register">Now</a>
+                            Don't have an Account? Register <a className="text-blueTheme font-semibold text-sm hover:underline" href="/register">Here</a>
                         </p>
-                        <a href="/forgot-password" className="text-xs text-blueTheme hover:underline">Forgot Password</a>
+                        <a href="/forgot-password" className="text-xs text-blueTheme  hover:underline">Forgot Password</a>
                     </form>
 
                 </div>
