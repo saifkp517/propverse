@@ -21,9 +21,17 @@ export default function Login() {
     async function CredentialsLogin(e: any) {
         e.preventDefault();
         try {
-            const response = await signIn('credentials', { email, password, callbackUrl: '/details' });
+            const response = await signIn('credentials', {
+                email,
+                password,
+                redirect: false, // Prevent automatic redirection
+            });
+
             if (response?.error) {
                 notifyError(response.error || 'An unexpected error occurred');
+            } else if (response?.ok) {
+                // Manually redirect on success
+                window.location.href = '/details';
             }
         } catch (error) {
             notifyError('An unexpected error occurred');
