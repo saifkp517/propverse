@@ -9,74 +9,72 @@ export default function commercialCard({ id, building_name, images, location, fu
     const { data: session, status } = useSession();
     const href = building_name.split(" ").join("_").toLowerCase();
 
-
     return (
-        <div className="max-w-sm mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
-  <div className="relative h-64">
-    <Image 
-      fill 
-      unoptimized 
-      className="object-cover" 
-      src={`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/${images[0]}`} 
-      alt={building_name}
-    />
-    <div className="absolute top-4 right-4">
-      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-        <span className="mr-1.5 h-2 w-2 rounded-full bg-green-400 animate-pulse"></span>
-        Live
-      </span>
-    </div>
-  </div>
-  
-  <div className="p-6">
-    <div className="flex justify-between items-start mb-4">
-      <h3 className="text-xl font-bold text-gray-900 truncate">{building_name}</h3>
-      <div className="flex items-center text-gray-600">
-        <LocationOnIcon className="h-5 w-5 mr-1" />
-        <p className="text-sm truncate">{location}</p>
-      </div>
-    </div>
-    
-    <div className="mb-6">
-      <div className="w-full bg-gray-200 rounded-full h-2.5">
-        <div 
-          className="bg-blue-600 h-2.5 rounded-full" 
-          style={{ width: `${funded}%` }}
-        ></div>
-      </div>
-      <div className="flex justify-between text-sm text-gray-600 mt-2">
-        <span>Funded {funded}%</span>
-        <span>100%</span>
-      </div>
-    </div>
-    
-    <div className="grid grid-cols-3 gap-4 mb-6">
-      <div className="text-center">
-        <p className="text-2xl font-bold text-gray-900">{minimum_investment}</p>
-        <p className="text-sm text-gray-600">Min. Investment (Lakhs)</p>
-      </div>
-      <div className="text-center">
-        <p className="text-2xl font-bold text-gray-900">{irr}%</p>
-        <p className="text-sm text-gray-600">IRR</p>
-      </div>
-      <div className="text-center">
-        <div className="flex justify-center space-x-1 mb-2">
-          {['bg-green-500', 'bg-green-300', 'bg-yellow-300', 'bg-red-300', 'bg-red-500'].map((color, index) => (
-            <div key={index} className={`h-2 w-4 ${color} ${index < 2 ? 'opacity-100' : 'opacity-30'}`}></div>
-          ))}
+        <div className="mx-auto max-h-full">
+            <div className="static mt-10 w-80 bg-white border shadow-md shadow-gray-500 rounded-xl">
+                <div className="flex flex-col items-center p-1">
+                    <div className="w-full h-48 relative">
+                        <Image fill unoptimized className="object-fill rounded-lg" src={`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/${images[0]}`} alt={building_name} />
+                    </div>
+                    <div className="flex flex-col justify-between">
+                        <div className="flex justify-between mt-2">
+                            <h5 className="text-lg font-bold tracking-tighter text-gray-600 line-clamp-1">{building_name}</h5>
+                            <div className="flex justify-end">
+                                <span className="inline-flex gap-x-1 items-center bg-gray-50 border border-green-800 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full w-fit">
+                                    <span className="inline-flex rounded-full h-2 w-2 bg-green-400">
+                                        <span className="animate-ping inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                    </span>
+                                    Live
+                                </span>
+                            </div>
+                        </div>
+
+                        <div className="flex my-2">
+                            <LocationOnIcon className="text-red-500" />
+                            <p className="text-xs mt-1 line-clamp-1 tracking-tighter text-gray-600">{location}</p>
+                        </div>
+
+                        <div className="w-11/12 mx-auto">
+                            <div className="bg-gray-300 h-1">
+                                <div className="bg-blueTheme h-1 rounded-r-3xl" style={{ width: `${funded}%` }}></div>
+                            </div>
+                            <div className="flex items-center justify-between text-xs">
+                                <div className="text-gray-600">Funded {funded}%</div>
+                                <div className="text-gray-600">100%</div>
+                            </div>
+                        </div>
+                        <div className="my-3">
+                            <div className="text-center grid grid-cols-3 font-bold tracking-tighter leading-tight">
+                                <div className="">
+                                    <p className="font-bold text-lg text-gray-600">{minimum_investment} Lakhs</p>
+                                    <p className="text-xs font-medium">Investment Amount</p>
+                                </div>
+                                <div className="">
+                                    <p className="font-bold text-lg text-gray-600">{irr}%</p>
+                                    <p className="text-xs font-medium">IRR</p>
+                                </div>
+                                <div className="text-center">
+                                    <div className="flex space-x-1 mt-3 mb-2">
+                                        <div className="bg-green-500 h-2 w-4"></div>
+                                        <div className="bg-green-300 h-2 w-4"></div>
+                                        <div className="bg-red-300 h-2 w-4"></div>
+                                        <div className="bg-red-500 h-2 w-4"></div>
+                                        <div className="bg-red-700 h-2 w-4"></div>
+                                    </div>
+                                    <p className="text-xs font-medium">Risk Factor</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="w-11/12 mx-auto my-2">
+                        <a className='' href={`/commercial_properties/${id}?name=${building_name}`}>
+                            <button className='relative py-2 px-4 rounded-lg bg-blueTheme hover:opacity-75 focus:border-black focus:border-2 text-white font-robot tracking-tight w-full'>
+                                View Project
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <p className="text-sm text-gray-600">Risk Factor</p>
-      </div>
-    </div>
-    
-    <a href={`/commercial_properties/${id}?name=${name}`} className="block">
-      <button className="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700 transition duration-300">
-        View Project
-      </button>
-    </a>
-  </div>
-</div>
-
-
     )
 }
