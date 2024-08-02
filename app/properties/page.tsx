@@ -62,7 +62,7 @@ export default function Home() {
 
   const renderContent = () => {
     const renderProperties = (properties, CardComponent) => (
-      <div className="inline-block md:flex space-x-0 md:space-x-10">
+      <div className="inline-block md:flex flex-wrap items-center justify-center space-x-0 gap-x-10">
         {properties.map((property, index) => {
           console.log(property); // Logs the property value
           return (

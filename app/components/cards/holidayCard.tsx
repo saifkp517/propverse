@@ -25,13 +25,13 @@ const HolidayCard: React.FC<HolidayCardProps> = ({
 }) => {
     const { data: session, status } = useSession();
     const href = building_name ? building_name.split(" ").join("_").toLowerCase() : "";
-
+    console.log(images);
     return (
         <div className="mx-auto max-h-full">
             <div className="static mt-10 w-80 bg-white border shadow-md shadow-gray-500 rounded-xl">
                 <div className="flex flex-col items-center p-1">
                     <div className="w-full h-48 relative">
-                        <Image fill unoptimized className=" object-fill rounded-lg" src={`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/${images[0]}`} alt="" />
+                        <Image fill unoptimized className=" object-fill rounded-lg" src={`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/${images[images.length - 1]}`} alt="" />
                     </div>
                     <div className="flex flex-col justify-between">
                         <div className="flex justify-between mt-2">
@@ -63,7 +63,7 @@ const HolidayCard: React.FC<HolidayCardProps> = ({
                         <div className="my-3">
                             <div className="text-center grid grid-cols-3 font-bold tracking-tighter leading-tight">
                                 <div className="">
-                                    <p className="font-bold text-lg text-gray-600">{persharecost} Lakhs</p>
+                                    <p className="font-bold text-lg text-gray-600">{persharecost > 100000 ? (persharecost/100000).toFixed(2) + "L" : persharecost}</p>
                                     <p className="text-xs font-medium">Per.Share Cost</p>
                                 </div>
                                 <div className="">
