@@ -62,7 +62,7 @@ export default function Home() {
 
   const renderContent = () => {
     const renderProperties = (properties, CardComponent) => (
-      <div className="inline-block md:flex flex-wrap items-center justify-center space-x-0 gap-x-10">
+      <div className="inline-block md:flex flex-wrap items-center justify-center gap-x-10">
         {properties.map((property, index) => {
           console.log(property); // Logs the property value
           return (
@@ -96,7 +96,7 @@ export default function Home() {
         );
       case 1:
         return (
-          <section className="my-10 p-6">
+          <section className="my-10 p-6 text-center">
             {filterHolidayProp.length ?
               renderProperties(filterHolidayProp, HolidayCard) :
               renderMessage(loading ? <LoadingSkeleton /> : "No Holiday Properties Listed Currently")
@@ -105,7 +105,7 @@ export default function Home() {
         );
       case 2:
         return (
-          <section className="my-10 p-6">
+          <section className="my-10 p-6 text-center">
             {renderMessage("No Residential Properties Listed Currently")}
           </section>
         );

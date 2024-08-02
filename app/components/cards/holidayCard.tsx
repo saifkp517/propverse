@@ -33,9 +33,9 @@ const HolidayCard: React.FC<HolidayCardProps> = ({
                     <div className="w-full h-48 relative">
                         <Image fill unoptimized className=" object-fill rounded-lg" src={`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/${images[images.length - 1]}`} alt="" />
                     </div>
-                    <div className="flex flex-col justify-between">
+                    <div className="flex flex-col justify-between w-full px-2">
                         <div className="flex justify-between mt-2">
-                            <h5 className=" text-lg font-bold tracking-tighter text-gray-600 line-clamp-1">{building_name}</h5>
+                            <h5 className="text-lg font-bold tracking-tighter text-gray-600 line-clamp-1">{building_name}</h5>
                             <div className="flex justify-end">
                                 <span className="inline-flex gap-x-1 items-center bg-gray-50 border border-green-800 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full w-fit">
                                     <span className="inline-flex rounded-full h-2 w-2 bg-green-400">
@@ -56,14 +56,14 @@ const HolidayCard: React.FC<HolidayCardProps> = ({
                                 <div className="bg-blueTheme h-1 rounded-r-3xl" style={{ width: `${funded}%` }}></div>
                             </div>
                             <div className="flex items-center justify-between text-xs">
-                                <div className="text-gray-600">Funded {funded}%</div>
+                                <div className="text-gray-600">Funded {funded}%</div>   
                                 <div className="text-gray-600">100%</div>
                             </div>
                         </div> */}
                         <div className="my-3">
                             <div className="text-center grid grid-cols-3 font-bold tracking-tighter leading-tight">
                                 <div className="">
-                                    <p className="font-bold text-lg text-gray-600">{persharecost > 100000 ? (persharecost/100000).toFixed(2) + "L" : persharecost}</p>
+                                    <p className="font-bold text-lg text-gray-600">₹ {persharecost >= 100000 ? (persharecost/100000).toFixed(2) + "L" : persharecost}</p>
                                     <p className="text-xs font-medium">Per.Share Cost</p>
                                 </div>
                                 <div className="">

@@ -96,7 +96,7 @@ export default function Home() {
         );
       case 1:
         return (
-          <section className="my-10 p-6">
+          <section className="my-10 p-6 ">
             {filterHolidayProp.length ?
               renderProperties(filterHolidayProp, HolidayCard) :
               renderMessage(loading ? "Loading..." : "No Holiday Properties Listed Currently")

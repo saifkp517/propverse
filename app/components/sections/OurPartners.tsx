@@ -16,7 +16,7 @@ export default function OurPartners() {
         { name: 'strata', src: '/logos/strata.jpg' },
         { name: 'ryzer', src: '/logos/ryzer.jpg' },
         { name: 'fincity', src: '/logos/fincity.jpeg' },
-        { name: 'beehive', src: '/logos/bhive.png' }
+        { name: 'beehive', src: '/logos/bhive.jpg' }
     ];
 
     return (

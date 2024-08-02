@@ -25,7 +25,7 @@ export default function Footer() {
                                         <a href="/properties" className="hover:underline">Properties</a>
                                     </li>
                                     <li className="mb-6 font-normal">
-                                        <a href="/completed-properties" className="hover:underline">Completed Properties</a>
+                                        <a href="/completed-properties" className="hover:underline">Fully Funded</a>
                                     </li>
                                 </ul>
                             </div>
@@ -37,7 +37,7 @@ export default function Footer() {
                                 </div>
                                 <br />
                                 <Typography variant="h6" className="mb-6 font-semibold tracking-tighter">Contact Us</Typography>
-                                <p className="text-sm leading-loose font-light"><span className="font-bold">Phone:</span> +91 098370 54542, 094572 31937</p>
+                                <p className="text-sm leading-loose font-light"><span className="font-bold">Phone:</span> +91 98370 54542, 94572 31937</p>
                                 <p className="text-sm leading-loose font-light"><span className="font-bold">Email:</span> support@propertyverse.co.in</p>
                             </div>
                             <div>
