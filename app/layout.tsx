@@ -5,6 +5,7 @@ import LayoutWrapper from "./components/LayoutWrapper";
 import Provider from './components/Provider';
 import { GoogleAnalytics } from '@next/third-parties/google'
 import "./globals.css";
+import { NextUIProvider } from "@nextui-org/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <NextUIProvider>
       <Provider>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-16604490553"
@@ -43,6 +45,7 @@ export default function RootLayout({
         </body>
         <GoogleAnalytics gaId="G-YJ91T2XX8J" />
       </Provider>
+      </NextUIProvider>
     </html>
   );
 }
