@@ -129,8 +129,33 @@ export default function Properties() {
     },
   ];
 
+
   const properties =
     activeTab === "Commercial" ? commercialProperties : holidayProperties;
+
+  // Sorting Function
+  const sortedProperties = [...properties].sort((a, b) => {
+    if (sortOption === "investmentAmountLowToHigh") {
+      const parseAmount = (amount) =>
+        parseInt(amount.replace("₹", "").replace(" Lakhs", ""));
+      return parseAmount(a.investmentAmount) - parseAmount(b.investmentAmount);
+    } else if (sortOption === "investmentAmountHighToLow") {
+      const parseAmount = (amount) =>
+        parseInt(amount.replace("₹", "").replace(" Lakhs", ""));
+      return parseAmount(b.investmentAmount) - parseAmount(a.investmentAmount);
+    } else if (sortOption === "irr" || sortOption === "rentalYield") {
+      return b.irrValue - a.irrValue; // Handle IRR and Rental Yield
+    } else if (sortOption === "riskLevel") {
+      const riskLevels = {
+        "Low Risk": 1,
+        "Medium Risk": 2,
+        "High Risk": 3,
+      };
+      return riskLevels[a.riskLevel] - riskLevels[b.riskLevel];
+    } else {
+      return 0; // Default relevance or original order
+    }
+  });
 
   const applyFilters = (property) => {
     return (
@@ -145,7 +170,7 @@ export default function Properties() {
     );
   };
 
-  const filteredProperties = properties
+  const filteredProperties = sortedProperties
     .filter(applyFilters)
     .filter(
       (property) =>
@@ -215,7 +240,7 @@ export default function Properties() {
             </Button>
           </SheetTrigger>
           <SheetContent className="xl:w-[700px] xl:max-w-none sm:w-[400px] sm:max-w-[540px]">
-          <SheetHeader>
+            <SheetHeader>
               <h3 className="text-xl font-semibold">Filter Options</h3>
             </SheetHeader>
             <div className="p-4">
@@ -227,6 +252,7 @@ export default function Properties() {
                     setFilters({ ...filters, location: e.target.value })
                   }
                   className="mb-4"
+                  aria-label="Location filter"
                 />
                 <Input
                   placeholder={
@@ -239,12 +265,22 @@ export default function Properties() {
                     setFilters({ ...filters, investmentAmount: e.target.value })
                   }
                   className="mb-4"
+                  aria-label={
+                    activeTab === "Commercial"
+                      ? "Investment Amount filter"
+                      : "Per Share Cost filter"
+                  }
                 />
                 <Input
                   placeholder={activeTab === "Commercial" ? "IRR (Min)" : "Rental Yield (Min)"}
                   value={filters.irr}
                   onChange={(e) => setFilters({ ...filters, irr: e.target.value })}
                   className="mb-4"
+                  aria-label={
+                    activeTab === "Commercial"
+                      ? "IRR filter"
+                      : "Rental Yield filter"
+                  }
                 />
               </div>
             </div>
@@ -252,6 +288,7 @@ export default function Properties() {
               <Button
                 className="w-full"
                 onClick={() => setIsSheetOpen(false)}
+                aria-label="Apply Filters"
               >
                 Apply Filters
               </Button>
@@ -266,6 +303,7 @@ export default function Properties() {
               size="md"
               variant="faded"
               className="flex items-center gap-2"
+              aria-label="Sort by"
             >
               Sort by
             </Button>
@@ -275,7 +313,7 @@ export default function Properties() {
             onAction={(key: string) => setSortOption(key)}
           >
             {sortOptions.map((option) => (
-              <DropdownItem key={option}>
+              <DropdownItem key={option} aria-label={option}>
                 {option
                   .replace(/([A-Z])/g, " $1")
                   .replace(/^./, (str) => str.toUpperCase())}
