@@ -1,212 +1,337 @@
-'use client'
+"use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import axios from 'axios';
-import { useState, useEffect } from "react";
-import { buttonClasses } from '@mui/base/Button';
-import MyNav from "../components/Navbar";
-import CommercialCard from "../components/cards/commercialCard";
-import HolidayCard from "../components/cards/holidayCard";
-import SwitchTypes from "../components/cards/SwitchType";
-import Footer from "../components/Footer";
+import { useState } from "react";
+import {
+  MapPin,
+  Search,
+  SlidersHorizontal,
+  ListFilter,
+} from "lucide-react";
+import {
+  Input,
+  Button,
+  Dropdown,
+  DropdownItem,
+  DropdownTrigger,
+  DropdownMenu,
+  BreadcrumbItem,
+  Breadcrumbs,
+  Tab,
+  Tabs,
+} from "@nextui-org/react";
+import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetFooter } from "@/components/ui/sheet"; // Import Sheet components from Shadcn UI
+import CommercialPropertyCard from "@/app/components/cards/commercialCard";
+import HolidayPropertyCard from "@/app/components/cards/holidayCard";
 
-const tabs = [
-  { title: 'Commercial', content: 'commercial' },
-  { title: 'Holiday', content: 'holiday' },
-];
-
-export default function Home() {
-
-  const [loading, setLoading] = useState(true);
-  const [commericalProperties, setCommercialProperties] = useState([]);
-  const [holidayHomes, setHolidayHomes] = useState([])
-  const [selectedLocation, setSelectedLocation] = useState("");
+export default function Properties() {
+  const [sortOption, setSortOption] = useState("relevance");
+  const [activeTab, setActiveTab] = useState("Commercial");
   const [searchQuery, setSearchQuery] = useState("");
-  const [activeTab, setActiveTab] = useState(0);
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
+  const [filters, setFilters] = useState({
+    location: "",
+    investmentAmount: "",
+    irr: "",
+  });
 
+    // Data for Commercial and Holiday Properties
+    const commercialProperties = [
+      {
+        imageUrl:
+          "https://empireworld.com/storage/project/images/0Nh1fqj83RHz2qzSPYrDl1WxNp5Shdh9kyJT8gSL.jpeg",
+        investmentAmount: "₹80 Lakhs",
+        propertyName: "Empire Business Tower",
+        location: "Mumbai, Maharashtra",
+        riskLevel: "Low Risk",
+        irrValue: 9,
+        fundedPercentage: 85,
+        status: "Live Now",
+      },
+      {
+        imageUrl:
+          "https://images.unsplash.com/photo-1551128997-c2b66772f982?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        investmentAmount: "₹75 Lakhs",
+        propertyName: "Tech Hub Plaza",
+        location: "Delhi, NCR",
+        riskLevel: "Medium Risk",
+        irrValue: 12,
+        fundedPercentage: 65,
+        status: "Coming Soon",
+      },
+      {
+        imageUrl:
+          "https://plus.unsplash.com/premium_photo-1681338224373-9669c2497c05?q=80&w=2007&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        investmentAmount: "₹90 Lakhs",
+        propertyName: "Corporate Heights",
+        location: "Hyderabad, Telangana",
+        riskLevel: "High Risk",
+        irrValue: 15,
+        fundedPercentage: 40,
+        status: "Live Now",
+      },
+      {
+        imageUrl: "https://i.ytimg.com/vi/_Xs007j4l34/maxresdefault.jpg",
+        investmentAmount: "₹95 Lakhs",
+        propertyName: "Trade Center One",
+        location: "Kolkata, West Bengal",
+        riskLevel: "Medium Risk",
+        irrValue: 11,
+        fundedPercentage: 70,
+        status: "Live Now",
+      },
+    ];
+  
+    const holidayProperties = [
+      {
+        imageUrl:
+          "https://plus.unsplash.com/premium_photo-1682377521697-bc598b52b08a?q=80&w=2115&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        investmentAmount: "₹35 Lakhs",
+        propertyName: "Beachfront Villas",
+        location: "Goa",
+        riskLevel: "Low Risk",
+        irrValue: 8,
+        fundedPercentage: 80,
+        status: "Live Now",
+      },
+      {
+        imageUrl:
+          "https://plus.unsplash.com/premium_photo-1675187975486-e659bff91a9f?q=80&w=2102&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        investmentAmount: "₹50 Lakhs",
+        propertyName: "Hilltop Retreat",
+        location: "Shimla, Himachal Pradesh",
+        riskLevel: "Medium Risk",
+        irrValue: 10,
+        fundedPercentage: 55,
+        status: "Coming Soon",
+      },
+      {
+        imageUrl:
+          "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        investmentAmount: "₹60 Lakhs",
+        propertyName: "Lakeview Villas",
+        location: "Udaipur, Rajasthan",
+        riskLevel: "High Risk",
+        irrValue: 14,
+        fundedPercentage: 45,
+        status: "Live Now",
+      },
+      {
+        imageUrl:
+          "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=60",
+        investmentAmount: "₹55 Lakhs",
+        propertyName: "Desert Sands Resort",
+        location: "Jaisalmer, Rajasthan",
+        riskLevel: "Medium Risk",
+        irrValue: 12,
+        fundedPercentage: 60,
+        status: "Live Now",
+      },
+    ];
+  
+  
+  const properties =
+    activeTab === "Commercial" ? commercialProperties : holidayProperties;
 
-  useEffect(() => {
-    axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/properties/commercial`)
-      .then(res => {
-        console.log(res.data.properties.filter((property: any) => property.funded !== 100));
-        setCommercialProperties(res.data.properties.filter((property: any) => property.funded !== 100));
-
-        setLoading(false);
-      });
-    axios.get(`${process.env.NEXT_PUBLIC_SERVER_DOMAIN}/properties/holiday`)
-      .then(res => {
-        setHolidayHomes(res.data.properties.filter((property: any) => property.funded !== 100))
-        setLoading(false)
-      });
-  }, []);
-
-  const handleLocationChange = (event: any) => {
-    setSelectedLocation(event.target.value);
-  };
-
-  const handleSearchChange = (event: any) => {
-    setSearchQuery(event.target.value);
-  };
-
-  console.log(commericalProperties, holidayHomes)
-
-  const filterCommertialProp = commericalProperties.filter((property: any) =>
-    (selectedLocation ? property.location.includes(selectedLocation) : true) &&
-    (searchQuery ? property.building_name.toLowerCase().includes(searchQuery.toLowerCase()) : true)
-  );
-  const filterHolidayProp = holidayHomes.filter((property: any) =>
-    (selectedLocation ? property.location.includes(selectedLocation) : true) &&
-    (searchQuery ? property.building_name.toLowerCase().includes(searchQuery.toLowerCase()) : true)
-  );
-
-  const renderContent = () => {
-    const renderProperties = (properties, CardComponent) => (
-      <div className="inline-block md:flex flex-wrap items-center justify-center gap-x-10">
-        {properties.map((property, index) => {
-          console.log(property); // Logs the property value
-          return (
-            <div className="">
-              <CardComponent
-
-                key={property.id || index}
-                {...property}
-              />
-            </div>
-          );
-        })}
-      </div>
-    );
-
-    const renderMessage = (message) => (
-      <div className="flex justify-center items-center h-64">
-        <p className="text-blueTheme font-bold text-xl">{message}</p>
-      </div>
-    );
-
-    switch (activeTab) {
-      case 0:
-        return (
-          <section className="my-10">
-            {filterCommertialProp.length ?
-              renderProperties(filterCommertialProp, CommercialCard) :
-              renderMessage(loading ? <LoadingSkeleton /> : "No Commercial Properties Listed Currently")
-            }
-          </section>
-        );
-      case 1:
-        return (
-          <section className="my-10 p-6 text-center">
-            {filterHolidayProp.length ?
-              renderProperties(filterHolidayProp, HolidayCard) :
-              renderMessage(loading ? <LoadingSkeleton /> : "No Holiday Properties Listed Currently")
-            }
-          </section>
-        );
-      case 2:
-        return (
-          <section className="my-10 p-6 text-center">
-            {renderMessage("No Residential Properties Listed Currently")}
-          </section>
-        );
-      default:
-        return null;
+  // Sorting Function
+  const sortedProperties = [...properties].sort((a, b) => {
+    if (sortOption === "investmentAmountLowToHigh") {
+      const parseAmount = (amount) =>
+        parseInt(amount.replace("₹", "").replace(" Lakhs", ""));
+      return parseAmount(a.investmentAmount) - parseAmount(b.investmentAmount);
+    } else if (sortOption === "investmentAmountHighToLow") {
+      const parseAmount = (amount) =>
+        parseInt(amount.replace("₹", "").replace(" Lakhs", ""));
+      return parseAmount(b.investmentAmount) - parseAmount(a.investmentAmount);
+    } else if (sortOption === "irr" || sortOption === "rentalYield") {
+      return b.irrValue - a.irrValue; // Handle IRR and Rental Yield
+    } else if (sortOption === "riskLevel") {
+      const riskLevels = {
+        "Low Risk": 1,
+        "Medium Risk": 2,
+        "High Risk": 3,
+      };
+      return riskLevels[a.riskLevel] - riskLevels[b.riskLevel];
+    } else {
+      return 0; // Default relevance or original order
     }
+  });
+
+  const applyFilters = (property) => {
+    return (
+      (!filters.location ||
+        property.location
+          .toLowerCase()
+          .includes(filters.location.toLowerCase())) &&
+      (!filters.investmentAmount ||
+        parseInt(property.investmentAmount.replace("₹", "").replace(" Lakhs", "")) >=
+        parseInt(filters.investmentAmount)) &&
+      (!filters.irr || property.irrValue >= parseInt(filters.irr))
+    );
   };
 
-  const LoadingSkeleton = () => (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
-      {[...Array(6)].map((_, i) => (
-        <div key={i} className="w-full h-64 bg-gray-200 rounded-lg animate-pulse"></div>
-      ))}
-    </div>
-  );
+  const filteredProperties = sortedProperties
+    .filter(applyFilters)
+    .filter(
+      (property) =>
+        property.propertyName
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase()) ||
+        property.location.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
+  const sortOptions =
+    activeTab === "Commercial"
+      ? ["relevance", "investmentAmountLowToHigh", "investmentAmountHighToLow", "irr", "riskLevel"]
+      : ["relevance", "perShareCostLowToHigh", "perShareCostHighToLow", "rentalYield", "riskLevel"];
 
   return (
-    <div>
-      <div className="py-10">
-        <div className="flex justify-between p-3 ">
-
-
-          <div className="flex gap-x-4">
-
-            {/* <select
-              id="location"
-              value={selectedLocation}
-              onChange={handleLocationChange}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blueTheme-500 focus:border-blueTheme block w-full p-1"
-            >
-              <option value=""><em>All Locations</em></option>
-              <option value={`Bangalore`}>Bengaluru</option>
-              <option value="Pune">Pune</option>
-            </select> */}
-            {/* <select
-              id="location"
-              value={selectedLocation}
-              onChange={handleLocationChange}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blueTheme-500 focus:border-blueTheme block w-full p-1"
-            >
-              <option value=""><em>Sort By</em></option>
-              <option value="Bangalore">IRR</option>
-              <option value="Pune">Risk</option>
-              <option value="Pune">Funded</option>
-              Add more locations as needed
-            </select> */}
-          </div>
-        </div>
-        <div className="mx-auto p-5">
-
-          <div defaultValue={1}>
-            <div className="mx-auto">
-              <div className="w-full">
-                <div className="relative right-0">
-                  <ul className="relative flex flex-wrap p-1 gap-x-2 list-none rounded-lg bg-blue-gray-50/60" data-tabs="tabs" role="list">
-                    {tabs.map((tab, index) => (
-                      <li key={index} className="flex-auto text-center">
-                        <a
-                          className={`
-                       flex items-center justify-center w-full px-4 py-2 mb-0 
-                       transition-all duration-300 ease-in-out border-0 rounded-lg cursor-pointer 
-                       ${activeTab === index
-                              ? 'bg-blueTheme text-white shadow-md'
-                              : 'text-slate-700 bg-transparent hover:bg-blue-100'}
-                     `}
-                          onClick={() => setActiveTab(index)}
-                          role="tab"
-                          aria-selected={activeTab === index}
-                        >
-                          <span className="ml-1 font-medium">{tab.title}</span>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              <br />
-              <div className="flex gap-x-4">
-                <form className="flex items-center w-full lg:w-1/3">
-                  <label className="sr-only">Search</label>
-                  <div className="relative w-full">
-                    <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                      <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <input type="text" id="simple-search" className="bg-gray-50 border border-gray-600 text-gray-900 text-sm rounded-xl focus:ring-blueTheme-500 focus:border-blueTheme block w-full ps-10 p-2.5" placeholder="Search Property..." required
-                      value={searchQuery}
-                      onChange={handleSearchChange}
-                    />
-                  </div>
-                </form>
-              </div>
-              {renderContent()}
-            </div>
-          </div>
-        </div>
-
+    <div className="container mx-auto my-12 px-4">
+      {/* Breadcrumbs and title */}
+      <div className="flex flex-col">
+        <Breadcrumbs>
+          <BreadcrumbItem href="/">Home</BreadcrumbItem>
+          <BreadcrumbItem href="/properties" className="font-semibold">
+            Properties
+          </BreadcrumbItem>
+        </Breadcrumbs>
+        <h1 className="text-3xl font-bold text-gray-800 mt-4">
+          Discover Your Next Property Investment
+        </h1>
       </div>
 
-    </div >
+      {/* Tabs for Commercial and Holiday properties */}
+      <div className="flex flex-col mt-4">
+        <Tabs
+          key="tabs"
+          color="primary"
+          variant="solid"
+          selectedKey={activeTab}
+          onSelectionChange={(key) => setActiveTab(key)}
+          aria-label="Property Categories"
+        >
+          <Tab key="Commercial" title="Commercial" />
+          <Tab key="Holiday" title="Holiday" />
+        </Tabs>
+      </div>
+
+      {/* Search and Filter Buttons */}
+      <div className="flex flex-wrap gap-2 mt-4">
+        <Input
+          isClearable
+          variant="bordered"
+          placeholder="Search for properties"
+          startContent={<Search size={14} className="mr-2" />}
+          className="flex-1 min-w-[200px]"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+
+        <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+          <SheetTrigger asChild>
+            <Button
+              startContent={<SlidersHorizontal size={16} />}
+              size="md"
+              variant="faded"
+              className="flex items-center gap-2"
+              onClick={() => setIsSheetOpen(true)}
+            >
+              Filter
+            </Button>
+          </SheetTrigger>
+          <SheetContent className="xl:w-[700px] xl:max-w-none sm:w-[400px] sm:max-w-[540px]">
+            <SheetHeader>
+              <h3 className="text-xl font-semibold">Filter Options</h3>
+            </SheetHeader>
+            <div className="p-4">
+              <div className="mt-4">
+                <Input
+                  placeholder="Location"
+                  value={filters.location}
+                  onChange={(e) =>
+                    setFilters({ ...filters, location: e.target.value })
+                  }
+                  className="mb-4"
+                  aria-label="Location filter"
+                />
+                <Input
+                  placeholder={
+                    activeTab === "Commercial"
+                      ? "Investment Amount (Min)"
+                      : "Per Share Cost (Min)"
+                  }
+                  value={filters.investmentAmount}
+                  onChange={(e) =>
+                    setFilters({ ...filters, investmentAmount: e.target.value })
+                  }
+                  className="mb-4"
+                  aria-label={
+                    activeTab === "Commercial"
+                      ? "Investment Amount filter"
+                      : "Per Share Cost filter"
+                  }
+                />
+                <Input
+                  placeholder={activeTab === "Commercial" ? "IRR (Min)" : "Rental Yield (Min)"}
+                  value={filters.irr}
+                  onChange={(e) => setFilters({ ...filters, irr: e.target.value })}
+                  className="mb-4"
+                  aria-label={
+                    activeTab === "Commercial"
+                      ? "IRR filter"
+                      : "Rental Yield filter"
+                  }
+                />
+              </div>
+            </div>
+            <SheetFooter>
+              <Button
+                className="w-full"
+                onClick={() => setIsSheetOpen(false)}
+                aria-label="Apply Filters"
+              >
+                Apply Filters
+              </Button>
+            </SheetFooter>
+          </SheetContent>
+        </Sheet>
+
+        <Dropdown placement="bottom-end">
+          <DropdownTrigger>
+            <Button
+              startContent={<ListFilter size={16} />}
+              size="md"
+              variant="faded"
+              className="flex items-center gap-2"
+              aria-label="Sort by"
+            >
+              Sort by
+            </Button>
+          </DropdownTrigger>
+          <DropdownMenu
+            aria-label="Sort By"
+            onAction={(key: string) => setSortOption(key)}
+          >
+            {sortOptions.map((option) => (
+              <DropdownItem key={option} aria-label={option}>
+                {option
+                  .replace(/([A-Z])/g, " $1")
+                  .replace(/^./, (str) => str.toUpperCase())}
+              </DropdownItem>
+            ))}
+          </DropdownMenu>
+        </Dropdown>
+      </div>
+
+      {/* Property Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full mt-6">
+        {filteredProperties.map((property, index) =>
+          activeTab === "Commercial" ? (
+            <CommercialPropertyCard key={index} {...property} />
+          ) : (
+            <HolidayPropertyCard key={index} {...property} />
+          )
+        )}
+      </div>
+    </div>
   );
 }
